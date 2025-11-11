@@ -1,0 +1,93 @@
+/* 모든 페이지에서 중복되는 스타일 */
+:root {
+    --color-txt-title : #061225;
+    --color-txt-basic : #444A55;
+    --color-main : #0064FF;
+    --color-dark : #000;
+    --color-gray : #EDEDED;
+    --color-white : #fff;
+    --color-white8 : rgba(255, 255, 255, 0.8);
+    --color-white7 : rgba(255, 255, 255, 0.7);
+    --color-white6: rgba(255, 255, 255, 0.6);
+    --color-white3 : rgba(255, 255, 255, 0.3);
+    --color-white1 : rgba(255, 255, 255, 0.1);
+    --header-h : 90px;
+    --wrapper-m : 30px;
+    --letter-spacing: -0.3rem;
+}
+@media screen and (max-width:1024px){
+    :root {
+        --header-h : 70px;
+    }
+}
+@media screen and (max-width:768px){
+    :root {
+        --header-h : 60px;
+        --wrapper-m : 16px;
+    }
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-txt-basic);
+    word-break: keep-all; /* 단어별로 강제 줄 바꿈 */
+    word-wrap: break-word; /* 단어가 너무 길 때  강제 줄 바꿈 */
+}
+
+.wrapper {
+    width: 1260px;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+#wrap {
+    position: relative; /* header를 기준으로 정렬 */
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0); /* 도형: 네모( ); */
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+/*
+    좌우여백 50px : 1260 + 30 + 30 = 1320px
+    좌우여백 5% : 1260 + (1260*0.05) + (1260*0.05) = 1386
+    좌우여백 3% : 1260 + (1260*0.03) + (1260*0.03) = 1335.6  
+*/
+@media screen and (max-width:1320px){
+    .wrapper {
+        width: auto;
+        margin: 0 var(--wrapper-m);
+    }
+} /*@media*/
+
+
+.mo_only { /* 모바일에서만 보임 */
+    display: none;
+}
+
+@media screen and (max-width:768px){
+    .mo_only { /* 모바일에서만 보임 */
+        display: block;
+    }
+    .pc_only {
+        display: none;
+    }
+    body {
+        font-size: 16px;
+    }
+}
+
+::selection { /* 글자 긁을 때 나오는 컬러 */
+    background-color: var(--color-main);
+    color: var(--color-white);
+}
