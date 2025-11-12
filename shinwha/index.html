@@ -3,17 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/aos.js"></script>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
     <title>신화인터텍</title>
 </head>
 <body>
-    <h1>신화인터텍은 기술경쟁력과 고객 중심으로 <br>
-    소통하고 화합하여 성공을 향해 나아가겠습니다. <br>
-    제목스타일 Pretendard Bold 50px 130%</h1>
-    <p>지난 반세기 동안 신화인터텍은 Mobile, TV, Signage등 디스플레이 소재 산업의 발전에 이바지 해 왔습니다. <br>
-    이제 기존 사업을 넘어 Micro LED, AR, XR 등 차세대 디스플레이 소재 및 묘듈 그리고 가전, 건축 및 2차전지용 <br>
-    소재에 이르기까지 새로운 사업에 도전하고자 합니다. 신화인터텍의 기술경쟁력을 바탕으로 고객중심, ESG경영을 위해 <br>
-    전 임직원이 소통하고 화합하는 모습으로 성공이라는 결실을 향하여 한걸음씩 나아가겠습니다. <br>
-    본문스타일 Pretendard Regular 17px 150%</p>
+    <div id="wrap">
+        <header class="menu_pc">
+            <div class="header_wrap">
+                <h1 class="logo"><a href="index.html"><span class="blind">SHINWHA</span></a></h1>
+                <nav class="gnb">
+                    <button class="gnb_open"><span>메뉴 열기</span></button>
+                    <div class="gnb_wrap">
+                        <ul class="depth1">
+                            <li>
+                                <a href="#n"><span>기업정보</span></a>
+                                <ul class="depth2">
+                                    <li><a href="#n"><span>사업분야</span></a></li>
+                                    <li><a href="#n"><span>경영이념</span></a></li>
+                                    <li><a href="#n"><span>연혁</span></a></li>
+                                    <li><a href="#n"><span>CEO 인사말</span></a></li>
+                                    <li><a href="#n"><span>글로벌 네트워크</span></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#n"><span>제품소개</span></a>
+                                <ul class="depth2">
+                                    <li><a href="#n"><span>스마트 광학용 필름</span></a></li>
+                                    <li><a href="#n"><span>고기능성 테이프</span></a></li>
+                                    <li><a href="#n"><span>신화비전</span></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#n"><span>R&D</span></a>
+                                <ul class="depth2">
+                                    <li><a href="#n"><span>R&D Center</span></a></li>
+                                    <li><a href="#n"><span>R&D Milestone</span></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#n"><span>투자정보</span></a>
+                                <ul class="depth2">
+                                    <li><a href="#n"><span>재무정보</span></a></li>
+                                    <li><a href="#n"><span>주가정보</span></a></li>
+                                    <li><a href="#n"><span>공시정보</span></a></li>
+                                    <li><a href="#n"><span>IR 자료</span></a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#n"><span>인재채용</span></a>
+                                <ul class="depth2">
+                                    <li><a href="#n"><span>인재상</span></a></li>
+                                    <li><a href="#n"><span>인사제도</span></a></li>
+                                    <li><a href="#n"><span>채용안내</span></a></li>
+                                    <li><a href="#n"><span>입사지원</span></a></li>
+                                    <li><a href="#n"><span>FAQ</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--gnb_wrap-->
+                    <button class="gnb_close"><span>메뉴 닫기</span></button>
+                </nav>
+                <div class="util">
+                    <div class="search">
+                        <a href="#n" class="sch_open"><span class="blind">검색창 열기</span></a>
+                    </div>
+                    <div class="lang">
+                        <button class="lang_open"><span class="blind">언어선택 열기</span></button>
+                        <div class="lang_wrap">
+                            <ul>
+                                <li><a href="#n"><span>KO</span></a></li>
+                                <li><a href="#n"><span>EN</span></a></li>
+                            </ul>
+                        </div>
+                        <button class="lang_close"><span class="blind">언어선택 닫기</span></button>
+                    </div>
+                </div><!--util-->
+            </div><!--header_wrap-->
+        </header>
+        <div class="container">
+            <div class="bg_objects">
+                <div class="obj3"></div>
+                <div class="obj4"></div>
+            </div>
+            <section class="visual">
+                <h2 class="blind">팝업</h2>
+                <div class="swiper">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide">
+                            <div class="photo">
+                                <img src="images/main/visual01.jpg" alt="다층 구조의 디스플레이 패널 이미지" class="pc_only">
+                                <img src="images/main/visual_mo01.jpg" alt="다층 구조의 디스플레이 패널 이미지" class="mo_only">
+                            </div>
+                            <div class="txt">
+                                <div class="wrapper">
+                                    <h3>The Power of Transparency, <br> Elevating Every Layer of Technology</h3>
+                                    <p>투명한 필름 속 기술력으로, 제품의 품격과 완성도를 높입니다</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="photo">
+                                <img src="images/main/visual02.jpg" alt="디지털 태블릿을 조작하는 손과 빛의 입자 효과" class="pc_only">
+                                <img src="images/main/visual_mo02.jpg" alt="디지털 태블릿을 조작하는 손과 빛의 입자 효과" class="mo_only">
+                            </div>
+                            <div class="txt">
+                                <div class="wrapper">
+                                    <h3>Designing with Light, <br> Shaping the Future of Innovation</h3>
+                                    <p>빛으로 새로운 혁신을 만들어가며, 세상을 더 선명하게 비춥니다</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="swiper-slide">
+                            <div class="photo">
+                                <img src="images/main/visual03.jpg" alt="손에 든 스마트폰 화면에 표시된 자연 풍경" class="pc_only">
+                                <img src="images/main/visual_mo03.jpg" alt="손에 든 스마트폰 화면에 표시된 자연 풍경" class="mo_only">
+                            </div>
+                            <div class="txt">
+                                <div class="wrapper">
+                                    <h3>At the Core of Light, <br> We Redefine the Display Experience</h3>
+                                    <p>빛의 중심에서 디스플레이의 새로운 가치를 만들어갑니다</p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!--swiper-->
+                <div class="ctrl_wrap">
+                    <div class="paging">
+                        <div class="current"><span></span></div>
+                        <div class="bar"><span></span></div>
+                        <div class="total"><span></span></div>
+                    </div>
+                    <div class="ctrl_btn">
+                        <button class="btn_prev"><span class="blind">이전버튼</span></button>
+                        <button class="btn_next"><span class="blind">다음버튼</span></button>
+                    </div>
+                    <div class="play_stop">
+                        <button class="btn_play"><span class="blind">재생버튼</span></button>
+                        <button class="btn_stop"><span class="blind">정지버튼</span></button>
+                    </div>
+                </div><!--ctrl_wrap-->
+            </section><!--visual-->
+            <section class="rnd">
+                <div class="wrapper">
+                    <div class="tit">
+                        <strong>R&D</strong>
+                        <h2>끊임없는 연구와 도전으로, <br>
+                            미래를 여는 기술을 만듭니다</h2>
+                    </div>
+                    <div class="rnd_list" data-aos="fade-up">
+                        <div class="rnd_cont tit_left" data-aos="fade-up">
+                            <div class="rnd_tit">
+                                <h3>정밀한 빛의 기술, <br>
+                                    <span>Optical Technology</span></h3>
+                                <p>정밀한 코팅과 패턴 설계 기술로 빛의 흐름을 제어하고 효율을 극대화합니다. 끊임없는 연구와 실험을 통해 더 밝고 선명한 디스플레이 환경을 구현합니다.</p>
+                            </div>
+                            <div class="photo"><img src="images/main/rnd01.jpg" alt=""></div>
+                        </div>
+                        <div class="rnd_cont tit_right" data-aos="fade-up" data-aos-delay="300">
+                            <div class="rnd_tit">
+                                <h3>정밀한 접착의 기술, <br>
+                                    <span>Adhesive Technology</span></h3>
+                                <p>정밀한 점·접착 코팅 기술로 부품 간 결합력을 높이고 기포 없는 Air Free Pattern 설계를 구현합니다. 끊임없는 기술 개발을 통해 방열·방수·차폐 기능을 결합한 고신뢰성 접착 솔루션을 완성합니다.</p>
+                            </div>
+                            <div class="photo"><img src="images/main/rnd02.jpg" alt=""></div>
+                        </div>
+                        <div class="rnd_cont tit_left" data-aos="fade-up" data-aos-delay="500">
+                            <div class="rnd_tit">
+                                <h3>미래 소재의 가능성, <br>
+                                    <span>Elemental Technology</span></h3>
+                                <p>고분자 소재와 UV 경화 Resin 기술을 기반으로 제품의 내구성과 기능을 한층 향상시킵니다. 정밀한 배합과 점·접착 응용 기술로 새로운 물성을 창조하며 핵심 소재 경쟁력을 확보합니다.</p>
+                            </div>
+                            <div class="photo"><img src="images/main/rnd03.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </section><!--rnd-->
+            <section class="biz">
+                <div class="tit">
+                    <div class="wrapper">
+                        <strong>BUSINESS</strong>
+                        <h2>혁신의 소재, 차이를 만드는 <br>
+                            신화인터텍의 제품을 소개합니다</h2>
+                    </div>
+                </div>
+                <div class="biz_intfo">
+                    <ul class="biz_info_list">
+                        <li class="biz_info item01">
+                            <a href="#n">
+                                <div class="photo"><img src="images/main/biz01.png" alt=""></div>
+                                <div class="txt">
+                                    <strong>빛의 방향과 강도를 설계하는</strong>
+                                    <h3>스마트 광학용 필름</h3>
+                                    <div class="more"><span>자세히보기</span></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="biz_info item02">
+                            <a href="#n">
+                                <div class="photo"><img src="images/main/biz02.png" alt=""></div>
+                                <div class="txt">
+                                    <strong>기능과 보호를 담은</strong>
+                                    <h3>고기능성 테이프</h3>
+                                    <div class="more"><span>자세히보기</span></div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="product">
+                <div class="tit">
+                    <strong>PRODUCT</strong>
+                    <h2>빛을 다루는 기술, <br>
+                        세상을 더 선명하게 만듭니다</h2>
+                </div>
+            </section>
+            <section class="news"></section>
+            <section class="recruit"></section>
+        </div>
+        <footer>
+        </footer>
+    </div>
 </body>
 </html>
