@@ -11,6 +11,7 @@
 
 section {
     background-color: #000;
+    margin-bottom: -1px;
 }
 section .tit {
     text-align: center;
@@ -19,12 +20,18 @@ section .tit {
 }
 section .tit strong {
     display: block;
+    font-size: clamp(1.6rem, 1.5vw, 2rem);
     color: var(--color-main);
-    margin: 0 0 17px 0;
+    margin-bottom: 17px ;
 }
 section .tit h2 {
-    font-size: 50px;
+    font-size: clamp(2.5rem, 3.8vw, 5rem);
     color: var(--color-white);
+}
+@media screen and (max-width:768px){
+    section .tit strong {
+        margin-bottom: 8px;
+    }
 }
 
 .visual {
@@ -69,7 +76,7 @@ section .tit h2 {
     font-size: 5rem;
     font-weight: 700;
     line-height: 1.3;
-    margin: 0 0 21px 0;
+    margin-bottom: 21px;
     transition: 1s;
     transition-delay: 0.3s;
     transform: translateY(30px);
@@ -161,7 +168,7 @@ section .tit h2 {
 @media screen and (min-width:769px) and (max-width:1024px){
     .visual .swiper-slide .txt h3 {
         font-size: 4.7rem;
-        margin: 0 0 21px 0;
+        margin-bottom: 21px;
     }
     .visual .swiper-slide .txt p {
         font-size: 1.8rem;
@@ -173,7 +180,7 @@ section .tit h2 {
     }
     .visual .swiper-slide .txt h3 {
         font-size: 3.4rem;
-        margin: 0 0 17px 0;
+        margin-bottom: 17px;
     }
     .visual .swiper-slide .txt p {
         font-size: 1.6rem;
@@ -185,12 +192,12 @@ section .tit h2 {
     }
 }
 
-.bg_objects {
-    position: absolute; /* body 기준 정렬 */
+/* .bg_objects {
+    position: absolute;  body 기준 정렬 
     left: 0;
     top: 0;
     width: 100%;
-    height: 9000px; /* 페이지 높이보다 충분히 크게 */
+    height: 9000px;  페이지 높이보다 충분히 크게 
 }
 .bg_objects::before {
     content: "";
@@ -198,11 +205,11 @@ section .tit h2 {
     left: -20%;
     top: 14%;
     z-index: 1;
-    width: 600px;
+    width: clamp(180px, 60vw, 800px);
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(35rem);
+    filter: blur(48rem);
 }
 .bg_objects::after {
     content: "";
@@ -210,189 +217,443 @@ section .tit h2 {
     right: -7%;
     top: 28%;
     z-index: 1;
-    width: 500px;
+    width: clamp(180px, 60vw, 800px);
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(40rem);
+    filter: blur(48rem);
 }
 .bg_objects .obj3 {
     position: absolute;
     left: -20%;
     top: 35%;
     z-index: 1;
-    width: 600px;
+    width: clamp(200px, 60vw, 800px);
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(35rem);
+    filter: blur(48rem);
 }
 .bg_objects .obj4 {
     position: absolute;
     right: -7%;
     top: 45%;
     z-index: 1;
-    width: 500px;
+    width: clamp(200px, 60vw, 800px);
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(40rem);
+    filter: blur(48rem);
+} ??????????????????????????????????????????????????????????? */
+
+@media screen and (max-width:1320px){
+    .bg_objects::before,
+    .bg_objects::after,
+    .bg_objects .obj3,
+    .bg_objects .obj4 {
+        filter: blur(30rem);
+    }
+}
+@media screen and (max-width:1024px){
+    .bg_objects::before,
+    .bg_objects::after,
+    .bg_objects .obj3,
+    .bg_objects .obj4 {
+        filter: blur(20rem);
+    }
+}
+@media screen and (max-width:768px){
+    .bg_objects::before,
+    .bg_objects::after,
+    .bg_objects .obj3,
+    .bg_objects .obj4 {
+        filter: blur(15rem);
+    }
+}
+@media screen and (max-width:400px){
+    .bg_objects::before,
+    .bg_objects::after,
+    .bg_objects .obj3,
+    .bg_objects .obj4 {
+        filter: blur(10rem);
+    }
 }
 
-.rnd {
-    padding: 180px 0;
+.rnd .rnd_pc {
+    padding: 180px 0 150px 0;
     position: relative; /* before, after 정렬 기준 */
-    overflow: hidden;
 }
-.rnd .wrapper {
+.rnd .rnd_pc .wrapper {
     position: relative;
     z-index: 10;
 }
-.rnd .rnd_tit {
-    max-width: 40.55%;
+.rnd .rnd_pc .accordion_wrap .accordion {
+    margin-top: 140px;
+    flex-shrink: 0;
 }
-.rnd .rnd_tit h3 {
+.rnd .rnd_pc .accordion_wrap .accordion .conts {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 83%;
+    height: 500px;
+    margin: 0 8.49%;
+    padding: 60px;
+    border-radius: 20px;
+    color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+}
+.rnd .rnd_pc .accordion_wrap .accordion .conts.light {
+    background-image: url(../images/main/rnd_tech01.jpg);
+}
+.rnd .rnd_pc .accordion_wrap .accordion .conts.adherence {
+    background-image: url(../images/main/rnd_tech02.jpg);
+}
+.rnd .rnd_pc .accordion_wrap .accordion .conts.future {
+    background-image: url(../images/main/rnd_tech03.jpg);
+}
+.rnd .rnd_pc .accordion_wrap .accordion .conts::before {
+        content: "";
+        position: absolute; /* conts 정렬 기준 */
+        z-index: 1;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 50%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+}
+.rnd .rnd_pc .accordion_wrap .accordion .conts .txt {
+    position: relative;
+    z-index: 10;
+}
+.rnd .rnd_pc .accordion_wrap .accordion .conts .txt h3 {
     font-size: 3.2rem;
     font-weight: 700;
     line-height: 1.3;
-    color: var(--color-white);
-    margin: 0 0 10px 0;
+    margin-bottom: 13px;
 }
-.rnd .rnd_tit h3 span {
-    color: var(--color-main);
+.rnd .rnd_pc .accordion_wrap .accordion .conts .txt p {
+    color: var(--color-white8);
 }
-.rnd .rnd_list {
-    margin: 130px 0 0 0;
+.rnd .rnd_mo {
+    display: none;
 }
-.rnd .rnd_cont {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.rnd .rnd_cont {
-    margin: 0 0 153px 0;
-}
-.rnd .rnd_cont.tit_right {
-    flex-direction: row-reverse;
-}
-.rnd .rnd_cont .photo {
-    overflow: hidden;
-    width: 577px;
-    border-radius: 20px;
-    line-height: 0;
-}
-.rnd .rnd_cont .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@media screen and (max-width:1024px){
+   .rnd .rnd_pc .accordion_wrap .accordion{
+        margin-top: 110px;
+    }
+   .rnd .rnd_pc .accordion_wrap .accordion .conts {
+        height: 400px;
+    }
+   .rnd .rnd_pc .accordion_wrap .accordion .conts .txt h3 {
+        font-size: 2.8rem;
+    }
+}/*media*/
+@media screen and (max-width:768px){
+    .rnd .rnd_pc .accordion_wrap .accordion .conts {
+        height: 300px;
+        padding: 40px;
+    }
+    .rnd .rnd_pc .accordion_wrap .accordion .conts .txt {
+        text-align: center;
+    }
+   .rnd .rnd_pc .accordion_wrap .accordion .conts .txt h3 {
+        font-size: 2.4rem;
+    }
+}/*media*/
+@media screen and (max-width:500px){
+    .rnd .rnd_pc {
+        display: none;
+    }
+    .rnd .rnd_mo {
+        display: block;
+    }
+    .rnd .rnd_mo {
+        padding: 120px 0 74px 0;
+        position: relative;
+        z-index: 10;
+    }
+    .rnd .rnd_mo .list {
+        margin-top: 50px;
+        overflow-x: auto;
+    }
+    .rnd .rnd_mo .list ul {
+        display: flex;
+        gap: 0 20px;
+        width: 895px;
+        margin: 0 var(--wrapper-m);
+    }
+    /*
+        li의 넓이(285px) * 3 = 855px
+        li 사이의 여백(20px) * 2= 40px
+        855 + 40 = 895px
+    */
+    .rnd .rnd_mo .list ul li {
+        width: 285px;
+    }
+    .rnd .rnd_mo .list ul li .photo {
+        overflow: hidden;
+        border-radius: 10px;
+        line-height: 0;
+    }
+    .rnd .rnd_mo .list ul li .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .rnd .rnd_mo .list ul li .txt {
+        margin-top: 20px;
+    }
+    .rnd .rnd_mo .list ul li .txt h3 {
+        font-size: 2.4rem;
+        font-weight: 800;
+        line-height: 1.3;
+        color: var(--color-white);
+        margin-bottom: 11px;
+    }
+    .rnd .rnd_mo .list ul li .txt p {
+        font-size: 1.4rem;
+        color: var(--color-white8);
+        margin-bottom: 10px;
+    }
 }
 
+
 .biz {
-    padding: 180px 0 0 0;
+    padding-top: calc(330px + 150px);
 }
 .biz .tit,
-.biz .biz_intfo .biz_info_list {
+.biz .biz_info .biz_list {
     position: relative;
     z-index: 10;
 }
-.biz .biz_intfo .biz_info_list {
+.biz .biz_info .biz_list {
     display: flex; /* li 좌우 배치 */
-    flex-wrap: wrap;
     width: 100%;
     margin-top: 100px;
     position: relative; /* before 정렬 기준 */
+    overflow: hidden;
+    border-top: 1px solid var(--color-white3);
+    border-bottom: 1px solid var(--color-white3);
 }
-.biz .biz_intfo .biz_info_list::before {
+.biz .biz_info .biz_list li {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 50%;
+    transition: flex-basis 0.5s;
+    position: relative; /* before 정렬 기준 */
+}
+.biz .biz_info .biz_list li + li::before {
     content: "";
-    position: absolute; /* biz_info_list 기준 정렬 */
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: var(--color-white3);
+}
+/************** li.item:hover 스타일 *************/
+.biz .biz_info .biz_list .item01:hover {
+    flex-basis: 65%;
+}
+.biz .biz_info .biz_list .item02 {
+    flex-basis: 35%;
+}
+.biz .biz_info .biz_list .item02:hover {
+    flex-basis: 65%;
+}
+.biz .biz_info .biz_list .item01 {
+    flex-basis: 35%;
+}
+/************** li.item2:hover 스타일 *************/
+.biz .biz_info .biz_list li a {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: clamp(73px, 9vw, 122px) 0 clamp(73px, 9vw, 122px) 0;
+    height: 100%;
+}
+.biz .biz_info .biz_list li:hover a {
+    padding: 0 0 118px 0;
+    justify-content: flex-end;
+}
+/* hover 배경을 위한 레이어 */
+.biz .biz_info .biz_list li a::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
     left: 0;
     top: 0;
     width: 100%;
-    height: 1px;
-    background-color: var(--color-white3);
+    height: 100%;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    opacity: 0; /* 기본 숨김 */
+    transition: opacity 1s;
 }
-.biz .biz_intfo .biz_info_list::after {
+.biz .biz_info .biz_list li.item01:hover a::before {
+    background-image: url(../images/main/biz01_hover.jpg);
+}
+.biz .biz_info .biz_list li.item02:hover a::before {
+    background-image: url(../images/main/biz02_hover.jpg);
+}
+.biz .biz_info .biz_list li:hover a::before {
+    opacity: 1; /* 배경 페이드인 */
+}
+.biz .biz_info .biz_list li a::after {
     content: "";
-    position: absolute; /* biz_info_list 기준 정렬 */
+    position: absolute;
+    z-index: -1;
     left: 0;
     bottom: 0;
     width: 100%;
-    height: 1px;
-    background-color: var(--color-white3);
-} 
-.biz .biz_intfo .biz_info_list .biz_info {
-    width: 50%;
-    position: relative; /* after 정렬 기준 */
+    height: 50%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
 }
-.biz .biz_intfo .biz_info_list .biz_info::after {
-    content: "";
-    position: absolute; /* biz_info 기준 정렬 */
-    right: 0;
-    top: 1px;
-    width: 1px;
-    height: calc(100% - 2px);
-    background-color: var(--color-white3);
-}
-.biz .biz_intfo .biz_info_list .biz_info a {
-    height: 794px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-}
-.biz .biz_intfo .biz_info_list .biz_info a .photo {
+.biz .biz_info .biz_list li a .photo {
     overflow: hidden;
-    height: 353px;
-    margin: 122px 0 79px 0;
+    height: clamp(220px, 21vw, 353px);
+    margin-bottom: clamp(30px, 6vw, 79px);
+    transition: opacity 1s;
+}
+.biz .biz_info .biz_list li:hover a .photo {
+    height: 0;
+    margin-bottom: 0;
+    opacity: 0;
+}
+.biz .biz_info .biz_list li a .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.biz .biz_info .biz_list li a .txt {
+    position: relative;
+    z-index: 5;
     text-align: center;
+    white-space: nowrap;
 }
-.biz .biz_intfo .biz_info_list .biz_info.item01 a .photo {
-    width: 613px;
-}
-.biz .biz_intfo .biz_info_list .biz_info.item02 a .photo {
-    width: 370px;
-}
-.biz .biz_intfo .biz_info_list .biz_info a .txt {
-    text-align: center;
-    margin-bottom: 121px;
-}
-.biz .biz_intfo .biz_info_list .biz_info a .txt strong {
+.biz .biz_info .biz_list li a .txt strong {
     font-size: 1.7rem;
     font-weight: 700;
     line-height: 1.3;
     color: var(--color-white8);
 }
-.biz .biz_intfo .biz_info_list .biz_info a .txt h3 {
+.biz .biz_info .biz_list li a .txt h3 {
     font-size: 3.2rem;
     font-weight: 700;
     line-height: 1.3;
     color: var(--color-white);
-    margin: 11px 0 21px 0;
+    margin-top: 11px;
 }
-.biz .biz_intfo .biz_info_list .biz_info a .txt .more {
+.biz .biz_info .biz_list li a .txt p {
+    color: var(--color-white8);
+    display: none;
+}
+.biz .biz_info .biz_list li:hover a .txt p {
+    display: block;
+    margin-top: 10px;
+}
+.biz .biz_info .biz_list li a .txt .more {
     display: inline-block;
     font-size: 1.5rem;
     color: var(--color-white8);
     position: relative; /* after 정렬 기준 */
+    margin: 21px 12px 0 0;
 }
-.biz .biz_intfo .biz_info_list .biz_info a .txt .more::after {
+.biz .biz_info .biz_list li a .txt .more::after {
     content: "";
-    position: absolute; /* more 기준 정렬 */
-    right: -12.3px;
-    top: 7.17px;
-    width: 6px;
-    height: 10px;
+    position: absolute;  /* more 기준 정렬 */ 
+    right: -0.82em;
+    top: 0.4447em;
+    width: 0.4em;
+    height: 0.6667em;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 5.54px;
+    background-size: 0.3693em;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 10' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.709625 9.65375L0 8.94413L4.11725 4.82688L0 0.709625L0.709625 0L5.5365 4.82688L0.709625 9.65375Z' /%3E%3C/svg%3E%0A");
     opacity: 0.8;
 }
-/* a:hover 스타일 */
-.biz .biz_intfo .biz_info_list .biz_info a:hover {
-
+@media screen and (max-width:1024px){
+    .biz .biz_info .biz_list li:hover a .photo {
+        height: 0;
+        margin-bottom: 0;
+        opacity: 0;
+    }
+    .biz .biz_info .biz_list li a .txt strong {
+        font-size: 1.5rem;
+    }
+    .biz .biz_info .biz_list li a .txt h3 {
+        font-size: 2.8rem;
+        margin-top: 6px;
+    }
+    .biz .biz_info .biz_list li a .txt .more {
+        font-size: 1.3rem;
+        margin-top: 11px;
+    }
+}/*media*/
+@media screen and (max-width:768px){
+    .biz {
+        padding-top: 120px;
+    }
+    .biz .biz_info .biz_list {
+        display: block;
+    }
+    .biz .biz_info .biz_list li + li::before {
+        width: 100%;
+        height: 1px;
+    }
+    .biz .biz_info .biz_list li a .photo {
+        height: clamp(170px, 29vw, 220px);
+    }
+    .biz .biz_info .biz_list li a .txt strong {
+        font-size: 1.4rem;
+    }
+    .biz .biz_info .biz_list li a .txt h3 {
+        font-size: 2.4rem;
+    }
+    .biz .biz_info .biz_list li a .txt .more {
+        font-size: 1.2rem;
+    }
 }
 
 .product {
     padding: 320px 0 117px 0;
+    background: url(../images/main/product_bg.jpg) no-repeat center center / cover;
 }
+.product .tab_list {
+    margin: 40px 0 70px 0;
+}
+.product .tab_list ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 40px;
+}
+.product .tab_list ul li button {
+    display: block;
+    padding: 6.5px 36.5px;
+    border: 1px solid var(--color-white6);
+    border-radius: 25px;
+    color: var(--color-white8);
+}
+.product .tab_list ul li.active button {
+    border-color: var(--color-main);
+    background-color: var(--color-main);
+    color: var(--color-white);
+}
+.product .tab_content .tab_item .list .swiper-slide {
+    width: 400px;
+}
+.product .tab_content .tab_item .list .swiper-slide 

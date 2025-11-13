@@ -74,7 +74,11 @@ body {
 .mo_only { /* 모바일에서만 보임 */
     display: none;
 }
-
+@media screen and (max-width:1024px) {
+    body {
+        font-size: 1.8rem;
+    }
+}
 @media screen and (max-width:768px){
     .mo_only { /* 모바일에서만 보임 */
         display: block;
@@ -83,7 +87,7 @@ body {
         display: none;
     }
     body {
-        font-size: 16px;
+        font-size: 1.6rem;
     }
 }
 

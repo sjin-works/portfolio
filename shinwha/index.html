@@ -6,6 +6,8 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/aos.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
+    <script src="js/gsap.min.js"></script>
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/aos.css">
 
@@ -104,7 +106,7 @@
                             <div class="txt">
                                 <div class="wrapper">
                                     <h3>The Power of Transparency, <br> Elevating Every Layer of Technology</h3>
-                                    <p>투명한 필름 속 기술력으로, 제품의 품격과 완성도를 높입니다</p>
+                                    <p>투명한 필름 속 기술력으로, 제품의 품격과 완성도를 높입니다.</p>
                                 </div>
                             </div>
                         </li>
@@ -116,7 +118,7 @@
                             <div class="txt">
                                 <div class="wrapper">
                                     <h3>Designing with Light, <br> Shaping the Future of Innovation</h3>
-                                    <p>빛으로 새로운 혁신을 만들어가며, 세상을 더 선명하게 비춥니다</p>
+                                    <p>빛으로 새로운 혁신을 만들어가며, 세상을 더 선명하게 비춥니다.</p>
                                 </div>
                             </div>
                         </li>
@@ -128,7 +130,7 @@
                             <div class="txt">
                                 <div class="wrapper">
                                     <h3>At the Core of Light, <br> We Redefine the Display Experience</h3>
-                                    <p>빛의 중심에서 디스플레이의 새로운 가치를 만들어갑니다</p>
+                                    <p>빛의 중심에서 디스플레이의 새로운 가치를 만들어갑니다.</p>
                                 </div>
                             </div>
                         </li>
@@ -151,39 +153,75 @@
                 </div><!--ctrl_wrap-->
             </section><!--visual-->
             <section class="rnd">
-                <div class="wrapper">
+                <div class="rnd_pc">
+                    <div class="wrapper">
+                        <div class="tit">
+                            <strong>R&D</strong>
+                            <h2>끊임없는 연구와 도전으로, <br>
+                                미래를 여는 기술을 만듭니다</h2>
+                        </div>
+                        <div class="accordion_wrap"> <!-- 고정요소를 감싸는 요소 -->
+                            <div class="accordion tech01"> <!-- 고정요소, 이름은 자유롭게 설정가능 -->
+                                <div class="conts light">
+                                    <div class="txt">
+                                        <h3>Optical Technology</h3>
+                                        <p>정밀한 코팅과 패턴 설계 기술로 빛의 흐름을 제어하고 효율을 극대화하고, <br class="pc_only"> 끊임없는 연구와 실험을 통해 더 밝고 선명한 디스플레이 환경을 구현합니다.</p>
+                                    </div>
+                                </div> <!-- 내용 -->
+                            </div>
+                            <div class="accordion tech02"> <!-- 고정요소, 이름은 자유롭게 설정가능 -->
+                                <div class="conts adherence">
+                                    <div class="txt">
+                                        <h3>Adhesive Technology</h3>
+                                        <p>정밀한 점·접착 코팅과 Air Free 패턴 기술로 부품의 결합력을 높이고, <br class="pc_only"> 복합 기능을 통합한 고신뢰성 솔루션을 구현합니다.</p>
+                                    </div>
+                                </div> <!-- 내용 -->
+                            </div>
+                            <div class="accordion last tech03 "> <!-- 고정요소, 이름은 자유롭게 설정가능 반드시 마지막 요소에는 last라는 클래스를 줘야함 -->
+                                <div class="conts future">
+                                    <div class="txt">
+                                        <h3>Elemental Technology</h3>
+                                        <p>고분자 소재와 UV 경화 기술을 바탕으로 내구성과 기능을 향상시키며, <br class="pc_only"> 정밀한 배합으로 새로운 물성을 창조합니다.</p>
+                                    </div>
+                                </div> <!-- 내용 -->
+                            </div>
+                        </div>
+                    </div>
+                </div><!--rnd_pc-->
+                <div class="rnd_mo">
                     <div class="tit">
-                        <strong>R&D</strong>
-                        <h2>끊임없는 연구와 도전으로, <br>
-                            미래를 여는 기술을 만듭니다</h2>
-                    </div>
-                    <div class="rnd_list" data-aos="fade-up">
-                        <div class="rnd_cont tit_left" data-aos="fade-up">
-                            <div class="rnd_tit">
-                                <h3>정밀한 빛의 기술, <br>
-                                    <span>Optical Technology</span></h3>
-                                <p>정밀한 코팅과 패턴 설계 기술로 빛의 흐름을 제어하고 효율을 극대화합니다. 끊임없는 연구와 실험을 통해 더 밝고 선명한 디스플레이 환경을 구현합니다.</p>
-                            </div>
-                            <div class="photo"><img src="images/main/rnd01.jpg" alt=""></div>
-                        </div>
-                        <div class="rnd_cont tit_right" data-aos="fade-up" data-aos-delay="300">
-                            <div class="rnd_tit">
-                                <h3>정밀한 접착의 기술, <br>
-                                    <span>Adhesive Technology</span></h3>
-                                <p>정밀한 점·접착 코팅 기술로 부품 간 결합력을 높이고 기포 없는 Air Free Pattern 설계를 구현합니다. 끊임없는 기술 개발을 통해 방열·방수·차폐 기능을 결합한 고신뢰성 접착 솔루션을 완성합니다.</p>
-                            </div>
-                            <div class="photo"><img src="images/main/rnd02.jpg" alt=""></div>
-                        </div>
-                        <div class="rnd_cont tit_left" data-aos="fade-up" data-aos-delay="500">
-                            <div class="rnd_tit">
-                                <h3>미래 소재의 가능성, <br>
-                                    <span>Elemental Technology</span></h3>
-                                <p>고분자 소재와 UV 경화 Resin 기술을 기반으로 제품의 내구성과 기능을 한층 향상시킵니다. 정밀한 배합과 점·접착 응용 기술로 새로운 물성을 창조하며 핵심 소재 경쟁력을 확보합니다.</p>
-                            </div>
-                            <div class="photo"><img src="images/main/rnd03.jpg" alt=""></div>
+                        <div class="wrapper">
+                            <strong>R&D</strong>
+                            <h2>끊임없는 연구와 도전으로, <br> 
+                                미래를 여는 기술을 만듭니다</h2>
                         </div>
                     </div>
-                </div>
+                    <div class="list">
+                        <ul>
+                            <li>
+                                <div class="photo"><img src="images/main/rnd_tech01_mo.jpg" alt=""></div>
+                                <div class="txt">
+                                    <h3>Optical Technology</h3>
+                                    <p>정밀한 코팅과 패턴 설계 기술로 빛의 흐름을 제어하고 효율을 극대화합니다. 끊임없는 연구와 실험을 통해 더 밝고 선명한 디스플레이 환경을 구현합니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo"><img src="images/main/rnd_tech02_mo.jpg" alt=""></div>
+                                <div class="txt">
+                                    <h3>Adhesive Technology</h3>
+                                    <p>정밀한 점·접착 코팅 기술로 부품 간 결합력을 높이고 기포 없는 Air Free Pattern 설계를 구현합니다. 끊임없는 기술 개발을 통해 방열·방수·차폐 기능을 결합한 고신뢰성 접착 솔루션을 완성합니다.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="photo"><img src="images/main/rnd_tech03_mo.jpg" alt=""></div>
+                                <div class="txt">
+                                    <h3>Elemental Technology</h3>
+                                    <p>고분자 소재와 UV 경화 Resin 기술을 기반으로 제품의 내구성과 기능을 한층 향상시킵니다. 정밀한 배합과 점·접착 응용 기술로 새로운 물성을 창조하며 핵심 소재 경쟁력을 확보합니다.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--rnd_mo-->
             </section><!--rnd-->
             <section class="biz">
                 <div class="tit">
@@ -193,38 +231,149 @@
                             신화인터텍의 제품을 소개합니다</h2>
                     </div>
                 </div>
-                <div class="biz_intfo">
-                    <ul class="biz_info_list">
-                        <li class="biz_info item01">
+                <div class="biz_info">
+                    <ul class="biz_list">
+                        <li class="item01">
                             <a href="#n">
                                 <div class="photo"><img src="images/main/biz01.png" alt=""></div>
                                 <div class="txt">
                                     <strong>빛의 방향과 강도를 설계하는</strong>
                                     <h3>스마트 광학용 필름</h3>
+                                    <p>LCD Back Light Unit의 광학 효율을 극대화하여 빛의 손실을 최소화하고, <br> 화면의 휘도를 높여주는 고성능 광학 필름입니다.</p>
                                     <div class="more"><span>자세히보기</span></div>
                                 </div>
                             </a>
                         </li>
-                        <li class="biz_info item02">
+                        <li class="item02">
                             <a href="#n">
                                 <div class="photo"><img src="images/main/biz02.png" alt=""></div>
                                 <div class="txt">
                                     <strong>기능과 보호를 담은</strong>
                                     <h3>고기능성 테이프</h3>
+                                    <p>Smart Device(스마트폰, 스마트워치, TV, 태블릿 등)에 적용되어 차광, 방열, 방진·방수,  <br> EMI 차폐 기능을 수행하며, 제품의 안정성과 내구성을 높여주는 고기능성 테이프입니다.</p>
                                     <div class="more"><span>자세히보기</span></div>
                                 </div>
                             </a>
                         </li>
                     </ul>
                 </div>
-            </section>
+            </section><!--biz-->
             <section class="product">
                 <div class="tit">
                     <strong>PRODUCT</strong>
                     <h2>빛을 다루는 기술, <br>
                         세상을 더 선명하게 만듭니다</h2>
                 </div>
-            </section>
+                <div class="tab_list">
+                    <ul>
+                        <li class="item01 active" data-tab="item01"><button>Film<span class="blind">선택됨</span></button></li>
+                        <li class="item02" data-tab="item02"><button>Tape<span class="blind">선택됨</span></button></li>
+                    </ul>
+                </div><!--tab_list-->
+                <div class="tab_content">
+                    <div class="tab_item item01 active" title="선택됨">
+                        <h3 class="blind">Film</h3>
+                        <div class="list">
+                            <div class="swiper">
+                                <ul class="swiper-wrapper">
+                                    <li class="swiper-slide item01">
+                                        <div class="cont">
+                                            <div class="txt">
+                                                <h4>Multi Sheet - Smart Sheet</h4>
+                                                <p>여러 광학 시트를 하나로 통합한 필름으로, <br> 디스플레이를 더 얇고 효율적으로 완성합니다.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="cont">
+                                            <div class="txt">
+                                                <h4>Prism Sheet</h4>
+                                                <p>확산된 빛을 한 방향으로 모아 화면의 밝기와 선명도를 <br> 극대화하는 프리즘 구조의 광학 필름입니다.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="cont">
+                                            <div class="txt">
+                                                <h4>Microlens Sheet</h4>
+                                                <p>빛을 부드럽게 확산시키며 밝기를 유지하는 <br> 프리즘과 확산 기능을 겸한 고휘도 필름입니다.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="cont">
+                                            <div class="txt">
+                                                <h4>Reflector Sheet</h4>
+                                                <p>하단의 빛을 화면 방향으로 반사시켜 <br> 광손실을 최소화하고 균일한 밝기를 구현하는 시트입니다.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="cont">
+                                            <div class="txt">
+                                                <h4>Diffuser Sheet</h4>
+                                                <p>빛을 균일하게 퍼뜨려 화면 전체의 밝기와 시야각을 <br> 안정적으로 개선하는 필름입니다.</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--tab_item item01-->
+                    <div class="tab_item item02" title="선택됨">
+                        <h3 class="blind">Tape</h3>
+                        <div class="list">
+                            <div class="swiper">
+                                <ul class="swiper-wrapper">
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>Light Shielding Tape</h4>
+                                            <p>디스플레이의 빛샘을 차단하고 절연 기능을 수행하며, <br> 부품 간 정밀한 접합으로 완성도를 높이는 고기능성 테이프입니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>Thermal Composite Tape</h4>
+                                            <p>박막화된 기기 구조에 맞춰 열을 빠르게 분산·방출하며, <br> 동박과 그라파이트 복합 소재로 높은 효율과 내구성을 갖추었습니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>Protection Tape</h4>
+                                            <p>고투명 PET 필름에 저점착 처리를 적용하여 <br> 생산 공정 중 제품을 오염과 손상으로부터 보호합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>Water Proof Tape</h4>
+                                            <p>양면 점착 구조로 부품 간 접합과 방수를 동시에 수행하며, <br> 강한 점착력으로 기기의 내수성을 향상시킵니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>Cushion Tape</h4>
+                                            <p>탄성과 복원력을 조절해 충격을 흡수하고 진동을 완화하며, <br> IT 기기의 내구성과 안정성을 향상시키는 완충용 테이프입니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>Thermal Conductive Tape</h4>
+                                            <p>부품에서 발생하는 열을 빠르게 확산시켜 온도 상승을 억제하며, <br> 동박 또는 그라파이트 소재로 우수한 열전도 성능을 제공합니다.</p>
+                                        </div>
+                                    </li>
+                                    <li class="swiper-slide item01">
+                                        <div class="txt">
+                                            <h4>EMI Shielding Tape</h4>
+                                            <p>전자파 간섭을 차단하고 안정적인 접지를 지원하며, <br> 금속박 또는 도전성 패브릭 소재로 탁월한 차폐 효과를 제공합니다.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div><!--tab_item item02-->
+                </div><!--tab_content-->
+                <div class="ctrl_btn"></div>
+            </section><!--product-->
             <section class="news"></section>
             <section class="recruit"></section>
         </div>
