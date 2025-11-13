@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Product Swiper Test</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <style>
+        body {
+            margin: 0;
+            background: #111;
+            font-family: sans-serif;
+        }
+
+        .product {
+            padding: 80px 0 200px 0;
+            background: #111;
+            color: #fff;
+        }
+
+        .product .tit {
+            text-align: center;
+        }
+
+        .product .tab_list {
+            margin: 40px 0 70px 0;
+        }
+
+        .product .tab_list ul {
+            display: flex;
+            justify-content: center;
+            gap: 0 40px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .product .tab_list ul li button {
+            display: block;
+            padding: 6.5px 36.5px;
+            border: 1px solid #666;
+            border-radius: 25px;
+            background: transparent;
+            color: #bbb;
+            cursor: pointer;
+        }
+
+        .product .tab_list ul li.active button {
+            border-color: #f90;
+            background-color: #f90;
+            color: #fff;
+        }
+
+        .product .tab_content .tab_item {
+            display: none;
+        }
+
+        .product .tab_content .tab_item.active {
+            display: block;
+        }
+
+        /* Swiper 기본 */
+        .product .tab_content .tab_item .list {
+            position: relative;
+            z-index: 1;
+            overflow: visible;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product .tab_content .tab_item .swiper {
+            height: 400px;
+            position: relative;
+            z-index: 1;
+            overflow: visible;
+        }
+
+        .product .tab_content .tab_item .swiper-wrapper {
+            align-items: center;
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide {
+            width: 400px;
+            height: 222px;
+            background: #333;
+            border-radius: 20px;
+            position: relative;
+            z-index: 1;
+            opacity: 0.65;
+            filter: blur(1px);
+            transform: scale(0.94);
+            transition: opacity 0.5s, filter 0.6s, transform 0.6s, padding 0.4s;
+            overflow: hidden;
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide a {
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
+            padding: 30px;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide a .txt h4 {
+            margin: 0 0 12px 0;
+            font-weight: 700;
+            line-height: 1.3;
+            transition: font-size 0.5s;
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide a .txt p {
+            display: none;
+            margin: 0;
+        }
+
+        /* active */
+        .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active {
+            width: 800px;
+            height: 400px;
+            z-index: 2;
+            opacity: 1;
+            filter: blur(0) brightness(1.05);
+            transform: scale(1);
+            overflow: hidden;
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a {
+            padding: 35px;
+            transform: scale(1);
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
+            font-size: 2rem;
+        }
+
+        .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt p {
+            display: block;
+        }
+
+        /* duplicate hitbox 제거 (loop용) */
+        .product .tab_content .tab_item .swiper-wrapper .swiper-slide-duplicate,
+        .product .tab_content .tab_item .swiper-wrapper .swiper-slide-duplicate-active {
+            pointer-events: none;
+        }
+
+        /* ctrl_btn: 리스트 안 / 절대배치로 위에 올려둠 */
+        .product .tab_content .tab_item .ctrl_btn {
+            position: absolute;
+            left: 50%;
+            bottom: -80px;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 0 20px;
+            color: #fff;
+            z-index: 10;
+        }
+
+        .product .tab_content .tab_item .ctrl_btn button {
+            display: block;
+            width: 20px;
+            height: 20px;
+            border: none;
+            cursor: pointer;
+            background: #fff2;
+        }
+
+        .product .tab_content .tab_item .ctrl_btn .next {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="product">
+        <div class="tit">
+            <strong>PRODUCT</strong>
+            <h2>빛을 다루는 기술,<br>세상을 더 선명하게 만듭니다</h2>
+        </div>
+
+        <div class="tab_list">
+            <ul>
+                <li class="item01 active" data-tab="item01"><button>Film</button></li>
+                <li class="item02" data-tab="item02"><button>Tape</button></li>
+            </ul>
+        </div>
+
+        <div class="tab_content">
+            <div class="tab_item item01 active">
+                <div class="list">
+                    <div class="swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide item01">
+                                <a href="#n">
+                                    <div class="txt">
+                                        <h4>Multi Sheet - Smart Sheet 1</h4>
+                                        <p>텍스트 1</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide item02">
+                                <a href="#n">
+                                    <div class="txt">
+                                        <h4>Multi Sheet - Smart Sheet 2</h4>
+                                        <p>텍스트 2</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide item03">
+                                <a href="#n">
+                                    <div class="txt">
+                                        <h4>Multi Sheet - Smart Sheet 3</h4>
+                                        <p>텍스트 3</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ctrl_btn">
+                        <button class="prev">&lt;</button>
+                        <div class="paging"><span></span></div>
+                        <button class="next">&gt;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab_item item02">
+                <div class="list">
+                    <div class="swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide item01">
+                                <a href="#n">
+                                    <div class="txt">
+                                        <h4>Tape 1</h4>
+                                        <p>텍스트 1</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide item02">
+                                <a href="#n">
+                                    <div class="txt">
+                                        <h4>Tape 2</h4>
+                                        <p>텍스트 2</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="swiper-slide item03">
+                                <a href="#n">
+                                    <div class="txt">
+                                        <h4>Tape 3</h4>
+                                        <p>텍스트 3</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="ctrl_btn">
+                        <button class="prev">&lt;</button>
+                        <div class="paging"><span></span></div>
+                        <button class="next">&gt;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        const product1_swiper = new Swiper('.product .item01 .swiper', {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            loop: true,
+            spaceBetween: 35,
+            speed: 900,
+            navigation: {
+                nextEl: '.product .item01 .ctrl_btn .next',
+                prevEl: '.product .item01 .ctrl_btn .prev',
+            },
+            pagination: {
+                el: '.product .item01 .ctrl_btn .paging',
+                type: 'fraction',
+            }
+        });
+
+        const product2_swiper = new Swiper('.product .item02 .swiper', {
+            slidesPerView: 'auto',
+            centeredSlides: true,
+            loop: true,
+            spaceBetween: 35,
+            speed: 900,
+            navigation: {
+                nextEl: '.product .item02 .ctrl_btn .next',
+                prevEl: '.product .item02 .ctrl_btn .prev',
+            },
+            pagination: {
+                el: '.product .item02 .ctrl_btn .paging',
+                type: 'fraction',
+            }
+        });
+
+        // 탭 간단 전환
+        document.querySelectorAll('.product .tab_list li').forEach(li => {
+            li.addEventListener('click', () => {
+                const tab = li.getAttribute('data-tab');
+                document.querySelectorAll('.product .tab_list li').forEach(l => l.classList.remove('active'));
+                li.classList.add('active');
+                document.querySelectorAll('.product .tab_item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector('.product .tab_item.' + tab).classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

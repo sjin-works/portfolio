@@ -15,8 +15,6 @@ $(document).ready(function (){
         },
     
     });
-    visual_swiper.autoplay.stop();  /* 일시정지 기능 */
-    visual_swiper.autoplay.start();  /* 재생 기능 */
 
     // 전체 슬라이드 개수 (loop 상태에서도 실제 슬라이드 개수만)
     const totalSlides = $('.visual .swiper .swiper-slide').not('.swiper-slide-duplicate').length;
@@ -26,12 +24,17 @@ $(document).ready(function (){
     function updateCurrent() {
         let realIndex = visual_swiper.realIndex + 1; // 실제 인덱스 (0부터 시작하므로 +1)
         $('.visual .paging .current').text(realIndex);
-        //슬라이드가 교체되면 넓이를 0으로 초기화
-        $('.visual .ctrl_wrap .paging .bar span').stop() //animate 종료
-        $('.visual .ctrl_wrap .paging .bar span').width(0)
-        $('.visual .ctrl_wrap .paging .bar span').animate({
-            width : '100%'
-        }, visual_time);
+        
+        let bar = $('.visual .ctrl_wrap .paging .bar span');
+
+        bar.stop(true, true);
+        bar.css({ width: 0 });
+
+        if (visual_swiper.autoplay.running) {
+            bar.animate({
+                width: '100%'
+            }, visual_time);
+        }
     }
 
     // 처음 로드 시 한번 실행
@@ -46,7 +49,11 @@ $(document).ready(function (){
         visual_swiper.autoplay.stop();
         $(this).hide();
         $('.visual .ctrl_wrap .btn_play').css('display', 'flex');
-        $('.visual .ctrl_wrap .paging .bar span').stop();
+        let bar = $('.visual .ctrl_wrap .paging .bar span');
+
+        let nowWidth = bar.width(); 
+        bar.stop(true, false);
+        bar.width(nowWidth);
       });
       
       $('.visual .ctrl_wrap .btn_play').on('click', function(){
@@ -144,89 +151,118 @@ $(document).ready(function (){
     const product1_swiper = new Swiper('.product .item01 .swiper', { /* 팝업을 감싼는 요소의 class명 */
         slidesPerView: 'auto', /* css에서 slide의 넓이 지정 */
         spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
-        centeredSlides: true,
         breakpoints: {
             768: {    /* 768px 이상일때 적용 */
-                spaceBetween: 35,
+                spaceBetween: 24,
             },
         },
-        //centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
-        loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
-        autoplay: {  /* 팝업 자동 실행 */
-            delay: 2500,
-            disableOnInteraction: true,
-        },
+        centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
+        loop: false,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
+        watchSlidesProgress: true,
+        loopAdditionalSlides: 1,
+        speed: 600,
         navigation: {
             nextEl: '.product .item01 .ctrl_btn .next',
             prevEl: '.product .item01 .ctrl_btn .prev',
         },
-        pagination: {  /* 몇개의 팝업이 있는지 보여주는 동그라미 */
+        pagination: {
             el: '.product .item01 .ctrl_btn .paging', /* 해당 요소의 class명 */
             clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
             type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
         },
         on: {
-            slideChange: function () {
-                const activeSlide = this.slides[this.activeIndex]
-                const activeSlideWidth = activeSlide.offsetWidth
-                const otherSlides = this.slides[this.previousIndex]
-                const otherSlideWidth = otherSlides.offsetWidth
-                const slideWidthDifference = activeSlideWidth - otherSlideWidth;
-                this.setTranslate(this.translate - slideWidthDifference);
+            slideChangeTransitionStart() {
+                /* width 변화 반영 */
+                this.updateSlides();
+                this.updateProgress();
+                this.updateSlidesClasses();
+                this.update();
             },
-            slideChangeTransitionEnd: function () {
-                // 전환이 끝나면 Swiper를 다시 업데이트
-                setTimeout(() => {
-                    this.update();
-                }, 100);  // 잠시 딜레이를 주고 업데이트
+
+            slideChangeTransitionEnd() {
+                /* translate 튀는 현상 제거 */
+                this.setTranslate(this.getTranslate());
+            },
+
+            realIndexChange() {
+                this.update();
             }
-        },
+        }
     });
     
     const product2_swiper = new Swiper('.product .item02 .swiper', { /* 팝업을 감싼는 요소의 class명 */
         slidesPerView: 'auto', /* css에서 slide의 넓이 지정 */
         spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
-        centeredSlides: true,
         breakpoints: {
             768: {    /* 768px 이상일때 적용 */
-                spaceBetween: 35,
+                spaceBetween: 24,
             },
         },
-        //centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
-        loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
-        autoplay: {  /* 팝업 자동 실행 */
-            delay: 2500,
-            disableOnInteraction: true,
-        },
+        centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
+        loop: false,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
+        watchSlidesProgress: true,
+        loopAdditionalSlides: 1,
+        speed: 600,
         navigation: {
             nextEl: '.product .item02 .ctrl_btn .next',
             prevEl: '.product .item02 .ctrl_btn .prev',
         },
-        pagination: {  /* 몇개의 팝업이 있는지 보여주는 동그라미 */
+        pagination: {
             el: '.product .item02 .ctrl_btn .paging', /* 해당 요소의 class명 */
             clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
             type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
         },
         on: {
-            slideChange: function () {
-                const activeSlide = this.slides[this.activeIndex]
-                const activeSlideWidth = activeSlide.offsetWidth
-                const otherSlides = this.slides[this.previousIndex]
-                const otherSlideWidth = otherSlides.offsetWidth
-                const slideWidthDifference = activeSlideWidth - otherSlideWidth;
-                this.setTranslate(this.translate - slideWidthDifference);
+            slideChangeTransitionStart() {
+                /* width 변화 반영 */
+                this.updateSlides();
+                this.updateProgress();
+                this.updateSlidesClasses();
+                this.update();
             },
-            slideChangeTransitionEnd: function () {
-                // 전환이 끝나면 Swiper를 다시 업데이트
-                setTimeout(() => {
-                    this.update();
-                }, 100);  // 잠시 딜레이를 주고 업데이트
+
+            slideChangeTransitionEnd() {
+                /* translate 튀는 현상 제거 */
+                this.setTranslate(this.getTranslate());
+            },
+
+            realIndexChange() {
+                this.update();
             }
-        },
+        }
     });
-
     /************************* product_swiper 끝 ************************/
+    
+    
+    /************************* product_tab 시작 ************************/
+    $('.product .tab_list ul li').on('click', function () {
 
+        // 탭 active 처리
+        $('.product .tab_list ul li').removeClass('active');
+        $(this).addClass('active');
+
+        // 탭 이름 (item01 / item02)
+        let tabName = $(this).attr('data-tab');
+
+        // 탭 콘텐츠 교체
+        $('.product .tab_content .tab_item')
+            .removeClass('active')
+            .filter('.' + tabName)
+            .addClass('active');
+
+        //  모든 autoplay 먼저 정지
+        product1_swiper.autoplay.stop();
+        product2_swiper.autoplay.stop();
+
+        if (tabName === 'item01') {
+            product1_swiper.slideTo(0, 0);
+            product1_swiper.autoplay.start(); // autoplay 재시작
+        } else {
+            product2_swiper.slideTo(0, 0);
+            product2_swiper.autoplay.start(); // autoplay 재시작
+        }
+    });
+    /************************* product_tab 끝 ************************/
 
     /************************* aos ************************/
     AOS.init({
