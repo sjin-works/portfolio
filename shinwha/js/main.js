@@ -67,16 +67,27 @@ $(document).ready(function (){
     let poObjCont = '.conts' // 고정요소 내부의 내용
 
     // 기존 모든 ScrollTrigger 제거 (중복 방지)
-    ScrollTrigger.getAll().forEach(function(st){
-        st.kill();
-    });
+    let initRndAccordion = function () {
 
-    // 501px 이상일 때만 아코디언 작동
-    if($(window).width() > 500){
+        // 기존 모든 ScrollTrigger 제거 (중복 방지)
+        ScrollTrigger.getAll().forEach(function (st) {
+            st.kill();
+        });
 
-        $(poObj).each(function(i, e) {
+        // 501px 이하에서는 기능 꺼짐
+        if ($(window).width() <= 500) {
+            return; // 여기서 끝
+        }
 
-            // 각 카드 위치 보정 (스크롤 시 가로 스크롤 방지)
+        // 공통 변수
+        let poStart = 100;
+        let poGap = 50;
+        let poObj = '.accordion_wrap .accordion';
+        let poObjCont = '.conts';
+
+        $(poObj).each(function (i, e) {
+
+            // 각 카드 위치 보정
             gsap.set(e, {
                 y: i * poGap
             });
@@ -84,8 +95,8 @@ $(document).ready(function (){
             // 핀
             ScrollTrigger.create({
                 trigger: e,
-                start: 'top +='+(poStart + i * poGap),
-                endTrigger: poObj+'.last',
+                start: 'top +=' + (poStart + i * poGap),
+                endTrigger: poObj + '.last',
                 end: 'top +=80',
                 pin: true,
                 pinSpacing: false,
@@ -99,7 +110,7 @@ $(document).ready(function (){
                 ease: 'none',
                 scrollTrigger: {
                     trigger: e,
-                    start: 'top +='+(poStart + i * poGap),
+                    start: 'top +=' + (poStart + i * poGap),
                     end: 'top -=30%',
                     scrub: 1,
                 },
@@ -112,32 +123,31 @@ $(document).ready(function (){
                 ease: 'none',
                 scrollTrigger: {
                     trigger: e,
-                    start: 'top +='+(poStart + i * poGap),
+                    start: 'top +=' + (poStart + i * poGap),
                     end: 'top -=700%',
                     scrub: 1,
                 },
             });
         });
-    }
+    };
 
-    // 최초 실행
+    // 최초 1번 실행
     initRndAccordion();
 
     // resize 시 재실행
-    $(window).resize(function(){
+    $(window).resize(function () {
         initRndAccordion();
     });
     /************************* rnd 아코디언 (반응형 포함) 끝 ************************/
 
-
     /************************* product_swiper 시작 ************************/
     const product1_swiper = new Swiper('.product .item01 .swiper', { /* 팝업을 감싼는 요소의 class명 */
-        slidesPerView: 2, /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
+        slidesPerView: 'auto', /* css에서 slide의 넓이 지정 */
         spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
+        centeredSlides: true,
         breakpoints: {
-            640: {    /* 640px 이상일때 적용 */
-                slidesPerView: 3,    /*    'auto'   라고 쓰면 css에서 적용한 넓이값이 적용됨 */
-                spaceBetween: 20,
+            768: {    /* 768px 이상일때 적용 */
+                spaceBetween: 35,
             },
         },
         //centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
@@ -147,23 +157,39 @@ $(document).ready(function (){
             disableOnInteraction: true,
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.product .item01 .ctrl_btn .next',
+            prevEl: '.product .item01 .ctrl_btn .prev',
         },
         pagination: {  /* 몇개의 팝업이 있는지 보여주는 동그라미 */
-            el: '.swiper-pagination', /* 해당 요소의 class명 */
+            el: '.product .item01 .ctrl_btn .paging', /* 해당 요소의 class명 */
             clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
             type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
+        },
+        on: {
+            slideChange: function () {
+                const activeSlide = this.slides[this.activeIndex]
+                const activeSlideWidth = activeSlide.offsetWidth
+                const otherSlides = this.slides[this.previousIndex]
+                const otherSlideWidth = otherSlides.offsetWidth
+                const slideWidthDifference = activeSlideWidth - otherSlideWidth;
+                this.setTranslate(this.translate - slideWidthDifference);
+            },
+            slideChangeTransitionEnd: function () {
+                // 전환이 끝나면 Swiper를 다시 업데이트
+                setTimeout(() => {
+                    this.update();
+                }, 100);  // 잠시 딜레이를 주고 업데이트
+            }
         },
     });
     
     const product2_swiper = new Swiper('.product .item02 .swiper', { /* 팝업을 감싼는 요소의 class명 */
-        slidesPerView: 2, /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
+        slidesPerView: 'auto', /* css에서 slide의 넓이 지정 */
         spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
+        centeredSlides: true,
         breakpoints: {
-            640: {    /* 640px 이상일때 적용 */
-                slidesPerView: 3,    /*    'auto'   라고 쓰면 css에서 적용한 넓이값이 적용됨 */
-                spaceBetween: 20,
+            768: {    /* 768px 이상일때 적용 */
+                spaceBetween: 35,
             },
         },
         //centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
@@ -173,15 +199,32 @@ $(document).ready(function (){
             disableOnInteraction: true,
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.product .item02 .ctrl_btn .next',
+            prevEl: '.product .item02 .ctrl_btn .prev',
         },
         pagination: {  /* 몇개의 팝업이 있는지 보여주는 동그라미 */
-            el: '.swiper-pagination', /* 해당 요소의 class명 */
+            el: '.product .item02 .ctrl_btn .paging', /* 해당 요소의 class명 */
             clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
             type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
         },
+        on: {
+            slideChange: function () {
+                const activeSlide = this.slides[this.activeIndex]
+                const activeSlideWidth = activeSlide.offsetWidth
+                const otherSlides = this.slides[this.previousIndex]
+                const otherSlideWidth = otherSlides.offsetWidth
+                const slideWidthDifference = activeSlideWidth - otherSlideWidth;
+                this.setTranslate(this.translate - slideWidthDifference);
+            },
+            slideChangeTransitionEnd: function () {
+                // 전환이 끝나면 Swiper를 다시 업데이트
+                setTimeout(() => {
+                    this.update();
+                }, 100);  // 잠시 딜레이를 주고 업데이트
+            }
+        },
     });
+
     /************************* product_swiper 끝 ************************/
 
 
