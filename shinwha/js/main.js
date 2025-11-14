@@ -147,122 +147,238 @@ $(document).ready(function (){
     });
     /************************* rnd 아코디언 (반응형 포함) 끝 ************************/
 
+    
     /************************* product_swiper 시작 ************************/
-    const product1_swiper = new Swiper('.product .item01 .swiper', { /* 팝업을 감싼는 요소의 class명 */
-        slidesPerView: 'auto', /* css에서 slide의 넓이 지정 */
-        spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
+
+    /* ================== 공통 중앙정렬 함수 ================== */
+    function setCenter(swiper) {
+        const active = swiper.slides[swiper.activeIndex];
+        if (!active) return;
+    
+        const slideRect = active.getBoundingClientRect();
+        // 화면 전체 width 기준
+        const windowCenter = window.innerWidth / 2;
+        // 현재 슬라이드 중심
+        const slideCenter = slideRect.left + slideRect.width / 2;
+        // 차이값
+        const diff = slideCenter - windowCenter;
+    
+        swiper.setTranslate(swiper.getTranslate() - diff);
+    }
+
+    /* ================== Film Swiper ================== */
+    const swiperFilm = new Swiper('.product .item01 .swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
         breakpoints: {
-            768: {    /* 768px 이상일때 적용 */
-                spaceBetween: 24,
-            },
+            769: {spaceBetween: 20},
+            1025: {spaceBetween: 35}
         },
-        centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
-        loop: false,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
+        centeredSlides: true,
+        loop: true,
         watchSlidesProgress: true,
         loopAdditionalSlides: 1,
         speed: 600,
+
         navigation: {
             nextEl: '.product .item01 .ctrl_btn .next',
             prevEl: '.product .item01 .ctrl_btn .prev',
         },
         pagination: {
-            el: '.product .item01 .ctrl_btn .paging', /* 해당 요소의 class명 */
-            clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
-            type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
+            el: '.product .item01 .ctrl_btn .paging',
+            clickable: true,
+            type: 'fraction',
         },
-        on: {
-            slideChangeTransitionStart() {
-                /* width 변화 반영 */
-                this.updateSlides();
-                this.updateProgress();
-                this.updateSlidesClasses();
-                this.update();
-            },
 
-            slideChangeTransitionEnd() {
-                /* translate 튀는 현상 제거 */
-                this.setTranslate(this.getTranslate());
+        on: {
+            init() {
+                const swiper = this
+                setTimeout(() => {
+                    swiper.updateSlides()
+                    swiper.updateSlidesClasses()
+                    setCenter(swiper)
+                }, 50)
+            },
+        
+            slideChangeTransitionStart() {
+                this.updateSlides()
+                this.updateSlidesClasses()
             },
 
             realIndexChange() {
-                this.update();
+                const swiper = this
+                setTimeout(() => {
+                    swiper.updateSlides()
+                    swiper.updateSlidesClasses()
+                    setCenter(swiper)
+                }, 10)
             }
         }
     });
-    
-    const product2_swiper = new Swiper('.product .item02 .swiper', { /* 팝업을 감싼는 요소의 class명 */
-        slidesPerView: 'auto', /* css에서 slide의 넓이 지정 */
-        spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
+
+    /* ================== Tape Swiper ================== */
+    const swiperTape = new Swiper('.product .item02 .swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
         breakpoints: {
-            768: {    /* 768px 이상일때 적용 */
-                spaceBetween: 24,
-            },
+            769: {spaceBetween: 20},
+            1025: {spaceBetween: 35}
         },
-        centeredSlides: true, /* 팝업을 화면에 가운데 정렬(가운데 1번이 옴) */
-        loop: false,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
+        centeredSlides: true,
+        loop: true,
         watchSlidesProgress: true,
         loopAdditionalSlides: 1,
         speed: 600,
+
         navigation: {
             nextEl: '.product .item02 .ctrl_btn .next',
             prevEl: '.product .item02 .ctrl_btn .prev',
         },
         pagination: {
-            el: '.product .item02 .ctrl_btn .paging', /* 해당 요소의 class명 */
-            clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
-            type: 'fraction',  /* type fraction을 주면 paging이 숫자로 표시됨 */
+            el: '.product .item02 .ctrl_btn .paging',
+            clickable: true,
+            type: 'fraction',
         },
+
         on: {
+            init() {
+                const swiper = this
+                setTimeout(() => {
+                    swiper.updateSlides()
+                    swiper.updateSlidesClasses()
+                    setCenter(swiper)
+                }, 50)
+            },
+        
             slideChangeTransitionStart() {
-                /* width 변화 반영 */
-                this.updateSlides();
-                this.updateProgress();
-                this.updateSlidesClasses();
-                this.update();
+                this.updateSlides()
+                this.updateSlidesClasses()
             },
-
-            slideChangeTransitionEnd() {
-                /* translate 튀는 현상 제거 */
-                this.setTranslate(this.getTranslate());
-            },
-
+        
             realIndexChange() {
-                this.update();
+                const swiper = this
+                setTimeout(() => {
+                    swiper.updateSlides()
+                    swiper.updateSlidesClasses()
+                    setCenter(swiper)
+                }, 10)
             }
         }
     });
+
+    /* ================== 탭 전환 시 중앙 정렬 ================== */
+    $('.product .tab_list ul li').on('click', function(){
+        let tab = $(this).attr('data-tab')
+    
+        // 탭 active 처리
+        $('.product .tab_list ul li').removeClass('active')
+        $(this).addClass('active')
+        $('.product .tab_content .tab_item').removeClass('active')
+        $('.product .tab_content .tab_item.' + tab).addClass('active')
+    
+        let swiper = (tab === 'item01') ? swiperFilm : swiperTape
+    
+        swiper.slideToLoop(0, 0)
+    
+        // 레이아웃 안정화 후 중앙 이동 (덜그럭 방지)
+        requestAnimationFrame(()=>{
+            requestAnimationFrame(()=>{
+                swiper.updateSlides()
+                swiper.updateSlidesClasses()
+                setCenter(swiper)
+            })
+        })
+    })
+
+    /* ================== 화면 사이즈 변경 → 자동 중앙 재정렬 ================== */
+    let resizeTimer
+    $(window).on('resize', function(){
+        clearTimeout(resizeTimer)
+        resizeTimer = setTimeout(function(){
+            // Film 열려있을 때만 실행
+            if($('.product .item01').hasClass('active')){
+                setCenter(swiperFilm)
+            }
+            if($('.product .item02').hasClass('active')){
+                setCenter(swiperTape)
+            }
+        }, 200)
+    })
     /************************* product_swiper 끝 ************************/
     
-    
-    /************************* product_tab 시작 ************************/
-    $('.product .tab_list ul li').on('click', function () {
 
-        // 탭 active 처리
-        $('.product .tab_list ul li').removeClass('active');
-        $(this).addClass('active');
+    /************************* news_swiper 시작 ************************/
+    const news_swiper = new Swiper('.news .swiper', { 
+        slidesPerView: 'auto',
+        spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
+        breakpoints: {
+            769: {    
+                slidesPerView: 2,
+                spaceBetween: 16,
+            },
+            901: {    
+                slidesPerView: 3,
+                spaceBetween: 24,
+            },
+            1321: {    
+                slidesPerView: 4,
+                spaceBetween: 24,
+            },
+        },
+        loop: false,
 
-        // 탭 이름 (item01 / item02)
-        let tabName = $(this).attr('data-tab');
-
-        // 탭 콘텐츠 교체
-        $('.product .tab_content .tab_item')
-            .removeClass('active')
-            .filter('.' + tabName)
-            .addClass('active');
-
-        //  모든 autoplay 먼저 정지
-        product1_swiper.autoplay.stop();
-        product2_swiper.autoplay.stop();
-
-        if (tabName === 'item01') {
-            product1_swiper.slideTo(0, 0);
-            product1_swiper.autoplay.start(); // autoplay 재시작
-        } else {
-            product2_swiper.slideTo(0, 0);
-            product2_swiper.autoplay.start(); // autoplay 재시작
-        }
+        scrollbar: {
+            el: ".news .scrollbar",
+            hide: false,
+            draggable: true, //스크롤바 드래그 가능
+            //dragSize: 500, //스크롤바 사이즈 조정
+        },
     });
-    /************************* product_tab 끝 ************************/
+    /************************* news_swiper 끝 ************************/
+
+    
+    /************************* recruit 스크롤 시작 ************************/
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.fromTo(".recruit .photo img",
+        { scale: 1.3 },  // 시작 크기
+        {
+            scale: 1,    // 최종 크기
+            duration: 1.6,
+            ease: "power3.out",
+            scrollTrigger: {
+                trigger: ".recruit",
+                start: "top 50%",   // recruit가 브라우저 50% 지점 닿으면 실행
+                toggleActions: "play none none none"
+                // play → 1번만 실행하고 끝 (reverse 없음)
+            }
+        }
+    );
+    /************************* recruit 스크롤 끝 ************************/
+
+
+    /************************* footer ************************/
+
+    /* ================== family_site open 클래스 추가 ================== */
+    $('footer .f_util .family_site .faily_open').on('click', function(){
+        $('footer .f_util .family_site').addClass('open');
+        $('footer .f_util .family_site .faily_wrap').slideDown()
+    })
+
+    $('footer .f_util .family_site .faily_close').on('click', function(){
+        $('footer .f_util .family_site').removeClass('open')
+        $('footer .f_util .family_site .faily_wrap').slideUp()
+    })
+    
+    $('footer .f_util .top').on('click', function(){
+        $('html, body').animate({
+            scrollTop: 0
+        },500)
+    })
+
+
+    /************************* footer family_site에 open 추가 ************************/
+
 
     /************************* aos ************************/
     AOS.init({

@@ -9,7 +9,7 @@
 @import url(fonts.css);
 @import url(layout.css);
 
-section {
+section:not(.news) {
     background-color: #000;
 }
 section .tit {
@@ -278,6 +278,9 @@ section .tit h2 {
     }
 }
 
+.rnd .tit .h2 {
+    color: var(--color-white);
+}
 .rnd .rnd_pc {
     padding: 180px 0 150px 0;
 }
@@ -414,6 +417,9 @@ section .tit h2 {
 
 .biz {
     padding-top: calc(330px + 150px);
+}
+.biz .tit .h2 {
+    color: var(--color-white);
 }
 .biz .biz_info .biz_list {
     display: flex; /* li 좌우 배치 */
@@ -608,11 +614,14 @@ section .tit h2 {
 }
 
 .product {
-    padding: 320px 0 252px 0;
-    background: #000 url(../images/main/product_bg.jpg) no-repeat center -20px / 1920px;
+    padding: clamp(140px, 24vw, 320px) 0 clamp(74px, 19vw, 252px) 0;
+    background: url(../images/main/product_bg.jpg) no-repeat center center / cover;
+}
+.product .tit .h2 {
+    color: var(--color-white);
 }
 .product .tab_list {
-    margin: 40px 0 70px 0;
+    margin: clamp(20px, 2.5vw, 30px) 0 clamp(40px, 4vw, 50px) 0;
 }
 .product .tab_list ul {
     display: flex;
@@ -634,6 +643,7 @@ section .tit h2 {
 }
 .product .tab_content .tab_item {
     display: none; /* active 클래스 추가될 때만 보임 */
+    position: relative; /* ctrl_btn 정렬 기준 */
 }
 .product .tab_content .tab_item.active {
     display: block;
@@ -641,11 +651,6 @@ section .tit h2 {
 /************* swiper 기본 스타일 ***************/
 .product .tab_content .tab_item .swiper-wrapper {
     align-items: center;
-}
-.product .tab_content .tab_item .list {
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
 }
 .product .tab_content .tab_item .list .swiper-slide {
     width: 400px;
@@ -656,14 +661,14 @@ section .tit h2 {
     border-radius: 20px;
     opacity: 0.65;
     filter: blur(1px);
-    transform: scale(0.8);
+    transform: scale(0.99);
     transition: opacity 0.5s, filter 0.6s, transform 0.6s, padding 0.4s;
     overflow: hidden;
+    position: relative;
 }
 .product .tab_content .tab_item .list .swiper-slide::before {
     content: "";
     position: absolute;
-    z-index: -1;
     left: 0;
     top: 0;
     width: 100%;
@@ -676,6 +681,8 @@ section .tit h2 {
     height: 100%;
     padding: 30px;
     transition: transform 0.6s, padding 0.5s;
+    position: relative;
+    z-index: 10;
 }
 .product .tab_content .tab_item .list .swiper-slide a .txt {
     color: var(--color-white);
@@ -683,7 +690,6 @@ section .tit h2 {
 .product .tab_content .tab_item .list .swiper-slide a .txt h4 {
     font-weight: 700;
     line-height: 1.3;
-    margin-bottom: 12px;
     transition: font-size 0.5s;
 }
 .product .tab_content .tab_item .list .swiper-slide a .txt p {
@@ -706,7 +712,6 @@ section .tit h2 {
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active::after {
     content: "";
     position: absolute; /* a 기준 정렬 */
-    z-index: -1;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -719,6 +724,7 @@ section .tit h2 {
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
     font-size: 3.2rem;
+    margin-bottom: 12px;
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt p {
     opacity: 1;
@@ -763,11 +769,13 @@ section .tit h2 {
 }
 .product .tab_content .tab_item .ctrl_btn {
     display: flex;
-    justify-content: center;
     align-items: center;
     gap: 0 20px;
-    margin: 112px auto 0;
     color: var(--color-white);
+    position: absolute;
+    left: 50%;
+    bottom: -28%;
+    transform: translateX(-50%);
 }
 .product .tab_content .tab_item .ctrl_btn button {
     display: block;
@@ -784,4 +792,266 @@ section .tit h2 {
 }
 .product .tab_content .tab_item .ctrl_btn .next {
     transform: rotate(180deg);
+}
+@media screen and (max-width:1024px){
+    .product .tab_list ul {
+        gap: 0 20px;
+    }
+    .product .tab_content .tab_item .list .swiper-slide {
+        width: clamp(300px, 39vw, 400px);
+        height: clamp(170px, 22vw, 222px);
+    }
+    /************* swiper active 추가 공통 스타일 ***************/
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active {
+        width: clamp(600px, 78vw, 800px);
+        height: clamp(300px, 39vw, 400px);
+    }
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
+        font-size: 2.8rem;
+    }
+}/*media*/
+@media screen and (max-width:768px){
+    .product .tab_content .tab_item .list .swiper-slide {
+        width: 285px;
+        height: 375px;
+        border-radius: 10px;
+        opacity: 1;
+        filter: none;
+        transform: none;
+        transition: none;
+    }
+    .product .tab_content .tab_item .list .swiper-slide a {
+        padding: 20px;
+        transition: none;
+    }
+    .product .tab_content .tab_item .list .swiper-slide a .txt h4 {
+        font-size: 2.4rem;
+        transition: none;
+    }
+    .product .tab_content .tab_item .list .swiper-slide a .txt p {
+        display: none;
+    }
+    /************* swiper active 추가 공통 스타일 ***************/
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active {
+        width: 285px;
+        height: 375px;
+        filter: none;
+        transform: none;
+    }
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a {
+        padding: 20px;
+        transform: none;
+    }
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
+        font-size: 2.4rem;
+        margin-bottom: 0;
+    }
+    .product .tab_content .tab_item .ctrl_btn {
+        display: none;
+    }
+}/*media*/
+
+.news {
+    margin: 180px 0 117px 0;
+}
+.news .tit h2 {
+    color: var(--color-txt-title);
+}
+.news .list {
+    margin-top: clamp(60px, 6.15vw, 80px);
+}
+.news .list .swiper-slide {
+    width: 297px;
+    border-top: 1px solid var(--color-txt-title);
+    position: relative; /* before 정렬 기준 */
+}
+.news .list .swiper-slide::before {
+    content: "";
+    position: absolute; /* swiper-slide 기준 정렬 */
+    left: 0;
+    top: -1px;
+    background-color: var(--color-main);
+    width: 0;
+    height: 1px;
+    transition: width 0.3s;
+}
+.news .list .swiper-slide:hover::before {
+    width: 100%;
+}
+.news .list .swiper-slide a {
+    display: block;
+    padding-top: 1.5em;
+}
+.news .list .swiper-slide a h4 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-txt-title);
+    /* 2줄 제한 */
+    line-height: 1.3;
+    height: 2.6em;
+    overflow: hidden;
+}
+.news .list .swiper-slide a p {
+    line-height: 1.8;
+    margin: 1em 0 0.75em 0;
+    /* 3줄 제한 */
+    line-height: 1.8;
+    height: 5.4em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+.news .list .swiper-slide a span {
+    display: block;
+    font-size: 1.7rem;
+    color: rgba(68, 74, 85, 0.8);
+}
+.news .list .swiper-slide a .photo {
+    overflow: hidden;
+    height: 175px;
+    margin-top: 0.75em;
+    border: 1px solid #f4f4f4;
+}
+.news .list .swiper-slide a .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+.news .list .swiper-slide a:hover .photo img {
+    transform: scale3d(1.2, 1.2, 1);
+}
+.news .scrollbar {
+    width: 100%;
+    height: 5px;
+    background-color: #ededed;
+    border-radius: 3px;
+    margin-top: clamp(29px, 3.38vw, 44px);
+}
+.news .scrollbar .swiper-scrollbar-drag {
+    background-color: var(--color-main);
+}
+.news .more {
+    display: flex;
+    justify-content: center;
+    margin-top: clamp(40px, 5.38vw, 70px);
+}
+.news .more a {
+    display: block;
+    font-size: 1.7rem;
+    position: relative; /* after 정렬 기준 */
+    transition: color 0.3s;
+}
+.news .more a:hover {
+    color: var(--color-main);
+}
+.news .more a::after {
+    content: "";
+    position: absolute;  /* more 기준 정렬 */ 
+    right: -0.82em;
+    top: 0.3447em;
+    width: 0.4em;
+    height: 0.6667em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 0.3693em;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 10' fill='%23444A55' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.709625 9.65375L0 8.94413L4.11725 4.82688L0 0.709625L0.709625 0L5.5365 4.82688L0.709625 9.65375Z' /%3E%3C/svg%3E%0A");
+    transition: fill 0.3s;
+}
+.news .more a:hover::after {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 10' fill='%230064FF' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.709625 9.65375L0 8.94413L4.11725 4.82688L0 0.709625L0.709625 0L5.5365 4.82688L0.709625 9.65375Z' /%3E%3C/svg%3E%0A");
+}
+@media screen and (max-width:1024px){
+    .news .list .swiper-slide a h4 {
+        font-size: 2.2rem;
+    }
+    .news .more a {
+        font-size: 1.4rem;
+    }
+}
+@media screen and (max-width:768px){
+    .news .list .swiper-slide a h4 {
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width:400px){
+    .news .tit h2 br {
+        display: none;
+    }
+}
+
+.recruit {
+    color: var(--color-white);
+    padding: clamp(48px, 10.84vw, 141px) 0;
+    position: relative;
+    z-index: 0;
+}
+.recruit .photo {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+}
+.recruit .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transform: scale3d(1.2, 1.2, 1);
+}
+.recruit .txt {
+    display: flex;
+    justify-content: center;
+}
+.recruit .txt a {
+    display: block;
+    text-align: center;
+}
+.recruit .txt a h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+.recruit .txt a .more  {
+    display: inline-block;
+    font-size: 1.7rem;
+    color: var(--color-white8);
+    position: relative; /* after 정렬 기준 */
+    margin-top: 20px;
+}
+.recruit .txt a .more::after {
+    content: "";
+    position: absolute;  /* more 기준 정렬 */ 
+    right: -0.82em;
+    top: 0.4447em;
+    width: 0.4em;
+    height: 0.6667em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 0.3693em;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 10' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.709625 9.65375L0 8.94413L4.11725 4.82688L0 0.709625L0.709625 0L5.5365 4.82688L0.709625 9.65375Z' /%3E%3C/svg%3E%0A");
+    opacity: 0.8;
+}
+@media screen and (max-width:1024px){
+    .recruit .txt a h2 {
+        font-size: 2.8rem;
+    }
+    .recruit .txt a .more {
+        font-size: 1.4rem;
+    }
+}
+@media screen and (max-width:768px){
+    .recruit .txt a h2 {
+        font-size: 2.4rem;
+    }
+    .recruit .photo img {
+        object-position: 41% center;
+    }
 }

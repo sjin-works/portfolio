@@ -25,7 +25,7 @@ header .logo a {
     display: block;
     width: 167.35px;
     height: 40px;
-    background: url(../images/common/logo_w.svg) no-repeat center center / cover;
+    background: url(../images/common/logo_w.svg) no-repeat center center / contain;
 }
 header .gnb .gnb_open,
 header .gnb .gnb_close {
@@ -75,6 +75,130 @@ header .util .lang .lang_wrap,
 header .util .lang .lang_close {
     display: none; /* lang 열었을 때만 보임 */
 }
+
 footer {
-    margin: 1000px 0 0 0;
+    background-color: #0D0F12;
+    padding: 82px 0 106px 0;
+    font-size: clamp(1.5rem, 1.2vw, 1.7rem);
+}
+footer .wrapper {
+    position: relative; /* f_util 정렬 기준 */
+    display: flex;
+    gap: 0 50px;
+}
+footer .f_logo {
+    width: clamp(88px, 10vw, 138px);
+    height: clamp(21px, 2.5vw, 33px);
+    background: url(../images/common/logo_w.svg) no-repeat center center / contain;
+}
+footer .f_util {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    color: var(--color-white);
+    display: flex;
+    gap: 0 10px;
+}
+footer .f_util .family_site {
+    width: 188px;
+    position: relative; /* faily_wrap 정렬기준 */
+}
+footer .f_util .family_site .faily_open,
+footer .f_util .family_site .faily_close {
+    display: block;
+    width: 100%;
+    height: 45px;
+    padding-left: 16px;
+    text-align: left;
+    background-color: #3D3D3D;
+    position: relative; /* after 정렬 기준 */
+}
+footer .f_util .family_site .faily_open::after,
+footer .f_util .family_site .faily_close::after {
+    content: "";
+    position: absolute;
+    right: 0.9859em;
+    top: 1.1029em;
+    width: 0.8824em;
+    height: 0.5294em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 0.8518em;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 15 9' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.7738e-05 7.24025L1.06453 8.30469L7.2404 2.12881L13.4163 8.30469L14.4807 7.24025L7.2404 -6.29425e-05L8.7738e-05 7.24025Z' /%3E%3C/svg%3E%0A");
+}
+footer .f_util .family_site .faily_open::after {
+    transform: rotate(180deg);
+}
+footer .f_util .family_site .faily_wrap {
+    display: none;
+    position: absolute; /* family_site 기준 정렬 */
+    left: 0;
+    bottom: calc(45px + 1px);
+    width: 100%;
+    height: 45px;
+    background-color: #3D3D3D;
+}
+footer .f_util .family_site .faily_wrap a {
+    display: block;
+    padding: 0.5882em 0 0.5294em 0.9412em;
+    position: relative; /* after 정렬 기준 */
+}
+footer .f_util .family_site .faily_wrap a::after {
+    content: "";
+    position: absolute; /* a 기준 정렬 */
+    right: 1.1176em;
+    top: 0.8606em;
+    width: 0.7647em;
+    height: 0.7647em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 0.75em;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 13 13' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.35581 12.75C0.976937 12.75 0.65625 12.6188 0.39375 12.3563C0.13125 12.0938 0 11.7731 0 11.3942V1.35581C0 0.976937 0.13125 0.65625 0.39375 0.39375C0.65625 0.13125 0.976937 0 1.35581 0H6.08644V1.125H1.35581C1.29806 1.125 1.24519 1.14906 1.19719 1.19719C1.14906 1.24519 1.125 1.29806 1.125 1.35581V11.3942C1.125 11.4519 1.14906 11.5048 1.19719 11.5528C1.24519 11.6009 1.29806 11.625 1.35581 11.625H11.3942C11.4519 11.625 11.5048 11.6009 11.5528 11.5528C11.6009 11.5048 11.625 11.4519 11.625 11.3942V6.66356H12.75V11.3942C12.75 11.7731 12.6188 12.0938 12.3563 12.3563C12.0938 12.6188 11.7731 12.75 11.3942 12.75H1.35581ZM4.66444 8.87588L3.87413 8.08556L10.8347 1.125H7.875V0H12.75V4.875H11.625V1.91531L4.66444 8.87588Z' /%3E%3C/svg%3E%0A");
+}
+footer .f_util .family_site .faily_close {
+    display: none;
+}
+footer .f_util .family_site.open .faily_close {
+    display: block;
+}
+footer .f_util .family_site.open .faily_open {
+    display: none;
+}
+footer .f_util .top {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
+    background-color: var(--color-main);
+}
+footer .f_nav {
+    color: var(--color-white8);
+}
+footer .f_nav ul {
+    display: flex;
+    gap: 0 40px;
+}
+footer .f_nav ul li a {
+    display: block;
+}
+footer .f_info {
+    color: var(--color-white8);
+    margin-bottom: 17px;
+}
+footer .f_info address {
+    display: inline-block;
+}
+footer .f_info span {
+    display: inline-block;
+    margin: 17px 40px 0 0;
+}
+footer .copyright {
+    color: var(--color-white6);
+}
+@media screen and (max-width:1260px){
+    footer .wrapper {
+        gap: 0 2.9412em;
+    }
+    footer .f_nav ul {
+        gap: 0 2.3529em;
+    }
 }
