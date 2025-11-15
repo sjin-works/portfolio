@@ -149,161 +149,100 @@ $(document).ready(function (){
 
     
     /************************* product_swiper 시작 ************************/
+    function createProductSwiper(selector, navPrev, navNext, paging) {
+        return new Swiper(selector, {
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+            breakpoints: {
+                768: { spaceBetween: 24 }
+            },
+            loop: true,
+            centeredSlides: true,
 
-    /* ================== 공통 중앙정렬 함수 ================== */
-    function setCenter(swiper) {
-        const active = swiper.slides[swiper.activeIndex];
-        if (!active) return;
-    
-        const slideRect = active.getBoundingClientRect();
-        // 화면 전체 width 기준
-        const windowCenter = window.innerWidth / 2;
-        // 현재 슬라이드 중심
-        const slideCenter = slideRect.left + slideRect.width / 2;
-        // 차이값
-        const diff = slideCenter - windowCenter;
-    
-        swiper.setTranslate(swiper.getTranslate() - diff);
+            navigation: {
+                prevEl: navPrev,
+                nextEl: navNext
+            },
+
+            pagination: {
+                el: paging,
+                clickable: true,
+                type: 'fraction'
+            },
+
+            on: {
+                transitionEnd: function () {
+                    this.update();
+                }
+            }
+        });
     }
 
-    /* ================== Film Swiper ================== */
-    const swiperFilm = new Swiper('.product .item01 .swiper', {
-        slidesPerView: 'auto',
-        spaceBetween: 16,
-        breakpoints: {
-            769: {spaceBetween: 20},
-            1025: {spaceBetween: 35}
-        },
-        centeredSlides: true,
-        loop: true,
-        watchSlidesProgress: true,
-        loopAdditionalSlides: 1,
-        speed: 600,
+    let product01_swiper = null;
+    let product02_swiper = null;
 
-        navigation: {
-            nextEl: '.product .item01 .ctrl_btn .next',
-            prevEl: '.product .item01 .ctrl_btn .prev',
-        },
-        pagination: {
-            el: '.product .item01 .ctrl_btn .paging',
-            clickable: true,
-            type: 'fraction',
-        },
+    function initProduct01() {
+        if (!product01_swiper) {
+            product01_swiper = createProductSwiper(
+                '.product .tab_item.item01 .swiper',
+                '.product .ctrl_btn.item01 .prev',
+                '.product .ctrl_btn.item01 .next',
+                '.product .ctrl_btn.item01 .paging'
+            );
+        }
+    }
 
-        on: {
-            init() {
-                const swiper = this
-                setTimeout(() => {
-                    swiper.updateSlides()
-                    swiper.updateSlidesClasses()
-                    setCenter(swiper)
-                }, 50)
-            },
-        
-            slideChangeTransitionStart() {
-                this.updateSlides()
-                this.updateSlidesClasses()
-            },
+    function initProduct02() {
+        if (!product02_swiper) {
+            product02_swiper = createProductSwiper(
+                '.product .tab_item.item02 .swiper',
+                '.product .ctrl_btn.item02 .prev',
+                '.product .ctrl_btn.item02 .next',
+                '.product .ctrl_btn.item02 .paging'
+            );
+        }
+    }
 
-            realIndexChange() {
-                const swiper = this
-                setTimeout(() => {
-                    swiper.updateSlides()
-                    swiper.updateSlidesClasses()
-                    setCenter(swiper)
-                }, 10)
+    // 처음 로드시 Film 탭, Film Swiper만 활성화
+    initProduct01();
+    $('.product .tab_content .tab_item').removeClass('active').attr('title', '');
+    $('.product .tab_content .tab_item.item01').addClass('active').attr('title', '선택됨');
+
+    $('.product .tab_list ul li').on('click', function () {
+
+        const tab = $(this).attr('data-tab'); // item01 / item02
+
+        // 탭 비주얼 상태 변경
+        $('.product .tab_list ul li').removeClass('active');
+        $(this).addClass('active');
+
+        $('.product .tab_list ul li button span').text('');
+        $(this).find('button span').text('선택됨');
+
+        // 컨텐츠 활성화 변경
+        $('.product .tab_content .tab_item').removeClass('active').attr('title', '');
+        $('.product .tab_content .tab_item.' + tab).addClass('active').attr('title', '선택됨');
+
+        // Film 탭
+        if (tab === 'item01') {
+            if (product02_swiper) {
+                product02_swiper.destroy(true, true);
+                product02_swiper = null;
             }
+            initProduct01();
+            product01_swiper.update();
+        }
+
+        // Tape 탭
+        if (tab === 'item02') {
+            if (product01_swiper) {
+                product01_swiper.destroy(true, true);
+                product01_swiper = null;
+            }
+            initProduct02();
+            product02_swiper.update();
         }
     });
-
-    /* ================== Tape Swiper ================== */
-    const swiperTape = new Swiper('.product .item02 .swiper', {
-        slidesPerView: 'auto',
-        spaceBetween: 16,
-        breakpoints: {
-            769: {spaceBetween: 20},
-            1025: {spaceBetween: 35}
-        },
-        centeredSlides: true,
-        loop: true,
-        watchSlidesProgress: true,
-        loopAdditionalSlides: 1,
-        speed: 600,
-
-        navigation: {
-            nextEl: '.product .item02 .ctrl_btn .next',
-            prevEl: '.product .item02 .ctrl_btn .prev',
-        },
-        pagination: {
-            el: '.product .item02 .ctrl_btn .paging',
-            clickable: true,
-            type: 'fraction',
-        },
-
-        on: {
-            init() {
-                const swiper = this
-                setTimeout(() => {
-                    swiper.updateSlides()
-                    swiper.updateSlidesClasses()
-                    setCenter(swiper)
-                }, 50)
-            },
-        
-            slideChangeTransitionStart() {
-                this.updateSlides()
-                this.updateSlidesClasses()
-            },
-        
-            realIndexChange() {
-                const swiper = this
-                setTimeout(() => {
-                    swiper.updateSlides()
-                    swiper.updateSlidesClasses()
-                    setCenter(swiper)
-                }, 10)
-            }
-        }
-    });
-
-    /* ================== 탭 전환 시 중앙 정렬 ================== */
-    $('.product .tab_list ul li').on('click', function(){
-        let tab = $(this).attr('data-tab')
-    
-        // 탭 active 처리
-        $('.product .tab_list ul li').removeClass('active')
-        $(this).addClass('active')
-        $('.product .tab_content .tab_item').removeClass('active')
-        $('.product .tab_content .tab_item.' + tab).addClass('active')
-    
-        let swiper = (tab === 'item01') ? swiperFilm : swiperTape
-    
-        swiper.slideToLoop(0, 0)
-    
-        // 레이아웃 안정화 후 중앙 이동 (덜그럭 방지)
-        requestAnimationFrame(()=>{
-            requestAnimationFrame(()=>{
-                swiper.updateSlides()
-                swiper.updateSlidesClasses()
-                setCenter(swiper)
-            })
-        })
-    })
-
-    /* ================== 화면 사이즈 변경 → 자동 중앙 재정렬 ================== */
-    let resizeTimer
-    $(window).on('resize', function(){
-        clearTimeout(resizeTimer)
-        resizeTimer = setTimeout(function(){
-            // Film 열려있을 때만 실행
-            if($('.product .item01').hasClass('active')){
-                setCenter(swiperFilm)
-            }
-            if($('.product .item02').hasClass('active')){
-                setCenter(swiperTape)
-            }
-        }, 200)
-    })
     /************************* product_swiper 끝 ************************/
     
 

@@ -9,9 +9,60 @@
 @import url(fonts.css);
 @import url(layout.css);
 
-section:not(.news) {
-    background-color: #000;
+.bg_objects {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    padding: 70px 0 0 0;
+    transform: translateY(20vh);
 }
+.bg_objects .obj1 {
+    content: "";
+    position: absolute;
+    left: -15%;
+    top: 15%;
+    width: clamp(180px, 53vw, 700px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: rgba(0, 100, 255, 0.6);
+    filter: blur(30rem);
+}
+.bg_objects .obj2 {
+    content: "";
+    position: absolute;
+    right: -21%;
+    top: 59%;
+    width: clamp(180px, 53vw, 700px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: rgba(0, 100, 255, 0.6);
+    filter: blur(35rem);
+}
+@media screen and (max-width:1320px) {
+    .bg_objects .obj1,
+    .bg_objects .obj2 {
+        filter: blur(30rem);
+    }
+}
+@media screen and (max-width:1024px) {
+    .bg_objects .obj1,
+    .bg_objects .obj2 {
+        filter: blur(20rem);
+    }
+}
+@media screen and (max-width:768px) {
+    .bg_objects .obj1,
+    .bg_objects .obj2 {
+        filter: blur(15rem);
+    }
+}
+@media screen and (max-width:400px) {
+    .bg_objects .obj1,
+    .bg_objects .obj2  {
+        filter: blur(10rem);
+    }
+}
+
 section .tit {
     text-align: center;
     font-weight: 700;
@@ -191,98 +242,11 @@ section .tit h2 {
     }
 }
 
-/* .bg_objects {
-    position: absolute;  body 기준 정렬 
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 9000px;  페이지 높이보다 충분히 크게 
-}
-.bg_objects::before {
-    content: "";
-    position: absolute;
-    left: -20%;
-    top: 14%;
-    z-index: 1;
-    width: clamp(180px, 60vw, 800px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(48rem);
-}
-.bg_objects::after {
-    content: "";
-    position: absolute;
-    right: -7%;
-    top: 28%;
-    z-index: 1;
-    width: clamp(180px, 60vw, 800px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(48rem);
-}
-.bg_objects .obj3 {
-    position: absolute;
-    left: -20%;
-    top: 35%;
-    z-index: 1;
-    width: clamp(200px, 60vw, 800px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(48rem);
-}
-.bg_objects .obj4 {
-    position: absolute;
-    right: -7%;
-    top: 45%;
-    z-index: 1;
-    width: clamp(200px, 60vw, 800px);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background-color: rgba(0, 100, 255, 0.6);
-    filter: blur(48rem);
-} ??????????????????????????????????????????????????????????? */
-
-@media screen and (max-width:1320px){
-    .bg_objects::before,
-    .bg_objects::after,
-    .bg_objects .obj3,
-    .bg_objects .obj4 {
-        filter: blur(30rem);
-    }
-}
-@media screen and (max-width:1024px){
-    .bg_objects::before,
-    .bg_objects::after,
-    .bg_objects .obj3,
-    .bg_objects .obj4 {
-        filter: blur(20rem);
-    }
-}
-@media screen and (max-width:768px){
-    .bg_objects::before,
-    .bg_objects::after,
-    .bg_objects .obj3,
-    .bg_objects .obj4 {
-        filter: blur(15rem);
-    }
-}
-@media screen and (max-width:400px){
-    .bg_objects::before,
-    .bg_objects::after,
-    .bg_objects .obj3,
-    .bg_objects .obj4 {
-        filter: blur(10rem);
-    }
-}
-
 .rnd .tit .h2 {
     color: var(--color-white);
 }
 .rnd .rnd_pc {
-    padding: 180px 0 150px 0;
+    margin: 180px 0 150px 0;
 }
 .rnd .rnd_pc .accordion_wrap .accordion {
     margin-top: 140px;
@@ -367,7 +331,7 @@ section .tit h2 {
         display: block;
     }
     .rnd .rnd_mo {
-        padding: 120px 0 74px 0;
+        margin: 120px 0 74px 0;
     }
     .rnd .rnd_mo .list {
         margin-top: 50px;
@@ -414,9 +378,8 @@ section .tit h2 {
     }
 }
 
-
 .biz {
-    padding-top: calc(330px + 150px);
+    margin-top: calc(330px + 150px);
 }
 .biz .tit .h2 {
     color: var(--color-white);
@@ -590,7 +553,7 @@ section .tit h2 {
 }/*media*/
 @media screen and (max-width:768px){
     .biz {
-        padding-top: 120px;
+        margin-top: 120px;
     }
     .biz .biz_info .biz_list {
         display: block;
@@ -642,27 +605,33 @@ section .tit h2 {
     color: var(--color-white);
 }
 .product .tab_content .tab_item {
-    display: none; /* active 클래스 추가될 때만 보임 */
-    position: relative; /* ctrl_btn 정렬 기준 */
+    display: none;
+    position: relative;
 }
 .product .tab_content .tab_item.active {
     display: block;
+}
+.product .tab_content .tab_item .list {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* 브라우저 기준 가로 중앙 */
 }
 /************* swiper 기본 스타일 ***************/
 .product .tab_content .tab_item .swiper-wrapper {
     align-items: center;
 }
 .product .tab_content .tab_item .list .swiper-slide {
-    width: 400px;
-    height: 222px;
+    width: clamp(300px, 30vw, 390px);
+    height: clamp(300px, 30vw, 390px);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 20px;
     opacity: 0.65;
     filter: blur(1px);
-    transform: scale(0.99);
-    transition: opacity 0.5s, filter 0.6s, transform 0.6s, padding 0.4s;
+    transition: opacity 0.5s, filter 0.6s;
     overflow: hidden;
     position: relative;
 }
@@ -679,13 +648,15 @@ section .tit h2 {
     display: flex;
     align-items: flex-end;
     height: 100%;
-    padding: 30px;
+    padding: 45px 49px;
     transition: transform 0.6s, padding 0.5s;
     position: relative;
     z-index: 10;
+    text-align: center;
 }
 .product .tab_content .tab_item .list .swiper-slide a .txt {
     color: var(--color-white);
+    word-break: break-all;
 }
 .product .tab_content .tab_item .list .swiper-slide a .txt h4 {
     font-weight: 700;
@@ -699,12 +670,10 @@ section .tit h2 {
 }
 /************* swiper active 추가 공통 스타일 ***************/
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active {
-    width: 800px;
-    height: 400px;
+    width: clamp(405px, 46vw, 600px);
     position: relative; /* aftrer 정렬 기준 */
     opacity: 1;
     filter: blur(0px) brightness(1.05);
-    transform: scale(1);
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active::before {
     display: none;
@@ -719,8 +688,8 @@ section .tit h2 {
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a {
-    padding: 35px;
-    transform: scale(1);
+    padding: 45px;
+    text-align: left;
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
     font-size: 3.2rem;
@@ -768,22 +737,22 @@ section .tit h2 {
     background-image: url(../images/main/product02_7.jpg);
 }
 .product .tab_content .tab_item .ctrl_btn {
-    display: flex;
-    align-items: center;
-    gap: 0 20px;
-    color: var(--color-white);
     position: absolute;
     left: 50%;
     bottom: -28%;
     transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0 37px;
+    color: var(--color-white);
 }
 .product .tab_content .tab_item .ctrl_btn button {
     display: block;
-    width: 12.62px;
-    height: 12.62px;
+    width: 13px;
+    height: 23px;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 5.82px;
+    background-size: 12.91px;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 6 11' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.07458 10.1492L5.82062 9.40313L1.49207 5.07459L5.82062 0.746043L5.07458 0L-1.38283e-05 5.07459L5.07458 10.1492Z' /%3E%3C/svg%3E%0A");
 }
 .product .tab_content .tab_item .ctrl_btn .paging {
@@ -797,17 +766,11 @@ section .tit h2 {
     .product .tab_list ul {
         gap: 0 20px;
     }
-    .product .tab_content .tab_item .list .swiper-slide {
-        width: clamp(300px, 39vw, 400px);
-        height: clamp(170px, 22vw, 222px);
-    }
-    /************* swiper active 추가 공통 스타일 ***************/
-    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active {
-        width: clamp(600px, 78vw, 800px);
-        height: clamp(300px, 39vw, 400px);
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active::after {
+        height: 100%;
     }
     .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
-        font-size: 2.8rem;
+        font-size: clamp(2.4rem, 2.8vw, 2.8rem);
     }
 }/*media*/
 @media screen and (max-width:768px){
@@ -816,17 +779,13 @@ section .tit h2 {
         height: 375px;
         border-radius: 10px;
         opacity: 1;
-        filter: none;
-        transform: none;
-        transition: none;
     }
     .product .tab_content .tab_item .list .swiper-slide a {
-        padding: 20px;
-        transition: none;
+        padding: 30px;
+        text-align: left;
     }
     .product .tab_content .tab_item .list .swiper-slide a .txt h4 {
         font-size: 2.4rem;
-        transition: none;
     }
     .product .tab_content .tab_item .list .swiper-slide a .txt p {
         display: none;
@@ -835,12 +794,9 @@ section .tit h2 {
     .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active {
         width: 285px;
         height: 375px;
-        filter: none;
-        transform: none;
     }
     .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a {
-        padding: 20px;
-        transform: none;
+        padding: 30px;
     }
     .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
         font-size: 2.4rem;
@@ -852,7 +808,8 @@ section .tit h2 {
 }/*media*/
 
 .news {
-    margin: 180px 0 117px 0;
+    padding: clamp(120px, 13vw, 180px) 0 clamp(74px, 9vw, 117px) 0;
+    background-color: var(--color-white);
 }
 .news .tit h2 {
     color: var(--color-txt-title);

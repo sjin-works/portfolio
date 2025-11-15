@@ -40,6 +40,7 @@ body {
     color: var(--color-txt-basic);
     word-break: keep-all; /* 단어별로 강제 줄 바꿈 */
     word-wrap: break-word; /* 단어가 너무 길 때  강제 줄 바꿈 */
+    background-color: #000;
 }
 
 .wrapper {
@@ -47,7 +48,8 @@ body {
     margin: 0 auto; /* 가운데 정렬 */
 }
 #wrap {
-    position: relative; /* header를 기준으로 정렬 */
+    position: relative; /* header 정렬 기준 */
+    z-index: 10;
 }
 
 .blind {

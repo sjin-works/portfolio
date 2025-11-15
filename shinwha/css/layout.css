@@ -27,25 +27,6 @@ header .logo a {
     height: 40px;
     background: url(../images/common/logo_w.svg) no-repeat center center / contain;
 }
-header .gnb .gnb_open,
-header .gnb .gnb_close {
-    display: none; /* 모바일에서만 보임 */
-}
-header .gnb .gnb_wrap ul {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header .gnb .gnb_wrap ul.depth1 > li > a {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: var(--header-h);
-    padding: 0 40px;
-}
-header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
-    display: none;
-}
 header .util {
     display: flex;
     align-items: center;
@@ -76,6 +57,67 @@ header .util .lang .lang_close {
     display: none; /* lang 열었을 때만 보임 */
 }
 
+/****************** header에 fixed 클래스 추가 *********************/
+header.fixed {
+    background-color: var(--color-white);
+    color: var(--color-txt-title);
+    border-bottom: 1px solid #ededed;
+}
+header.fixed .logo a {
+    background-image: url(../images/common/logo.svg);
+}
+header.fixed .util .search .sch_open {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 21 21' fill='%23061225' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.1728 20.4903L12.3219 13.6391C11.6969 14.1551 10.9781 14.559 10.1656 14.8506C9.35312 15.1423 8.5126 15.2881 7.64406 15.2881C5.5076 15.2881 3.69948 14.5484 2.21969 13.0691C0.739896 11.5897 0 9.78198 0 7.64594C0 5.5101 0.739687 3.70177 2.21906 2.22094C3.69844 0.740313 5.50615 0 7.64219 0C9.77802 0 11.5864 0.739895 13.0672 2.21969C14.5478 3.69948 15.2881 5.5076 15.2881 7.64406C15.2881 8.53677 15.1383 9.38938 14.8388 10.2019C14.539 11.0144 14.1391 11.721 13.6391 12.3219L20.49 19.1728L19.1728 20.4903ZM7.64406 13.4134C9.25469 13.4134 10.6189 12.8545 11.7366 11.7366C12.8545 10.6189 13.4134 9.25469 13.4134 7.64406C13.4134 6.03344 12.8545 4.66927 11.7366 3.55156C10.6189 2.43364 9.25469 1.87469 7.64406 1.87469C6.03344 1.87469 4.66927 2.43364 3.55156 3.55156C2.43365 4.66927 1.87469 6.03344 1.87469 7.64406C1.87469 9.25469 2.43365 10.6189 3.55156 11.7366C4.66927 12.8545 6.03344 13.4134 7.64406 13.4134Z' /%3E%3C/svg%3E%0A");
+}
+header.fixed .util .lang .lang_open {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23061225' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.875 23.75C10.2469 23.75 8.71042 23.4379 7.26562 22.8137C5.82083 22.1896 4.56083 21.3398 3.48562 20.2644C2.41021 19.1892 1.56042 17.9292 0.93625 16.4844C0.312084 15.0396 0 13.5031 0 11.875C0 10.234 0.312084 8.69427 0.93625 7.25594C1.56042 5.8176 2.41021 4.56083 3.48562 3.48562C4.56083 2.41021 5.82083 1.56042 7.26562 0.936251C8.71042 0.312084 10.2469 0 11.875 0C13.516 0 15.0557 0.312084 16.4941 0.936251C17.9324 1.56042 19.1892 2.41021 20.2644 3.48562C21.3398 4.56083 22.1896 5.8176 22.8137 7.25594C23.4379 8.69427 23.75 10.234 23.75 11.875C23.75 13.5031 23.4379 15.0396 22.8137 16.4844C22.1896 17.9292 21.3398 19.1892 20.2644 20.2644C19.1892 21.3398 17.9324 22.1896 16.4941 22.8137C15.0557 23.4379 13.516 23.75 11.875 23.75ZM11.875 21.8484C12.5129 21.0024 13.0498 20.1491 13.4856 19.2884C13.9215 18.4278 14.2765 17.4871 14.5506 16.4663H9.19938C9.48958 17.5192 9.84865 18.4759 10.2766 19.3366C10.7043 20.1972 11.2371 21.0345 11.875 21.8484ZM9.45438 21.5047C8.97521 20.8172 8.5449 20.0356 8.16344 19.16C7.78198 18.2842 7.48552 17.3863 7.27406 16.4663H3.03375C3.69396 17.7644 4.57937 18.855 5.69 19.7381C6.80062 20.621 8.05542 21.2099 9.45438 21.5047ZM14.2956 21.5047C15.6946 21.2099 16.9494 20.621 18.06 19.7381C19.1706 18.855 20.056 17.7644 20.7162 16.4663H16.4759C16.2243 17.3942 15.9077 18.296 15.5263 19.1719C15.145 20.0477 14.7348 20.8253 14.2956 21.5047ZM2.2475 14.5913H6.89438C6.81583 14.1267 6.75885 13.6711 6.72344 13.2247C6.68823 12.7784 6.67062 12.3285 6.67062 11.875C6.67062 11.4215 6.68823 10.9716 6.72344 10.5253C6.75885 10.0789 6.81583 9.62333 6.89438 9.15875H2.2475C2.12729 9.58333 2.03521 10.0248 1.97125 10.4831C1.90708 10.9415 1.875 11.4054 1.875 11.875C1.875 12.3446 1.90708 12.8085 1.97125 13.2669C2.03521 13.7252 2.12729 14.1667 2.2475 14.5913ZM8.76906 14.5913H14.9809C15.0593 14.1267 15.1161 13.6752 15.1516 13.2369C15.1868 12.7985 15.2044 12.3446 15.2044 11.875C15.2044 11.4054 15.1868 10.9515 15.1516 10.5131C15.1161 10.0748 15.0593 9.62333 14.9809 9.15875H8.76906C8.69073 9.62333 8.63385 10.0748 8.59844 10.5131C8.56323 10.9515 8.54562 11.4054 8.54562 11.875C8.54562 12.3446 8.56323 12.7985 8.59844 13.2369C8.63385 13.6752 8.69073 14.1267 8.76906 14.5913ZM16.8556 14.5913H21.5025C21.6227 14.1667 21.7148 13.7252 21.7788 13.2669C21.8429 12.8085 21.875 12.3446 21.875 11.875C21.875 11.4054 21.8429 10.9415 21.7788 10.4831C21.7148 10.0248 21.6227 9.58333 21.5025 9.15875H16.8556C16.9342 9.62333 16.9911 10.0789 17.0266 10.5253C17.0618 10.9716 17.0794 11.4215 17.0794 11.875C17.0794 12.3285 17.0618 12.7784 17.0266 13.2247C16.9911 13.6711 16.9342 14.1267 16.8556 14.5913ZM16.4759 7.28375H20.7162C20.0481 5.96958 19.1688 4.87896 18.0781 4.01188C16.9875 3.145 15.7267 2.55208 14.2956 2.23313C14.7748 2.96063 15.201 3.75635 15.5744 4.62031C15.9479 5.48406 16.2484 6.37188 16.4759 7.28375ZM9.19938 7.28375H14.5506C14.2604 6.23875 13.8954 5.27594 13.4556 4.39531C13.0156 3.51469 12.4887 2.68344 11.875 1.90156C11.2613 2.68344 10.7344 3.51469 10.2944 4.39531C9.85458 5.27594 9.48958 6.23875 9.19938 7.28375ZM3.03375 7.28375H7.27406C7.50156 6.37188 7.80208 5.48406 8.17563 4.62031C8.54896 3.75635 8.97521 2.96063 9.45438 2.23313C8.01521 2.55208 6.7524 3.14708 5.66594 4.01813C4.57927 4.88896 3.70188 5.9775 3.03375 7.28375Z' /%3E%3C/svg%3E%0A");
+}
+/****************** header에 fixed 클래스 추가 *********************/
+/****************** header menu_pc *********************/
+@media screen and (min-width:1025px){
+    header .gnb .gnb_open,
+    header .gnb .gnb_wrap .gnb_close {
+        display: none;
+        /* 모바일에서만 보임 */
+    }
+    header .gnb .gnb_wrap ul.depth1 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li {
+        position: relative; /* ul.depth2 정렬 기준 */
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > a {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: var(--header-h);
+        padding: 0 40px;
+        white-space: nowrap;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
+        display: none;
+        position: absolute; /* li 기준 정렬 */
+        left: 50%;
+        top: calc(var(--header-h) - 1px);
+        transform: translateX(-50%);
+        background-color: var(--color-white);
+        border-radius: 0 0 10px 10px;
+        min-width: 100%;
+        padding: 17px 46px 37px 46px;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li > a {
+        display: block;
+        padding: 3px 0;
+        white-space: nowrap;
+        text-align: center;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li > a:hover {
+        font-weight: 700;
+        color: var(--color-main);
+    }
+}
 footer {
     background-color: #0D0F12;
     padding: 82px 0 106px 0;
@@ -140,7 +182,8 @@ footer .f_util .family_site .faily_wrap {
 }
 footer .f_util .family_site .faily_wrap a {
     display: block;
-    padding: 0.5882em 0 0.5294em 0.9412em;
+    line-height: 45px;
+    padding-left: 0.9412em;
     position: relative; /* after 정렬 기준 */
 }
 footer .f_util .family_site .faily_wrap a::after {
@@ -175,6 +218,7 @@ footer .f_nav {
 }
 footer .f_nav ul {
     display: flex;
+    flex-wrap: wrap;
     gap: 0 40px;
 }
 footer .f_nav ul li a {
@@ -194,11 +238,43 @@ footer .f_info span {
 footer .copyright {
     color: var(--color-white6);
 }
-@media screen and (max-width:1260px){
+@media screen and (max-width:1320px){
     footer .wrapper {
         gap: 0 2.9412em;
     }
     footer .f_nav ul {
         gap: 0 2.3529em;
+    }
+    footer .f_info span {
+        display: inline-block;
+        margin-right: 2.3529em;
+    }
+}/*media*/
+@media screen and (max-width:1150px){
+    footer {
+        padding: 70px 0 79px 0;
+    }
+    footer .wrapper {
+        display: block;
+    }
+    footer .f_logo {
+        margin-bottom: 31px;
+    }
+}
+@media screen and (max-width:768px){
+    footer .f_util {
+        position: relative;
+        right: auto;
+        top: auto;
+    }
+    footer .f_util .family_site {
+        width: 281px;
+        margin-bottom: 31px;
+    }
+    footer .f_info {
+        margin-bottom: 12px;
+    }
+    footer .f_info span {
+        margin-top: 12px;
     }
 }
