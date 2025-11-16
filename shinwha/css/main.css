@@ -53,7 +53,7 @@
 @media screen and (max-width:768px) {
     .bg_objects .obj1,
     .bg_objects .obj2 {
-        filter: blur(15rem);
+        filter: blur(12rem);
     }
 }
 @media screen and (max-width:400px) {
@@ -120,7 +120,7 @@ section .tit h2 {
     transform: scale3d(1, 1, 1);
 }
 .visual .swiper-slide .txt {
-    margin: 0 0 clamp(155px, 30vw, 394px) 0;
+    margin-bottom: clamp(155px, 40vh, 394px);
 }
 .visual .swiper-slide .txt h3 {
     font-size: 5rem;
@@ -148,7 +148,7 @@ section .tit h2 {
     position: absolute; /* visual 기준 정렬 */
     left: calc(50% - 630px);
     right: 0;
-    bottom: clamp(95px, 22vw, 322px);
+    bottom: clamp(95px, 33vh, 322px);
     z-index: 10;
     display: flex;
     align-items: center;
@@ -435,7 +435,7 @@ section .tit h2 {
     height: 100%;
 }
 .biz .biz_info .biz_list li:hover a {
-    padding: 0 0 118px 0;
+    padding: 0 40px 118px 40px;
     justify-content: flex-end;
 }
 /* hover 배경을 위한 레이어 */
@@ -514,11 +514,13 @@ section .tit h2 {
     margin-top: 10px;
 }
 .biz .biz_info .biz_list li a .txt .more {
+    position: absolute; /* a 기준 정렬 */
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
     display: inline-block;
     font-size: 1.5rem;
     color: var(--color-white8);
-    position: relative; /* after 정렬 기준 */
-    margin: 21px 12px 0 0;
 }
 .biz .biz_info .biz_list li a .txt .more::after {
     content: "";
@@ -539,12 +541,18 @@ section .tit h2 {
         margin-bottom: 0;
         opacity: 0;
     }
+    .biz .biz_info .biz_list li a .txt {
+        white-space: wrap;
+    }
     .biz .biz_info .biz_list li a .txt strong {
         font-size: 1.5rem;
     }
     .biz .biz_info .biz_list li a .txt h3 {
         font-size: 2.8rem;
         margin-top: 6px;
+    }
+    .biz .biz_info .biz_list li a .txt p br {
+        display: none;
     }
     .biz .biz_info .biz_list li a .txt .more {
         font-size: 1.3rem;
@@ -553,7 +561,7 @@ section .tit h2 {
 }/*media*/
 @media screen and (max-width:768px){
     .biz {
-        margin-top: 120px;
+        margin-top: calc(220px + 120px);
     }
     .biz .biz_info .biz_list {
         display: block;
@@ -578,7 +586,7 @@ section .tit h2 {
 
 .product {
     padding: clamp(140px, 24vw, 320px) 0 clamp(74px, 19vw, 252px) 0;
-    background: url(../images/main/product_bg.jpg) no-repeat center center / cover;
+    background: url(../images/main/product_bg.jpg) no-repeat center -30px / cover;
 }
 .product .tit .h2 {
     color: var(--color-white);

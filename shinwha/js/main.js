@@ -1,5 +1,4 @@
 $(document).ready(function (){
-
     /************************* visual_swiper 시작 ************************/
     let visual_time = 5000
     const visual_swiper = new Swiper('.visual .swiper', {
@@ -21,7 +20,7 @@ $(document).ready(function (){
     $('.visual .paging .total span').text(totalSlides); // 총 개수 표시
 
     // 현재 슬라이드 번호 표시 함수
-    function updateCurrent() {
+    function updateCurrent(){
         let realIndex = visual_swiper.realIndex + 1; // 실제 인덱스 (0부터 시작하므로 +1)
         $('.visual .paging .current').text(realIndex);
         
@@ -30,7 +29,7 @@ $(document).ready(function (){
         bar.stop(true, true);
         bar.css({ width: 0 });
 
-        if (visual_swiper.autoplay.running) {
+        if (visual_swiper.autoplay.running){
             bar.animate({
                 width: '100%'
             }, visual_time);
@@ -41,7 +40,7 @@ $(document).ready(function (){
     updateCurrent();
 
     // 슬라이드 변경될 때마다 실행
-    visual_swiper.on('slideChange', function () {
+    visual_swiper.on('slideChange', function(){
         updateCurrent();
     });
 
@@ -74,15 +73,15 @@ $(document).ready(function (){
     let poObjCont = '.conts' // 고정요소 내부의 내용
 
     // 기존 모든 ScrollTrigger 제거 (중복 방지)
-    let initRndAccordion = function () {
+    let initRndAccordion = function(){
 
         // 기존 모든 ScrollTrigger 제거 (중복 방지)
-        ScrollTrigger.getAll().forEach(function (st) {
+        ScrollTrigger.getAll().forEach(function(st){
             st.kill();
         });
 
         // 501px 이하에서는 기능 꺼짐
-        if ($(window).width() <= 500) {
+        if ($(window).width() <= 500){
             return; // 여기서 끝
         }
 
@@ -142,14 +141,14 @@ $(document).ready(function (){
     initRndAccordion();
 
     // resize 시 재실행
-    $(window).resize(function () {
+    $(window).resize(function(){
         initRndAccordion();
     });
     /************************* rnd 아코디언 (반응형 포함) 끝 ************************/
 
     
     /************************* product_swiper 시작 ************************/
-    function createProductSwiper(selector, navPrev, navNext, paging) {
+    function createProductSwiper(selector, navPrev, navNext, paging){
         return new Swiper(selector, {
             slidesPerView: 'auto',
             spaceBetween: 16,
@@ -171,7 +170,7 @@ $(document).ready(function (){
             },
 
             on: {
-                transitionEnd: function () {
+                transitionEnd: function(){
                     this.update();
                 }
             }
@@ -181,8 +180,8 @@ $(document).ready(function (){
     let product01_swiper = null;
     let product02_swiper = null;
 
-    function initProduct01() {
-        if (!product01_swiper) {
+    function initProduct01(){
+        if (!product01_swiper){
             product01_swiper = createProductSwiper(
                 '.product .tab_item.item01 .swiper',
                 '.product .ctrl_btn.item01 .prev',
@@ -192,8 +191,8 @@ $(document).ready(function (){
         }
     }
 
-    function initProduct02() {
-        if (!product02_swiper) {
+    function initProduct02(){
+        if (!product02_swiper){
             product02_swiper = createProductSwiper(
                 '.product .tab_item.item02 .swiper',
                 '.product .ctrl_btn.item02 .prev',
@@ -208,7 +207,7 @@ $(document).ready(function (){
     $('.product .tab_content .tab_item').removeClass('active').attr('title', '');
     $('.product .tab_content .tab_item.item01').addClass('active').attr('title', '선택됨');
 
-    $('.product .tab_list ul li').on('click', function () {
+    $('.product .tab_list ul li').on('click', function(){
 
         const tab = $(this).attr('data-tab'); // item01 / item02
 
@@ -224,8 +223,8 @@ $(document).ready(function (){
         $('.product .tab_content .tab_item.' + tab).addClass('active').attr('title', '선택됨');
 
         // Film 탭
-        if (tab === 'item01') {
-            if (product02_swiper) {
+        if (tab === 'item01'){
+            if (product02_swiper){
                 product02_swiper.destroy(true, true);
                 product02_swiper = null;
             }
@@ -234,8 +233,8 @@ $(document).ready(function (){
         }
 
         // Tape 탭
-        if (tab === 'item02') {
-            if (product01_swiper) {
+        if (tab === 'item02'){
+            if (product01_swiper){
                 product01_swiper.destroy(true, true);
                 product01_swiper = null;
             }
@@ -296,29 +295,6 @@ $(document).ready(function (){
     /************************* recruit 스크롤 끝 ************************/
 
 
-    /************************* footer ************************/
-
-    /* ================== family_site open 클래스 추가 ================== */
-    $('footer .f_util .family_site .faily_open').on('click', function(){
-        $('footer .f_util .family_site').addClass('open');
-        $('footer .f_util .family_site .faily_wrap').slideDown()
-    })
-
-    $('footer .f_util .family_site .faily_close').on('click', function(){
-        $('footer .f_util .family_site').removeClass('open')
-        $('footer .f_util .family_site .faily_wrap').slideUp()
-    })
-    
-    $('footer .f_util .top').on('click', function(){
-        $('html, body').animate({
-            scrollTop: 0
-        },500)
-    })
-
-
-    /************************* footer family_site에 open 추가 ************************/
-
-
     /************************* aos ************************/
     AOS.init({
         offset: 100, // 해당 콘텐츠가 하단에서 몇 px 위로 올라와에 나타나는 효과가 나타날지 셋팅하는 값
@@ -333,5 +309,4 @@ $(document).ready(function (){
         });
     });
     /************************* aos ************************/
-
 })//ready
