@@ -153,7 +153,7 @@ $(document).ready(function (){
             slidesPerView: 'auto',
             spaceBetween: 16,
             breakpoints: {
-                768: { spaceBetween: 24 }
+                768: { spaceBetween: 30 }
             },
             loop: true,
             centeredSlides: true,
@@ -250,10 +250,7 @@ $(document).ready(function (){
         slidesPerView: 'auto',
         spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
         breakpoints: {
-            769: {    
-                slidesPerView: 2,
-                spaceBetween: 16,
-            },
+
             901: {    
                 slidesPerView: 3,
                 spaceBetween: 24,
@@ -286,7 +283,7 @@ $(document).ready(function (){
             ease: "power3.out",
             scrollTrigger: {
                 trigger: ".recruit",
-                start: "top 50%",   // recruit가 브라우저 50% 지점 닿으면 실행
+                start: "top 80%",   // recruit가 브라우저 60% 지점 닿으면 실행
                 toggleActions: "play none none none"
                 // play → 1번만 실행하고 끝 (reverse 없음)
             }

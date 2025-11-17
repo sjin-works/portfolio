@@ -20,7 +20,7 @@ header {
 }
 header::before {
     content: "";
-    position: absolute;
+    position: absolute; /* header 기준 정렬 */
     z-index: -1;
     left: 0;
     top: 0;
@@ -31,7 +31,7 @@ header::before {
 }
 header::after {
     content: "";
-    position: absolute;
+    position: absolute; /* header 기준 정렬 */
     left: 0;
     bottom: 0;
     width: 0;
@@ -75,7 +75,7 @@ header .util .lang .lang_open {
 }
 header .util .lang .lang_open::after {
     content: "";
-    position: absolute;
+    position: absolute; /* lang_open 기준 정렬 */
     right: 7.74px;
     top: 17.81px;
     width: 9px;
@@ -133,7 +133,7 @@ header.up:not(.menu_pc, .menu_mo) {
         transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
     header .gnb .gnb_wrap ul.depth1 > li {
-        position: relative; /* depth2 */
+        position: relative; /* depth2 정렬 기준 */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -151,7 +151,7 @@ header.up:not(.menu_pc, .menu_mo) {
     }
     header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
         overflow: hidden;
-        position: absolute;
+        position: absolute; /* li 기준 정렬 */
         left: 50%;
         top: var(--header-h);
         z-index: 1;
@@ -371,7 +371,7 @@ footer .f_logo {
     background: url(../images/common/logo_w.svg) no-repeat center center / contain;
 }
 footer .f_util {
-    position: absolute;
+    position: absolute; /* wrapper 기준 정렬 */
     right: 0;
     top: -10px;
     color: var(--color-white);
@@ -395,7 +395,7 @@ footer .f_util .family_site .faily_close {
 footer .f_util .family_site .faily_open::after,
 footer .f_util .family_site .faily_close::after {
     content: "";
-    position: absolute;
+    position: absolute; /* open, close 기준 정렬 */
     right: 0.9859em;
     top: 1.1029em;
     width: 0.8824em;
@@ -492,7 +492,7 @@ footer .copyright {
         padding: 70px 0 79px 0;
     }
     footer .wrapper {
-        display: block;
+        display: block; /* flex -> block */
     }
     footer .f_logo {
         margin-bottom: 31px;
@@ -500,7 +500,7 @@ footer .copyright {
 }
 @media screen and (max-width:768px){
     footer .f_util {
-        position: relative;
+        position: relative; /* absolute -> relative */
         right: auto;
         top: auto;
     }
