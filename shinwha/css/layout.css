@@ -106,8 +106,11 @@ header.fixed .util .lang .lang_open::after {
 header.menu_pc.fixed .gnb .gnb_wrap ul.depth1 > li > a {
     color: var(--color-txt-title);
 }
-header.menu_mo.fixed .gnb .gnb_wrap ul.depth1>li>a {
+header.menu_mo.fixed .gnb .gnb_wrap ul.depth1 > li > a {
     color: var(--color-white);
+}
+header.menu_mo.fixed .gnb .gnb_wrap ul.depth1 > li.open > a {
+    color: var(--color-main);
 }
 header.up:not(.menu_pc, .menu_mo) {
     transform: translateY(-110%);
