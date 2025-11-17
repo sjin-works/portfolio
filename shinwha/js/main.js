@@ -273,18 +273,17 @@ $(document).ready(function (){
 
     
     /************************* recruit 스크롤 시작 ************************/
-    const recruitImg = document.querySelector(".recruit .photo img");
+    gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
         trigger: ".recruit",
-        start: "top 80%",
+        start: "top 90%",
         onEnter: () => {
-            gsap.set(recruitImg, { scale: 1.3 });
-            gsap.to(recruitImg, {
+            gsap.set(".recruit .photo img", { scale: 1.3 });   // 초기값 세팅 (튀지 않음)
+            gsap.to(".recruit .photo img", {
                 scale: 1,
                 duration: 1.6,
-                ease: "power3.out",
-                overwrite: "auto" // 중복 실행 완전 방어
+                ease: "power3.out"
             });
         },
         once: false
