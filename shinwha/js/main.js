@@ -273,22 +273,22 @@ $(document).ready(function (){
 
     
     /************************* recruit 스크롤 시작 ************************/
-    gsap.registerPlugin(ScrollTrigger);
+    const recruitImg = document.querySelector(".recruit .photo img");
 
-    gsap.fromTo(".recruit .photo img",
-        { scale: 1.3 },  // 시작 크기
-        {
-            scale: 1,    // 최종 크기
-            duration: 1.6,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: ".recruit",
-                start: "top 80%",   // recruit가 브라우저 60% 지점 닿으면 실행
-                toggleActions: "play none none none"
-                // play → 1번만 실행하고 끝 (reverse 없음)
-            }
-        }
-    );
+    ScrollTrigger.create({
+        trigger: ".recruit",
+        start: "top 80%",
+        onEnter: () => {
+            gsap.set(recruitImg, { scale: 1.3 });
+            gsap.to(recruitImg, {
+                scale: 1,
+                duration: 1.6,
+                ease: "power3.out",
+                overwrite: "auto" // 중복 실행 완전 방어
+            });
+        },
+        once: false
+    });
     /************************* recruit 스크롤 끝 ************************/
 
 
