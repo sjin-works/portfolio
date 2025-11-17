@@ -147,7 +147,7 @@ section .tit h2 {
 }
 .visual .swiper-slide {
     position: relative; /* photo 정렬 기준 */
-    height: 100dvh;
+    height: 100svh;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -173,7 +173,7 @@ section .tit h2 {
     transform: scale3d(1, 1, 1);
 }
 .visual .swiper-slide .txt {
-    margin: 0 0 40dvh 10%;
+    margin: 0 var(--wrapper-m) 40dvh 10%;
 }
 .visual .swiper-slide .txt h3 {
     font-size: 5rem;
@@ -409,14 +409,13 @@ section .tit h2 {
         margin: 20px 0 0 7px;
     }
     .rnd .rnd_mo .list ul li .txt h3 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
         font-weight: 800;
         line-height: 1.3;
         color: var(--color-white);
         margin-bottom: 11px;
     }
     .rnd .rnd_mo .list ul li .txt p {
-        font-size: 1.4rem;
         color: var(--color-white8);
         margin-bottom: 10px;
     }
@@ -882,6 +881,9 @@ section .tit h2 {
     }
 }/*media*/
 @media screen and (max-width:768px){
+    .product {
+        background-image: url(../images/main/product_bg_mo.jpg);
+    }
     .product .tab_content .tab_item .list .swiper-slide {
         width: 285px;
         height: 375px;
