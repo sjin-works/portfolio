@@ -9,18 +9,21 @@
 @import url(fonts.css);
 @import url(layout.css);
 
-.bg_objects {
-    position: fixed;
+.bg_wrap {
+    position: absolute;
     inset: 0;
-    pointer-events: none;
-    padding: 70px 0 0 0;
-    transform: translateY(20vh);
     overflow: hidden;
+    z-index: -1;
+}
+.bg_objects {
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
 }
 .bg_objects .obj1 {
     content: "";
     position: absolute;
-    left: -15%;
+    left: -10%;
     top: 15%;
     width: clamp(180px, 53vw, 700px);
     aspect-ratio: 1;
@@ -32,35 +35,84 @@
     content: "";
     position: absolute;
     right: -21%;
-    top: 59%;
+    top: 36%;
     width: clamp(180px, 53vw, 700px);
     aspect-ratio: 1;
     border-radius: 50%;
     background-color: rgba(0, 100, 255, 0.6);
     filter: blur(35rem);
 }
+.bg_objects .obj3 {
+    content: "";
+    position: absolute;
+    left: -13%;
+    top: 53%;
+    width: clamp(180px, 53vw, 700px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background-color: rgba(0, 100, 255, 0.6);
+    filter: blur(30rem);
+}
 @media screen and (max-width:1320px) {
     .bg_objects .obj1,
-    .bg_objects .obj2 {
+    .bg_objects .obj2,
+    .bg_objects .obj3 {
         filter: blur(30rem);
+    }
+    .bg_objects .obj2 {
+        top: 43%;
+    }
+    .bg_objects .obj3 {
+        top: 56%;
     }
 }
 @media screen and (max-width:1024px) {
     .bg_objects .obj1,
-    .bg_objects .obj2 {
+    .bg_objects .obj2,
+    .bg_objects .obj3 {
         filter: blur(20rem);
+    }
+    .bg_objects .obj1 {
+        left: -16%;
+    }
+    .bg_objects .obj2 {
+        right: -32%;
+        top: 42%;
+    }
+    .bg_objects .ob3 {
+        top: 57%;
     }
 }
 @media screen and (max-width:768px) {
     .bg_objects .obj1,
+    .bg_objects .obj2,
+    .bg_objects .obj3 {
+        filter: blur(15rem);
+    }
+    .bg_objects .obj1 {
+        left: -15%;
+    }
     .bg_objects .obj2 {
-        filter: blur(12rem);
+        top: 41%;
+    }
+    .bg_objects .obj3 {
+        top: 58%;
     }
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width:500px) {
     .bg_objects .obj1,
-    .bg_objects .obj2  {
-        filter: blur(10rem);
+    .bg_objects .obj2,
+    .bg_objects .obj3 {
+        filter: blur(11rem);
+    }
+    .bg_objects .obj1 {
+        left: -14%;
+    }
+    .bg_objects .obj2 {
+        top: 31%;
+    }
+    .bg_objects .obj3 {
+        top: 50%;
     }
 }
 
