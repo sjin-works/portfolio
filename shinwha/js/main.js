@@ -277,13 +277,17 @@ $(document).ready(function (){
 
     ScrollTrigger.create({
         trigger: ".recruit",
-        start: "top 90%",
+        start: "top bottom",  // 모바일 최적
         onEnter: () => {
-            gsap.set(".recruit .photo img", { scale: 1.3 });   // 초기값 세팅 (튀지 않음)
+            gsap.set(".recruit .photo img", {
+                scale: 1.3,
+                willChange: "transform"
+            });
             gsap.to(".recruit .photo img", {
                 scale: 1,
                 duration: 1.6,
-                ease: "power3.out"
+                ease: "power3.out",
+                overwrite: "auto"
             });
         },
         once: false

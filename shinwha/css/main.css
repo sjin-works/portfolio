@@ -173,7 +173,7 @@ section .tit h2 {
     transform: scale3d(1, 1, 1);
 }
 .visual .swiper-slide .txt {
-    margin-bottom: clamp(155px, 40vh, 394px);
+    margin: 0 0 40dvh 10%;
 }
 .visual .swiper-slide .txt h3 {
     font-size: 5rem;
@@ -197,9 +197,9 @@ section .tit h2 {
 }
 .visual .ctrl_wrap {
     position: absolute; /* visual 기준 정렬 */
-    left: calc(50% - 630px);
+    left: 10%;
     right: 0;
-    bottom: clamp(95px, 33vh, 322px);
+    bottom: 32dvh;
     z-index: 10;
     display: flex;
     align-items: center;
@@ -261,11 +261,7 @@ section .tit h2 {
 .visual .ctrl_wrap .play_stop .btn_stop {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 14' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.41304 14V0H10V14H6.41304ZM0 14V0H3.58696V14H0Z' /%3E%3C/svg%3E%0A");
 }  
-@media screen and (max-width:1320px){
-    .visual .ctrl_wrap{
-        left: var(--wrapper-m);
-    }
-}/*media*/
+
 @media screen and (min-width:769px) and (max-width:1024px){
     .visual .swiper-slide .txt h3 {
         font-size: 4.7rem;
@@ -276,9 +272,6 @@ section .tit h2 {
     }
 }
 @media screen and (max-width:768px){
-    .visual .swiper-slide {
-        height: 700px;
-    }
     .visual .swiper-slide .txt h3 {
         font-size: 3.4rem;
         margin-bottom: 17px;
@@ -961,7 +954,7 @@ section .tit h2 {
     display: block;
     padding-top: 1.5em;
 }
-.news .list .swiper-slide a h4 {
+.news .list .swiper-slide a h3 {
     font-size: 2.4rem;
     font-weight: 700;
     color: var(--color-txt-title);
