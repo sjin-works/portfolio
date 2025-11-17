@@ -672,7 +672,6 @@ section .tit h2 {
     justify-content: center;
     height: 100%;
     padding: 45px;
-    transition: transform 0.6s;
     position: relative;
     z-index: 10;
     text-align: center;
@@ -710,7 +709,6 @@ section .tit h2 {
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a {
     padding: 45px 20px;
-    text-align: left;
 }
 .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
     font-size: 3rem;
@@ -802,10 +800,10 @@ section .tit h2 {
     }
     .product .tab_content .tab_item .list .swiper-slide a {
         padding: 30px;
-        text-align: left;
     }
     .product .tab_content .tab_item .list .swiper-slide a .txt h4 {
         font-size: 2.4rem;
+        white-space: wrap;
     }
     .product .tab_content .tab_item .list .swiper-slide a .txt p {
         display: none;
@@ -816,11 +814,13 @@ section .tit h2 {
         height: 375px;
     }
     .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a {
-        padding: 30px;
+        padding: 30px 20px;
     }
     .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt h4 {
         font-size: 2.4rem;
-        margin-bottom: 0;
+    }
+    .product .tab_content .tab_item .list .swiper-slide.swiper-slide-active a .txt p br {
+        display: none;
     }
     .product .tab_content .tab_item .ctrl_btn {
         display: none;
