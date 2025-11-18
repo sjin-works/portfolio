@@ -21,9 +21,19 @@ $(document).ready(function (){
 
     $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function () {
         if (device_status == 'pc') {
-            $('header').addClass('menu_pc')
+            // header 배경 + 전체 메뉴 열림 상태
+            $('header').addClass('menu_pc');
         }
-    })
+    });
+    
+    // depth2 내부에서 포커스 이동할 때 depth2 닫히지 않도록 함
+    $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 a').on('focusin', function () {
+        if (device_status == 'pc') {
+            // depth2로 포커스가 와도 menu_pc 유지
+            $('header').addClass('menu_pc');
+        }
+    });
+
     $('header .gnb .gnb_bg').on('mouseenter', function () {
         $('header').removeClass('menu_pc')
     })

@@ -67,7 +67,7 @@ $(document).ready(function (){
     /************************* rnd 아코디언 (반응형 포함) 시작 ************************/
     gsap.registerPlugin(ScrollTrigger); //scrolltrigger를 호출 (js파일 내에서 1번만 부르면됨)
 
-    let poStart = 100; // 상단에 고정할때의 위치
+    let poStart = 120; // 상단에 고정할때의 위치
     let poGap = 50; // 첫번째와 두번째의 여백
     let poObj = '.accordion_wrap .accordion' // 고정요소
     let poObjCont = '.conts' // 고정요소 내부의 내용
@@ -275,23 +275,25 @@ $(document).ready(function (){
     /************************* recruit 스크롤 시작 ************************/
     gsap.registerPlugin(ScrollTrigger);
 
-    ScrollTrigger.create({
-        trigger: ".recruit",
-        start: "top bottom",  // 모바일 최적
-        onEnter: () => {
-            gsap.set(".recruit .photo img", {
-                scale: 1.3,
-                willChange: "transform"
-            });
-            gsap.to(".recruit .photo img", {
-                scale: 1,
-                duration: 1.6,
-                ease: "power3.out",
-                overwrite: "auto"
-            });
-        },
-        once: false
-    });
+    if (window.innerWidth > 1024) {  
+        ScrollTrigger.create({
+            trigger: ".recruit",
+            start: "top bottom",
+            onEnter: () => {
+                gsap.set(".recruit .photo img", {
+                    scale: 1.3,
+                    willChange: "transform"
+                });
+                gsap.to(".recruit .photo img", {
+                    scale: 1,
+                    duration: 1.6,
+                    ease: "power3.out",
+                    overwrite: "auto"
+                });
+            },
+            once: false
+        });
+    }
     /************************* recruit 스크롤 끝 ************************/
 
 
