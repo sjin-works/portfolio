@@ -1,9 +1,3 @@
-/***********************************
-* 파일명 : main.css
-* 작성자 : 신수진
-* 작성일 : 25-11-12
-************************************/
-
 @import url(common.css);
 @import url(default.css);
 @import url(fonts.css);
@@ -1026,7 +1020,7 @@ section .tit h2 {
     content: "";
     position: absolute;  /* more 기준 정렬 */ 
     right: -0.82em;
-    top: 0.3447em;
+    top: 0.4447em;
     width: 0.4em;
     height: 0.6667em;
     background-position: center center;

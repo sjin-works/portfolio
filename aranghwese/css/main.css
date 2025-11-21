@@ -1,0 +1,160 @@
+@import url(common.css);
+@import url(default.css);
+@import url(fonts.css);
+@import url(layout.css);
+
+.visual {
+    position: relative; /* scroll 정렬 기준 */
+}
+.visual .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+}
+.visual .swiper-slide .bg {
+    position: absolute; /* swiper 기준 정렬 */
+    z-index: -2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.visual .swiper-slide .bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.visual .swiper-slide .txt {
+    text-align: center;
+    color: var(--color-white);
+}
+.visual .swiper-slide .txt h3 {
+    font-size: 6rem;
+    margin-bottom: 24px;
+}
+.visual .btn_prev {
+    position: absolute; /* swiper 기준 정렬 */
+    z-index: 10;
+    left: var(--wrapper-m);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 74px;
+    height: 74px;
+    background-color: var(--color-white2);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16.47px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 17 30' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.7843 29.5686L0 14.7843L14.7843 0L16.4735 1.68925L3.37849 14.7843L16.4735 27.8793L14.7843 29.5686Z' /%3E%3C/svg%3E%0A");
+}
+.visual .btn_next {
+    position: absolute; /* swiper 기준 정렬 */
+    z-index: 10;
+    right: var(--wrapper-m);
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    width: 74px;
+    height: 74px;
+    background-color: var(--color-white2);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 16.47px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 17 30' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.7843 29.5686L0 14.7843L14.7843 0L16.4735 1.68925L3.37849 14.7843L16.4735 27.8793L14.7843 29.5686Z' /%3E%3C/svg%3E%0A");
+}
+.visual .ctrl_wrap {
+    position: absolute; /* swiper 기준 정렬 */
+    z-index: 10;
+    left: 50%;
+    top: 67.8%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0 37px;
+}
+.visual .ctrl_wrap .paging {
+    display: flex;
+    gap: 37px;
+    left: auto;
+    bottom: auto;
+    width: auto;
+}
+.visual .ctrl_wrap .paging .swiper-pagination-bullet {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    opacity: 1;
+    margin: 0;
+    position: relative; /* before 정렬 기준 */
+}
+.visual .ctrl_wrap .paging .swiper-pagination-bullet-active::before {
+    content: "";
+    position: absolute; /* pagination-bullet 기준 정렬 */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 27px;
+    height: 27px;
+    border: 0.5px solid var(--color-white);
+    border-radius: 50%;
+}
+.visual .ctrl_wrap .btn_stop,
+.visual .ctrl_wrap .btn_play {
+    width: 13px;
+    height: 15px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 12.94px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 13 15' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.71875 14.625V0H12.9375V14.625H8.71875ZM0 14.625V0H4.21875V14.625H0Z' /%3E%3C/svg%3E%0A");
+}
+.visual .ctrl_wrap .btn_play {
+    display: none; /* stop 누르면 나옴 */
+    background-size: 10.77px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 11 14' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.01464e-05 13.716L10.7739 6.858L2.01464e-05 0V13.716Z' /%3E%3C/svg%3E%0A");
+}
+.visual .scroll {
+    position: absolute; /* visual 기준 정렬 */
+    z-index: 10;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.visual .scroll .line {
+    margin-top: 6px;
+    width: 1px;
+    height: 97px;
+    background-color: var(--color-white3);
+    position: relative;
+    overflow: hidden;
+}
+.visual .scroll .line::after {
+    content: "";
+    position: absolute; /* line 기준 정렬 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    transform-origin: top;
+    animation: scroll 1.5s ease-in-out infinite;
+}
+@keyframes scroll {
+    0% {
+        transform: scaleY(0);
+        opacity: 1;
+    }
+    80% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleY(1);
+        opacity: 0;
+    }
+}
