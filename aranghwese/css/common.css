@@ -42,11 +42,14 @@ body {
 }
 
 .wrapper {
-    width: 100%;
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 var(--wrapper-m);
-    box-sizing: border-box;
+    width: 1440px;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+@media screen and (max-width:1360px) {
+    .wrapper {
+        width: auto;
+        margin: 0 var(--wrapper-m);
+    }
 }
 #wrap {
     position: relative; /* header 정렬 기준 */
