@@ -19,6 +19,7 @@ $(document).ready(function (){
     })
     /************************* device check ************************/
 
+    /************************* header ************************/
     $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function () {
         if (device_status == 'pc') {
             // header 배경 + 전체 메뉴 열림 상태
@@ -78,7 +79,6 @@ $(document).ready(function (){
             $('header').addClass('up')
         } else {//스크롤다운(아래로)
             $('header').removeClass('up')
-            // console.log('else?')
         }
         if (scrolling > 0) {
             $('header').addClass('fixed')
@@ -91,11 +91,10 @@ $(document).ready(function (){
         scroll_chk()
     })
 
-    /************************* header menu_pc 끝 ************************/
+    /************************* header ************************/
 
 
     /************************* footer ************************/
-    /* ================== family_site open 클래스 추가 ================== */
     $('footer .f_util .family_site .faily_open').on('click', function () {
         $('footer .f_util .family_site').addClass('open');
         $('footer .f_util .family_site .faily_wrap').slideDown()
@@ -111,5 +110,5 @@ $(document).ready(function (){
             scrollTop: 0
         }, 500)
     })
-    /************************* footer family_site에 open 추가 ************************/
+    /************************* footer ************************/
 })//ready

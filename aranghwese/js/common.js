@@ -18,14 +18,18 @@ $(document).ready(function(){
         device_chk()
     })
     /************************* device check ************************/
-    
+
+    /************************* header ************************/
     $('header .gnb .gnb_wrap ul.depth1 > li').on('mouseenter focusin', function () {
         if (device_status == 'pc') {
             // header 배경 + 전체 메뉴 열림 상태
             $('header').addClass('menu_pc');
+            $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+            $(this).addClass('over')
+            $(this).find('.depth2').show() //2차메뉴 열기
         }
     });
-    
+
     // depth2 내부에서 포커스 이동할 때 depth2 닫히지 않도록 함
     $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 a').on('focusin', function () {
         if (device_status == 'pc') {
@@ -34,11 +38,9 @@ $(document).ready(function(){
         }
     });
 
-    $('header .gnb .gnb_bg').on('mouseenter', function () {
-        $('header').removeClass('menu_pc')
-    })
-    $('header .util .search').on('focusin', function () {
-        $('header').removeClass('menu_pc')
+    $('header').on('mouseleave', function () {
+        $(this).removeClass('menu_pc')
+        $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
     })
 
     let gnb_open
@@ -59,10 +61,10 @@ $(document).ready(function(){
         }
     });
 
-    $('header .gnb .gnb_open').on('click', function () {
+    $('header .menu_wrap .gnb_open').on('click', function () {
         $('header').addClass('menu_mo')
     })
-    $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
+    $('header .menu_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
         $('header').removeClass('menu_mo')
     })
 
@@ -78,7 +80,6 @@ $(document).ready(function(){
             $('header').addClass('up')
         } else {//스크롤다운(아래로)
             $('header').removeClass('up')
-            // console.log('else?')
         }
         if (scrolling > 0) {
             $('header').addClass('fixed')
@@ -91,6 +92,6 @@ $(document).ready(function(){
         scroll_chk()
     })
 
-    /************************* header menu_pc 끝 ************************/
+    /************************* header ************************/
 
 })
