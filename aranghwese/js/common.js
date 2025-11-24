@@ -61,10 +61,10 @@ $(document).ready(function(){
         }
     });
 
-    $('header .menu_wrap .gnb_open').on('click', function () {
+    $('header .gnb .gnb_open').on('click', function () {
         $('header').addClass('menu_mo')
     })
-    $('header .menu_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
+    $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
         $('header').removeClass('menu_mo')
     })
 

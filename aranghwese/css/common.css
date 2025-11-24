@@ -9,7 +9,6 @@
     --color-white3 : rgba(255, 255, 255, 0.2);
     --header-h : 100px;
     --wrapper-m : 50px;
-    --header-m : 14px
 }
 @media screen and (max-width:1024px){
     :root {
@@ -21,7 +20,6 @@
     :root {
         --header-h : 60px;
         --wrapper-m : 16px;
-        --header-m: 8px
     }
 }
 

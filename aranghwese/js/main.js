@@ -4,7 +4,7 @@ $(document).ready(function (){
     const visual_swiper = new Swiper('.visual .swiper', { /* 팝업을 감싼는 요소의 class명 */
 
         autoplay: {  /* 팝업 자동 실행 */
-            delay: 2500,
+            delay: 5000,
             disableOnInteraction: true,
         },
     
@@ -36,6 +36,72 @@ $(document).ready(function (){
     /************************ visual swiper ************************/
 
 
+    /************************ calm swiper ************************/
+    let mobile_size = 768; // 모바일 기준 사이즈
+    let window_w;           // 현재 브라우저 넓이
+    let device_status;      // 'pc' or 'mobile'
+    let calmSwiper;         // swiper 인스턴스
+
+    // 현재 디바이스 상태 체크
+    function device_chk() {
+        window_w = $(window).width();
+        device_status = (window_w > mobile_size) ? 'pc' : 'mobile';
+    }
+
+    // swiper 초기화
+    function initCalmSwiper() {
+        // PC인 경우
+        if (device_status === 'pc') {
+            calmSwiper = new Swiper(".calm .swiper", {
+                grabCursor: true,
+                centeredSlides: true,
+                loop: true,
+                slidesPerView: 'auto',
+                effect: "coverflow",
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }
+            });
+        }
+        // 모바일인 경우
+        else {
+            calmSwiper = new Swiper(".calm .swiper", {
+                grabCursor: true,
+                centeredSlides: true,
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 16,
+                effect: "slide"
+            });
+        }
+    }
+
+    // 최초 실행
+    device_chk();
+    initCalmSwiper();
+
+    // resize 시 디바이스 상태 바뀌면 swiper 재생성
+    let resizeTimer;
+    $(window).resize(function () {
+        clearTimeout(resizeTimer);
+
+        resizeTimer = setTimeout(function () {
+            let prev_status = device_status;
+
+            // 상태 다시 체크
+            device_chk();
+
+            // pc → mobile 또는 mobile → pc로 변경되었을 때만 재생성
+            if (prev_status !== device_status) {
+                if (calmSwiper) calmSwiper.destroy(true, true);
+                initCalmSwiper();
+            }
+        }, 200);
+    });
     /************************ room swiper ************************/
     const room_swiper = new Swiper('.room .swiper', { /* 팝업을 감싼는 요소의 class명 */
         slidesPerView: 'auto', /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
