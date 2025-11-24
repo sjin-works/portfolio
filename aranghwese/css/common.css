@@ -45,7 +45,10 @@ body {
     width: 1440px;
     margin: 0 auto; /* 가운데 정렬 */
 }
-@media screen and (max-width:1360px) {
+/*
+    좌우여백 50px : 1440 + 50 + 50 = 1540px
+*/
+@media screen and (max-width:1540px) {
     .wrapper {
         width: auto;
         margin: 0 var(--wrapper-m);

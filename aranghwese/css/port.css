@@ -3,161 +3,202 @@
 @import url(fonts.css);
 @import url(layout.css);
 
-.essence {
+.room {
     padding-top: 240px;
-    background-position: right center;
-    background-repeat: no-repeat;
-    background-size: clamp(218px, 30vw, 586px);
-    background-image: url("data:image/svg+xml,%3Csvg width='582' height='613' viewBox='0 0 582 613' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' width='580' height='451' fill='%23D1B48C' fill-opacity='0.15'/%3E%3Crect y='317' width='496' height='296' fill='%23D1B48C' fill-opacity='0.08'/%3E%3C/svg%3E%0A");
+    position: relative; /* bg 정렬 기준 */
+    color: var(--color-white);
 }
-.essence .wrapper {
+.room .bg {
+    position: absolute; /* room 기준 정렬 */
+    z-index: -1;
+    left: 0;
+    top: 0;
+    background: url(../images/main/room_bg.jpg) no-repeat center center / cover;
+    width: 100%;
+    height: 483px;
+    margin-top: 362px;
+}
+.room .room_wrap {
     display: flex;
-    justify-content: center;
-    gap: 0 clamp(15px, 13.54vw, 260px);
+    justify-content: space-between;
+    align-items: flex-end;
+    width: calc(50% + 720px);
+    margin-left: calc((100% - 1440px) / 2);
+    position: relative; /* ctrl_wrap 정렬 기준 */
 }
-.essence .inner {
-    margin-top: 31px;
+.room .tit {
+    margin-bottom: 102px;
 }
-.essence .txt h2 {
-    white-space: nowrap;
-    font-size: 5.6rem;
-    color: var(--color-txt-title);
+.room .tit h2 {
+    font-size: 6rem;
+    margin-bottom: 14px;
 }
-.essence .txt p {
-    line-height: 1.4;
-    margin: 24px 0 0 4px;
+.room .list {
+    width: calc(100% - 558px);
 }
-.essence .more {
+.room .list .swiper-slide {
+    width: 475px;
+}
+.room .list .swiper-slide a {
+    display: block;
+}
+.room .list .swiper-slide a .photo {
+    height: 384px;
+    overflow: hidden;
+}
+.room .list .swiper-slide a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.room .list .swiper-slide a h3 {
+    font-size: 2.8rem;
+    margin: 15px 0 11px 2px;
+}
+.room .list .swiper-slide a .more {
     display: inline-block;
-    margin: 44px 0 0 4px;
-    font-size: 2rem;
     font-weight: 500;
-    color: var(--color-txt-title);
-    position: relative;
+    position: relative; /* after 정렬 기준 */
+    margin-left: 2px;
 }
-.essence .more::after {
+.room .list .swiper-slide a .more::after {
     content: "";
-    position: absolute;
-    right: -28px;
-    top: 2px;
-    width: 20px;
-    height: 20px;
+    position: absolute; /* more 기준 정렬 */
+    right: -1.7647em;
+    top: -0.0588em;
+    width: 1.2353em;
+    height: 1.2353em;
     border-radius: 50%;
     background-color: #625144;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 10px;
+    background-size: 0.6471em;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 9 9' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.875 8.5V4.625H0V3.875H3.875V0H4.625V3.875H8.5V4.625H4.625V8.5H3.875Z' /%3E%3C/svg%3E%0A");
 }
-.essence .img_box {
-    position: relative;
-    width: 586px;
-    height: 620px;
-}
-.essence .img_box .img_main {
-    width: 586px;
-    height: 451px;
-    object-fit: cover;
-    display: block;
-}
-.essence .img_box .img_sub {
+.room .ctrl_wrap {
     position: absolute;
-    width: 389px;
-    height: 303px;
-    object-fit: cover;
-    left: -79px;
-    top: 319px;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0 10px;
 }
-@media screen and (max-width:1600px){
-    .essence {
-        padding-top: clamp(116px, 17.64vw, 240px);
+.room .ctrl_wrap .btn_prev,
+.room .ctrl_wrap .btn_next {
+    width: 47px;
+    height: 47px;
+    border: 1px solid var(--color-white);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 10.46px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 11 19' fill='%23fff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.39001 18.78L0 9.39001L9.39001 0L10.4629 1.0729L2.1458 9.39001L10.4629 17.7071L9.39001 18.78Z'/%3E%3C/svg%3E%0A");
+}
+.room .ctrl_wrap .btn_next {
+    transform: rotate(180deg);
+}
+@media screen and (max-width:1540px){
+    .room {
+        padding-top: 15.58vw;
     }
-    .essence .inner {
-        margin-top: clamp(1px, 1.9vw, 31px);
+    .room .bg {
+        height: 31.36vw;
+        margin-top: 23.5vw;
     }
-    .essence .txt h2 {
-        font-size: clamp(3rem, 4.1vw, 5.6rem);
+    .room .room_wrap {
+        width: auto;
+        margin-left: var(--wrapper-m);
+        position: relative; /* ctrl_wrap 정렬 기준 */
     }
-    .essence .txt p {
-        margin-top: clamp(14px, 1.47vw, 20px);
+    .room .tit {
+        margin-bottom: 6.62vw;
     }
-    .essence .more {
-        margin-top: clamp(38px, 3.23vw, 44px);
-        font-size: clamp(1.4rem, 1vw, 2rem);
+    .room .room_wrap .tit h2 {
+        font-size: clamp(3.2rem, 3.6vw, 5.6rem);
+        margin-bottom: 0.9vw;
     }
-    .essence .img_box {
-        width: clamp(218px, 36.6vw, 586px);
-        height: clamp(231px, 38.75vw, 620px);
+    .room .room_wrap .tit p {
+        font-size: clamp(1.4rem, 1.1vw, 1.7rem);
     }
-    .essence .img_box .img_main {
-        width: clamp(218.48px, 36.62vw, 586px);
-        height: clamp(168px, 28.18vw, 451px);
+    .room .list {
+        width: calc(100% - 36.23vw);
+        padding: 0 0 0 30px;
     }
-    .essence .img_box .img_sub {
-        width: clamp(145px, 24.31vw, 389px);
-        height: clamp(112px, 18.93vw, 303px);
-        left: calc(-4.9vw);
-        top: calc(100% - clamp(168px, 28.18vw, 451px) + 8.2vw);
+    .room .list .swiper-slide {
+        width: 30.84vw;
+    }
+    .room .list .swiper-slide a .photo {
+        height: 25vw;
+    }
+    .room .list .swiper-slide a h3 {
+        font-size: clamp(2rem, 1.8vw, 2.8rem);
+    }
+    .room .list .swiper-slide a .more {
+        font-size: clamp(1.4rem, 1.1vw, 1.7rem);
+    }
+    .room .ctrl_wrap .btn_prev,
+    .room .ctrl_wrap .btn_next {
+        width: 4.3vw;
+        height: 4.3vw;
+        background-size: 0.95vw;
     }
 }
-@media screen and (max-width:1360px){
-    .essence .txt p br {
+@media screen and (max-width:800px){
+    .room .room_wrap .tit p br {
         display: none;
     }
 }
 @media screen and (max-width:768px){
-    .essence {
-        background-position-y: 90%;
-        background-size: clamp(212px, 56.75vw, 435.84px);
-        background-image: url("data:image/svg+xml,%3Csvg width='436' height='466' viewBox='0 0 436 466' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='435.838' height='338.902' fill='%23D1B48C' fill-opacity='0.15'/%3E%3Crect y='238' width='398' height='228' fill='%23D1B48C' fill-opacity='0.08'/%3E%3C/svg%3E%0A");
+    .room {
+        padding: 93px 0 203px 0;
+        margin-top: 86px;
     }
-    .essence .wrapper {
-        flex-direction: column;
-        gap: 83px;
-    }
-    .essence .inner {
+    .room .bg {
         width: 100%;
+        height: 100%;
         margin-top: 0;
+        background-image: url(../images/main/room_bg_mo.jpg);
     }
-    .essence .txt h2 {
-        white-space: wrap;
-        font-size: clamp(2.8rem, 3.9vw, 3rem);
-        padding-bottom: 13px;
+    .room .room_wrap {
+        display: block;
+        margin-left: 0;
     }
-    .essence .txt p {
-        font-size: clamp(1.4rem, 2.2vw, 1.7rem);
+    .room .tit {
+        margin: 0 0 40px 16px;
     }
-    .essence .more {
-        font-size: 1.7rem;
+    .room .room_wrap .tit h2 {
+        font-size: clamp(2.8rem, 4.1vw, 3.2rem);
+        margin-bottom: 10px;
     }
-    .essence .more::after {
-        top: 1px;
+    .room .room_wrap .tit p br {
+        display: block;
     }
-    .essence .img_box {
-        padding-left: 0;
+    .room .list {
+        width: auto;
+        padding-left: 16px;
+    }
+    .room .room_wrap .list .swiper {
+        padding: 0;
+    }
+    .room .list .swiper-slide {
+        width: 254px;
+    }
+    .room .list .swiper-slide a .photo {
+        height: 333px;
+    }
+    .room .list .swiper-slide a h3 {
+        margin-bottom: 6px;
+    }
+    .room .ctrl_wrap {
+        position: absolute;
         left: 50%;
+        bottom: -123px;
         transform: translateX(-50%);
+        gap: 0 15px;
     }
-    .essence .img_box {
-        width: clamp(218px, 64.47vw, 495.2px);
-        height: clamp(231px, 60.76vw, 466.65px);
-    }
-    .essence .img_box img.img_main {
-        width: clamp(225.31px, 56.75vw, 435.84px);
-        height: clamp(175.03px, 44.12vw, 338.9px);
-    }
-    .essence .img_box img.img_sub {
-        left: -7.73vw;
-        top: 30.99vw;
-        width: clamp(151.11px, 38vw, 292.31px);
-        height: clamp(117.59px, 30vw, 227.69px);
-    }
-}
-@media screen and (max-width:480px){
-    .essence .more {
-        font-size: 1.4rem;
-    }
-    .essence .more::after {
-        top: -2px;
+    .room .ctrl_wrap .btn_prev,
+    .room .ctrl_wrap .btn_next {
+        width: 44px;
+        height: 44px;
+        background-size: 9.8px;
     }
 }
