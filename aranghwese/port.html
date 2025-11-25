@@ -7,6 +7,8 @@
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/swiper-bundle.min.js"></script>
     <script src="js/aos.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/aos.css">
 
@@ -17,6 +19,7 @@
 </head>
 
 <body>
+    <div class="cursor">Drag</div>
     <div id="wrap">
         <header>
             <h1 class="logo"><a href="index.html"><span class="blind">아랑훼스</span></a></h1>
@@ -94,10 +97,12 @@
             </section><!--visual-->
             <section class="calm">
                 <div class="tit">
-                    <h2 class="txt_eng">A HAVEN OF CALM</h2>
-                    <p>숲 속에 자리한 이곳은 실내와 야외를 잇는 수영장으로, <br> 사계절 내내 차분한 여유를 선사합니다</p>
-                    <p>맑은 공기의 개방감과 히노끼탕의 은은한 향은 <br> 하루의 피로를 조용히 풀어 마음까지 편안하게 감싸 줍니다</p>
-                    <p>함께하는 이들과 나누는 바비큐의 순간까지, 머무는 모든 시간이 잔잔하고 따뜻한 <br> 기억으로 남도록 정성을 다하고 있습니다</p>
+                    <div class="wrapper">
+                        <h2 class="txt_eng">A HAVEN OF CALM</h2>
+                        <p>숲 속에 자리한 이곳은 실내와 야외를 잇는 수영장으로, <br> 사계절 내내 차분한 여유를 선사합니다</p>
+                        <p>맑은 공기의 개방감과 히노끼탕의 은은한 향은 <br> 하루의 피로를 조용히 풀어 마음까지 편안하게 감싸 줍니다</p>
+                        <p>함께하는 이들과 나누는 바비큐의 순간까지, 머무는 모든 시간이 잔잔하고 따뜻한 <br> 기억으로 남도록 정성을 다하고 있습니다</p>
+                    </div>
                 </div>
                 <div class="list">
                     <div class="swiper">
@@ -111,5 +116,203 @@
                         </ul>
                     </div>
                 </div>
-            </section>
+            </section><!--calm-->
+            <section class="room">
+                <div class="room_wrapper">
+                    <div class="tit">
+                        <h2 class="txt_eng">ROOM</h2>
+                        <p>고즈넉한 자연의 결을 온전히 품은 이곳에서, <br class="mo_only"> 당신의 휴식이 어느 순간도 흐트러지지 않도록 섬세한 마음과 정성으로 공간의 모든 디테일을 준비했습니다</p>
+                    </div>
+                    <div class="list">
+                        <div class="list_inner">
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room01.jpg" alt="온수풀이 있는 풀빌라"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">풀빌라</h3>
+                                        <p>객실 안에 마련된 전용 실내 수영장은 숲의 고요를 가장 가까운 자리에서 즐길 수 있게 해 주며, 머무는 순간마다 부드러운 휴식과 프라이빗한 여유가 스며드는 품격 있는 풀빌라입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room02.jpg" alt="복층 온수풀이 있는 객실"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">아랑훼스</h3>
+                                        <p>높은 층고의 복층 구조와 오른쪽에 자리한 객실 수영장이 조화를 이루며, 넓게 열린 창을 통해 숲의 고요함을 가까이에서 느낄 수 있는 프리미엄 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room03.jpg" alt="거실 옆 온수욕조가 있는 객실"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">클라리넷</h3>
+                                        <p>객실 한쪽에 자리한 히노끼탕은 은은한 향과 따뜻한 온기로 공간을 채우며, 넓게 열린 통창 너머의 숲을 바라보며 고요한 휴식을 즐길 수 있는 프리미엄 타입의 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room04.jpg" alt="거실 옆 온수욕조가 있는 객실02"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">바순</h3>
+                                        <p>객실 한쪽에 자리한 히노끼탕은 은은한 향과 따뜻한 온기로 공간을 채우며, 넓게 열린 통창 너머의 숲을 바라보며 고요한 휴식을 즐길 수 있는 프리미엄 타입의 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room05.jpg" alt="거실 옆 온수욕조가 있는 객실03"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">오보에</h3>
+                                        <p>객실 한쪽에 자리한 히노끼탕은 은은한 향과 따뜻한 온기로 공간을 채우며, 넓게 열린 통창 너머의 숲을 바라보며 고요한 휴식을 즐길 수 있는 프리미엄 타입의 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room06.jpg" alt="침대 옆 온수욕조가 있는 객실"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">플루트</h3>
+                                        <p>객실 한쪽에 자리한 히노끼탕은 은은한 향과 따뜻한 온기로 공간을 채우며, 넓게 열린 통창 너머의 숲을 바라보며 고요한 휴식을 즐길 수 있는 프리미엄 타입의 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room07.jpg" alt="거실 옆 온수욕조가 있는 객실04"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">첼로</h3>
+                                        <p>객실 한쪽에 자리한 히노끼탕은 은은한 향과 따뜻한 온기로 공간을 채우며, 넓게 열린 통창 너머의 숲을 바라보며 고요한 휴식을 즐길 수 있는 프리미엄 타입의 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="#n">
+                                <div class="inner">
+                                    <div class="photo"><img src="images/main/room03.jpg" alt="거실 옆 온수욕조가 있는 객실05"></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">바이올린</h3>
+                                        <p>객실 한쪽에 자리한 히노끼탕은 은은한 향과 따뜻한 온기로 공간을 채우며, 넓게 열린 통창 너머의 숲을 바라보며 고요한 휴식을 즐길 수 있는 프리미엄 타입의 객실입니다</p>
+                                        <div class="more txt_eng">View More</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section><!--room-->
+            <section class="stay">
+                <div class="wrapper">
+                    <div class="tit">
+                        <h2 class="txt_eng">BEYOND THE STAY</h2>
+                        <p>숙소 주변의 주요 여행지를 한눈에 확인하고 편하게 둘러보세요</p>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li class="wide">
+                                <a href="#n">
+                                    <div class="photo"><img src="images/main/stay01.jpg" alt=""></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">이월저수지</h3>
+                                        <p>숲과 수면이 맞닿은 이월저수지는, 잔잔하고 맑은 분위기 속에서 머무는 <br> 이들에게 여유로움을 선사하는 진천의 새로운 힐링 포인트입니다</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#n">
+                                    <div class="photo"><img src="images/main/stay02.jpg" alt=""></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">한택식물원</h3>
+                                        <p>국내 최대 규모 식물원인 한택식물원은 약 20만평에 자생식물부터 <br> 열대식물까지 다양하게 전시되어 있으며, 걷는 만큼 새로운 풍경이 펼쳐집니다</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#n">
+                                    <div class="photo"><img src="images/main/stay03.jpg" alt=""></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">종박물관</h3>
+                                        <p>국내 유일한 ‘종 전문 박물관’답게 무형문화재 장인의 작품과 함께 깊이 있는 <br> 전시가 마련되어 있으며, 입장하는 순간부터 새로운 역사와 감각이 한층 깊어집니다</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nomal">
+                                <a href="#n">
+                                    <div class="photo"><img src="images/main/stay04.jpg" alt=""></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">농다리</h3>
+                                        <p>돌다리와 계곡이 조용히 어우러지는 농다리는 자연의 흐름이 그대로 머무는 <br> 곳으로, 진천 여행에서 가장 편안한 순간을 선사합니다</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="wide">
+                                <a href="#n">
+                                    <div class="photo"><img src="images/main/stay05.jpg" alt=""></div>
+                                    <div class="txt">
+                                        <h3 class="txt_kr">양지파인리조트</h3>
+                                        <p>푸른 숲과 골프장이 어우러진 양지파인리조트는 사계절 내내 자연의 변화를 <br> 가까이 느낄 수 있으며, 걸을 때마다 조용하고 따뜻한 풍경이 이어집니다</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div><!--list-->
+                </div>
+            </section><!--stay-->
+            <section class="comfort">
+                <div class="tit">
+                    <div class="wrapper">
+                        <h2 class="txt_eng">FOR YOUR COMFORT</h2>
+                        <p>머무는 동안 더 많은 즐거움을 누릴 수 있도록 시설을 준비했어요</p>
+                    </div>
+                </div>
+                <div class="scroll">
+                    <div class="track">
+                        <div class="item"><img src="images/main/comfort01.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort02.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort03.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort04.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort05.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort06.jpg" alt=""></div>
+                
+                        <div class="item"><img src="images/main/comfort01.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort02.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort03.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort04.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort05.jpg" alt=""></div>
+                        <div class="item"><img src="images/main/comfort06.jpg" alt=""></div>
+                    </div>
+                </div>
+            </section><!--comfort-->
+            <section class="contact">
+                <div class="contact_wrapper">
+                    <div class="video">
+                        <video autoplay loop muted>
+                            <source src="images/main/contact.mp4">
+                        </video>
+                    </div>
+                    <div class="txt">
+                        <h2 class="txt_eng">CONTACT US</h2>
+                        <div class="info">
+                            <span class="txt_kr">010 . 4926 . 7472 </span>
+                            <address>충북 진천군 이월면 화산동길 90 (신계리)</address>
+                        </div>
+                        <div class="more">
+                            <a href="#n"><span>오시는 길</span></a>
+                            <a href="#n"><span>문의사항</span></a>
+                        </div>
+                        <p>이월 시외버스터미널에서 하차 후 픽업해 드립니다. <br>
+                            궁금하신 내용은 예약시 전화나 게시판을 통해 문의하여 주시기 바랍니다.</p>
+                    </div>
+                </div>
+            </section><!--contact-->
             <footer><span></span></footer>

@@ -7,12 +7,12 @@
     --color-white7 : rgba(255, 255, 255, 0.7);
     --color-white2 : rgba(255, 255, 255, 0.3);
     --color-white3 : rgba(255, 255, 255, 0.2);
-    --header-h : 100px;
+    --header-h : 80px;
     --wrapper-m : 50px;
 }
 @media screen and (max-width:1024px){
     :root {
-        --header-h : 80px;
+        --header-h : 70px;
         --wrapper-m : 30px;
     }
 }

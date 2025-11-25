@@ -1,5 +1,14 @@
 $(document).ready(function (){
 
+    $(window).on('scroll mousemove', function(e){  /* html cursor가 마우스 포인터를 따라다니게 하는 값 */
+        $('.cursor').css('left', e.pageX + 'px');
+        $('.cursor').css('top', e.pageY + 'px');
+    });
+    $('.calm .list .swiper').hover(function(){ /* 특정한 요소에 마우스를 올렸을때만 on 클래스 주기 */
+        $('.cursor').toggleClass('on');
+    });
+    
+
     /************************ visual swiper ************************/
     const visual_swiper = new Swiper('.visual .swiper', { /* 팝업을 감싼는 요소의 class명 */
 
@@ -37,7 +46,7 @@ $(document).ready(function (){
 
 
     /************************ calm swiper ************************/
-    let mobile_size = 768; // 모바일 기준 사이즈
+    let mobile_size = 500; // 모바일 기준 사이즈
     let window_w;           // 현재 브라우저 넓이
     let device_status;      // 'pc' or 'mobile'
     let calmSwiper;         // swiper 인스턴스
@@ -102,25 +111,34 @@ $(document).ready(function (){
             }
         }, 200);
     });
-    /************************ room swiper ************************/
-    const room_swiper = new Swiper('.room .swiper', { /* 팝업을 감싼는 요소의 class명 */
-        slidesPerView: 'auto', /* 한번에 보일 팝업의 수 - 모바일 제일 작은 사이즈일때 */
-        spaceBetween: 16, /* 팝업과 팝업 사이 여백 */
-        breakpoints: {
-            1441: {    
-                slidesPerView: 'auto',
-                spaceBetween: 24,
-            },
-        },
-        loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
-        navigation: {
-            nextEl: '.room .ctrl_wrap .btn_next',
-            prevEl: '.room .ctrl_wrap .btn_prev',
-        },
+    /************************ calm swiper ************************/
+
+
+    /************************ comfort scroll ************************/
+    window.addEventListener("load", function () {
+        const track = document.querySelector(".comfort .scroll .track");
+        const items = gsap.utils.toArray(".comfort .scroll .item");
+    
+        // 각 이미지의 총 너비 계산 (gap 포함)
+        let totalWidth = 0;
+        items.forEach(item => {
+            totalWidth += item.offsetWidth + 24;
+        });
+    
+        // 무한 루프 GSAP 애니메이션
+        gsap.to(track, {
+            x: -totalWidth / 2,  // 절반 이동 = 무한 루프
+            duration: 40,
+            ease: "none",
+            repeat: -1
+        });
+
+        track.addEventListener("mouseenter", () => gsap.globalTimeline.pause());
+        track.addEventListener("mouseleave", () => gsap.globalTimeline.resume());
     });
-    /************************ room swiper ************************/
+    /************************ comfort scroll ************************/
 
-
+    
     /************************ AOS ************************/
     AOS.init({
         offset: 150, // 해당 콘텐츠가 하단에서 몇 px 위로 올라와에 나타나는 효과가 나타날지 셋팅하는 값
