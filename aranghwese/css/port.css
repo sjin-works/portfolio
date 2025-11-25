@@ -213,6 +213,7 @@
 }
 .calm .tit p {
     margin-bottom: 10px;
+    line-height: 1.8;
 }
 .calm .list {
     margin-top: 94px;
@@ -294,7 +295,7 @@
     line-height: 1.8;
 }
 .room .room_wrapper .list {
-    margin: 5.2vw 0 0 calc(100% - 89.27%);
+    margin: 5.2vw 0 0 clamp(48px, 10.2vw, 196px);
 }
 .room .room_wrapper .list a {
     display: block;
