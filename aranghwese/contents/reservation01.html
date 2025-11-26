@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../js/jquery-3.7.1.min.js"></script>
+    <script src="../js/swiper-bundle.min.js"></script>
+    <script src="../js/aos.js"></script>
+    <script src="../js/gsap.min.js"></script>
+    <script src="../js/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="../css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="../css/aos.css">
+
+    <script src="../js/main.js"></script>
+    <script src="../js/common.js"></script>
+    <link rel="stylesheet" href="../css/sub.css">
+    <title>이용안내 | 아랑훼스</title>
+</head>
+<body>
+    <div id="wrap">
+        <header class="white">
+            <h1 class="logo"><a href="../index.html"><span class="blind">아랑훼스</span></a></h1>
+            <nav class="gnb">
+                <button class="gnb_open"><span class="blind">메뉴열기</span></button>
+                <div class="gnb_wrap">
+                    <div class="gnb_logo"><span class="blind">아랑훼스</span></div>
+                    <ul class="depth1">
+                        <li>
+                            <a href="#n"><span>객실안내</span></a>
+                        </li>
+                        <li>
+                            <a href="#n"><span>시설안내</span></a>
+                        </li>
+                        <li>
+                            <a href="#n"><span>서비스안내</span></a>
+                        </li>
+                        <li>
+                            <a href="#n"><span>주변여행</span></a>
+                        </li>
+                        <li>
+                            <a href="reservation01.html">
+                                <span>예약안내</span>
+                                <i>
+                                    <svg viewBox="0 0 14 8" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.5504 0.99626L6.77522 7.77148L0 0.996261L0.996063 0.000198318L6.77522 5.77954L12.5544 0.000197813L13.5504 0.99626Z" />
+                                    </svg>                                        
+                                </i>
+                            </a>
+                            <ul class="depth2">
+                                <li><a href="reservation01.html"><span>이용안내</span></a></li>
+                                <li><a href="reservation01.html"><span>예약문의</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <button class="gnb_close"><span class="blind">메뉴닫기</span></button>
+                </div><!--gnb_wrap-->
+                <div class="gnb_bg"></div>
+            </nav>
+        </header>
+        <div class="container">
+            <div class="sub_visual">
+                <div class="wrapper">
+                    <nav class="breadcrumb">
+                        <ol>
+                            <li class="home"><a href="../index.html"><span class="blind">메인페이지</span></a></li>
+                            <li><a href="reservation01.html"><span>예약안내</span></a></li>
+                            <li class="curr"><span>이용안내</span></li>
+                        </ol>
+                    </nav><!--breadcrumb-->
+                    <div class="sub_tit">
+                        <h2 class="txt_kr">자연이 감싸는 아랑훼스에서 <br> 고요한 쉼을 지금 예약해보세요</h2>
+                    </div>
+                </div>
+            </div><!--sub_visual-->
+            <div class="contents">
+                <div class="ctn_reservation01">
+                    <div class="wrapper">
+                        <div class="live-resv">
+                            <h3>실시간 예약현황</h3>
+                            <p>성수기 특별기간 : 2025.08.10 (일) ~ 2025.08.23 (토)</p>
+                            <div class="table_wrap live">
+                                <table>
+                                    <caption>각 객실 타입별 11월 16일부터 11월 22일까지의 실시간 예약 현황 및 요금 정보 표입니다.</caption>
+                                    <colgroup>
+                                        <col width=""> <!-- 객실명 -->
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                        <col width="14%">
+                                    </colgroup>
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">객실정보</th>
+                                            <th scope="col">11/16 (일)</th>
+                                            <th scope="col">11/17 (월)</th>
+                                            <th scope="col">11/18 (화)</th>
+                                            <th scope="col">11/19 (수)</th>
+                                            <th scope="col">11/20 (목)</th>
+                                            <th scope="col">11/21 (금)</th>
+                                            <th scope="col">11/22 (토)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">폴빌라</th>
+                                            <td>250,000<br><span class="state full">예약완료</span></td>
+                                            <td>250,000<br><span class="state full">예약완료</span></td>
+                                            <td>250,000<br><span class="state full">예약완료</span></td>
+                                            <td>250,000<br><span class="state full">예약완료</span></td>
+                                            <td>250,000<br><span class="state full">예약완료</span></td>
+                                            <td>250,000<br><span class="state full">예약완료</span></td>
+                                            <td>300,000<br><span class="state few">예약가능</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">아랑훼스</th>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                            <td>200,000<br><span class="state full">예약완료</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">클라리넷</th>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>140,000<br><span class="state few">예약가능</span></td>
+                                            <td>170,000<br><span class="state few">예약가능</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">바순</th>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>140,000<br><span class="state few">예약가능</span></td>
+                                            <td>170,000<br><span class="state few">예약가능</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">오보에</th>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>140,000<br><span class="state few">예약가능</span></td>
+                                            <td>170,000<br><span class="state few">예약완료</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">플루트</th>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>140,000<br><span class="state few">예약가능</span></td>
+                                            <td>170,000<br><span class="state few">예약완료</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">첼로</th>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>140,000<br><span class="state few">예약가능</span></td>
+                                            <td>170,000<br><span class="state few">예약완료</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">바이올린</th>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>120,000<br><span class="state full">예약완료</span></td>
+                                            <td>140,000<br><span class="state few">예약가능</span></td>
+                                            <td>170,000<br><span class="state few">예약가능</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="info">
+                                <span>요일 적용</span>
+                                <span>평일 : 일요일 ~ 목요일 / 금요일 : 요금 별도 표시</span>
+                                <span>주말 : 토요일, 공휴일 전날</span>
+                            </div>
+                        </div>
+                        <div class="resv"></div>
+                        <div class="guide"></div>
+                        <div class="refund"></div>
+                    </div>
+                </div>
+            </div><!--contents-->
+        </div>
+        <footer>
+            <div class="wrapper">
+                <div class="f_logo"><img src="../images/common/f_logo.svg" alt=""></div>
+                <div class="slogan">
+                    <h2 class="txt_kr">자연이 주는 고요함 속에서 <br> 머무는 이들의 일상을 <br> 더 깊고 편안하게 만드는 경험</h2>
+                </div>
+                <div class="f_info">
+                    <div class="inner">
+                        <div class="group">
+                            <h3 class="txt_kr">위치</h3>
+                            <address>충북 진천군 이월면 화산동길 90 (신계리)</address>
+                        </div>
+                        <div class="group">
+                            <h3 class="txt_kr">연락처</h3>
+                            <p>대표 김종화</p>
+                            <p>010 - 4926 - 7472</p>
+                        </div>
+                        <div class="group">
+                            <p>개인정보처리방침</p>
+                            <p>사업자등록번호 301-30-43248</p>
+                            <p>통신판매업번호 2012-충북진천-0020</p>
+                        </div>
+                    </div>
+                    <div class="copyright"><span>Ⓒ 2025 ARANGHWESE.ALL RIGHTS RESERVED.</span></div>
+                    <div class="login"><a href="#n"><span>관리자 로그인</span></a></div>
+                </div>
+            </div>
+        </footer>
+        <aside class="quick">
+            <div class="quick_wrap">
+                <div class="book"><a href="reservation01.html"><span>예약</span></a></div>
+                <button class="top"><span class="blind">top</span></button>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>

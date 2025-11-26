@@ -1,0 +1,98 @@
+@import url(default.css);
+@import url(fonts.css);
+@import url(common.css);
+@import url(layout.css);
+@import url(contents.css);
+
+.sub_visual {
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.sub_visual .breadcrumb ol {
+    display: flex;
+    gap: 0 3.2rem;
+    align-items: center;
+}
+.sub_visual .breadcrumb ol li {
+    position: relative; /* after 정렬 기준 */
+    font-size: 1.6rem;
+    height: 24px;
+}
+.sub_visual .breadcrumb ol li::after {
+    content: "";
+    position: absolute; /* li 기준 정렬 */
+    right: -16.76px;
+    top: 6.46px;
+    width: 7px;
+    height: 7px;
+    margin-top: 1px;
+    border-color: #6B6159;
+    border-style: solid;
+    border-width: 1px 1px 0 0;
+    transform: rotate(45deg);
+}
+.sub_visual .breadcrumb ol li:last-child::after {
+    display: none;
+}
+.sub_visual .breadcrumb ol li.home a {
+    margin-top: 3px;
+    display: block;
+    width: 16px;
+    height: 18px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 18' fill='%236B6159' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.125 16.6371H5.27878V10.017H10.4712V16.6371H14.625V6.51206L7.875 1.40625L1.125 6.51206V16.6371ZM0 17.7621V5.94956L7.875 0L15.75 5.94956V17.7621H9.34622V11.142H6.40378V17.7621H0Z'/%3E%3C/svg%3E%0A");
+}
+.sub_visual .sub_tit {
+    font-size: 5.6rem;
+    margin-top: 37px;
+    color: var(--color-txt-title);
+}
+
+/* table 공통 스타일 */
+.table_wrap {
+    overflow-x: auto; /* 가로 스크롤 허용 */
+}
+.table_wrap table {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse; 
+    border-bottom: 2px solid #664228;
+}
+.table_wrap table tbody th,
+.table_wrap table tbody td {
+    border: 1px solid #664228;
+    padding: 15px 50px;
+}
+/* 맨처음에 나오는 태그가 th일 수도 있고, td일 수도 있기 때문에 둘다 스타일을 줌 */
+.table_wrap table th:first-child,
+.table_wrap table td:first-child {
+    border-left: none;
+}
+.table_wrap table th:last-child,
+.table_wrap table td:last-child {
+    border-right: none;
+}
+.table_wrap table thead th,
+.table_wrap table thead td {
+    background-color: #7B6755;
+    font-size: 2.2rem;
+    color: var(--color-white);
+    text-align: center;
+    padding: 18px 38px;
+}
+.table_wrap table tbody th {
+    color: var(--color-txt-title);
+    text-align: left;
+    padding-left: 25px;
+}
+.table_wrap table tbody td {
+    text-align: center;
+}
+.table_wrap.count table tbody td {
+    text-align: right;
+    padding-right: 25px;
+}

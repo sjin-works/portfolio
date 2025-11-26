@@ -16,9 +16,31 @@ header .logo a {
     width: 114px;
     height: 60px;
     background: url(../images/common/logo.svg) no-repeat center center / contain;
+    transition: background-image 0.5s;
+}
+header.white .logo a {
+    background-image: url(../images/common/logo_dark.svg);
+}
+header.white .gnb .gnb_wrap ul.depth1 > li > a {
+    color: var(--color-txt-title);
+}
+header.white .gnb .gnb_wrap ul.depth1 > li > a i svg {
+    fill: var(--color-txt-title);
 }
 header.fixed {
     background-color: #625144;
+}
+header.fixed .logo a,
+header.menu_pc .logo a {
+    background-image: url(../images/common/logo.svg);
+}
+header.fixed .gnb .gnb_wrap ul.depth1 > li > a,
+header.menu_pc .gnb .gnb_wrap ul.depth1 > li > a {
+    color: var(--color-white);
+}
+header.fixed .gnb .gnb_wrap ul.depth1 > li > a i svg,
+header.menu_pc .gnb .gnb_wrap ul.depth1 > li > a i svg {
+    fill: var(--color-white);
 }
 header.fixed .gnb .gnb_open {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 11' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 11V9.16667H24V11H0ZM0 1.83333V0H24V1.83333H0Z' /%3E%3C/svg%3E%0A");
@@ -46,9 +68,8 @@ header.up:not(.menu_pc, .menu_mo) {
         padding: 0 20.5px;
         font-size: 1.8rem;
         color: var(--color-white);
-        display: flex;
-        gap: 0 12.8px;
         position: relative; /* after 정렬 기준 */
+        transition: color 0.5s;
     }
     header .gnb .gnb_wrap ul.depth1 > li.over > a {
         font-weight: 500;
@@ -56,8 +77,9 @@ header.up:not(.menu_pc, .menu_mo) {
     header .gnb .gnb_wrap ul.depth1 > li > a i svg {
         width: 14px;
         height: 8px;
+        margin: 0 0 2px 12.8px;
         fill: var(--color-white);
-        margin-bottom: 2px;
+        transition: fill 0.5s;
     }
     header .gnb .gnb_wrap ul.depth1 > li > a::after {
         content: "";
@@ -106,7 +128,6 @@ header.up:not(.menu_pc, .menu_mo) {
         padding: 26px 25px 15px 26px;
         min-width: 100%;
     }
-
 }/*media*/
 @media screen and (max-width:1024px){
     header {
@@ -155,25 +176,19 @@ header.up:not(.menu_pc, .menu_mo) {
         overflow-y: auto;
     }
     header .gnb .gnb_wrap ul.depth1 > li > a {
-        display: block;
-        padding: 20px 0 20px var(--wrapper-m);
+        display: flex;
+        justify-content: space-between;
+        line-height: 63px;
+        padding: 0 var(--wrapper-m);
         font-size: clamp(1.6rem, 1.9vw, 2rem);
-        position: relative; /* after 정렬 기준 */
     }
-    header .gnb .gnb_wrap ul.depth1 > li:last-child > a::after {
-        content: "";
-        position: absolute; /* a 기준 정렬 */
-        right: 22px;
-        top: 31px;
-        width: 16px;
-        height: 9px;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 16px;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 9' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 1.15355L8 9L0 1.15355L1.17612 8.7989e-07L8 6.6931L14.8239 2.83328e-07L16 1.15355Z' /%3E%3C/svg%3E%0A");
-        transition: transform 0.5s;
+    header .gnb .gnb_wrap ul.depth1 > li > a i svg {
+        width: 14px;
+        height: 8px;
+        fill: var(--color-white);
+        margin-bottom: 2px;
     }
-    header .gnb .gnb_wrap ul.depth1 > li.open > a::after {
+    header .gnb .gnb_wrap ul.depth1 > li.open > a i svg {
         transform: rotate(180deg);
     }
     header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
@@ -194,7 +209,7 @@ header.up:not(.menu_pc, .menu_mo) {
         height: var(--header-h);
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: 24px;
+        background-size: 18px;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.38082 24L0 22.6192L10.6521 11.9671L0 1.38082L1.38082 0L12.0329 10.6521L22.6192 0L24 1.38082L13.3479 11.9671L24 22.6192L22.6192 24L12.0329 13.3479L1.38082 24Z' /%3E%3C/svg%3E%0A");
     }
     header .gnb .gnb_bg {

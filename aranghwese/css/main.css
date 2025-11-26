@@ -799,19 +799,3 @@
         height: 14px;
     }
 }
-
-aside.quick {
-    position: fixed;
-    right: 50px;
-    bottom: 5%;
-    z-index: 99;
-}
-aside.quick .book,
-aside.quick .top {
-    display: block;
-    width: 74px;
-    height: 74px;
-    border-radius: 50%;
-    background-color: var(--color-white);
-    position: relative;
-}
