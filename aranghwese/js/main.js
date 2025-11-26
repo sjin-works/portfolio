@@ -21,9 +21,12 @@ $(document).ready(function (){
     
         loop: true,  /* 마지막 팝업에서 첫번째 팝업으로 자연스럽게 넘기기 */
     
-        pagination: {  /* 몇개의 팝업이 있는지 보여주는 동그라미 */
-            el: '.visual .paging', /* 해당 요소의 class명 */
-            clickable: true,  /* 클릭하면 해당 팝업으로 이동할 것인지 값 */
+        pagination: {
+            el: '.visual .paging',
+            clickable: true,
+            renderBullet: function (i, className) {
+            return '<button class="' + className + '"><svg viewBox="0 0 73 73" xmlns="http://www.w3.org/2000/svg"><circle cx="36.5" cy="36.5" r="35.5" class="circle"></circle></svg></button>';
+            }
         },
         
         navigation: {  /* 이전, 다음 버튼 */

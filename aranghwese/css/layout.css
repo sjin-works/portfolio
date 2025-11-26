@@ -17,7 +17,6 @@ header .logo a {
     height: 60px;
     background: url(../images/common/logo.svg) no-repeat center center / contain;
 }
-
 header.fixed {
     background-color: #625144;
 }
@@ -43,47 +42,36 @@ header.up:not(.menu_pc, .menu_mo) {
     }
     header .gnb .gnb_wrap ul.depth1 > li > a {
         display: block;
-        position: relative; /* before 정렬 기준 */
         line-height: var(--header-h);
         padding: 0 20.5px;
         font-size: 1.8rem;
         color: var(--color-white);
+        display: flex;
+        gap: 0 12.8px;
+        position: relative; /* after 정렬 기준 */
     }
-    header .gnb .gnb_wrap ul.depth1 > li > a::before {
+    header .gnb .gnb_wrap ul.depth1 > li.over > a {
+        font-weight: 500;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > a i svg {
+        width: 14px;
+        height: 8px;
+        fill: var(--color-white);
+        margin-bottom: 2px;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li > a::after {
         content: "";
         position: absolute; /* a 기준 정렬 */
         left: 50%;
-        bottom: 30px;
+        bottom: 17px;
         transform: translateX(-50%);
         width: 0;
         height: 1px;
         background-color: var(--color-white);
-        transition: 0.4s;
+        transition: width 0.3s;
     }
-    header .gnb .gnb_wrap ul.depth1 > li.over > a::before,
-    header .gnb .gnb_wrap ul.depth1 > li.over > a:focus::before {
-        width: 70%;
-    }
-    header .gnb .gnb_wrap ul.depth1 > li:last-child.over > a::before {
-        transform: translateX(-40%);
-    }
-    header .gnb .gnb_wrap ul.depth1 > li:last-child.over > a::before {
-        width: 100%;
-    }
-    header .gnb .gnb_wrap ul.depth1 > li:last-child > a span {
-        position: relative; /* after 정렬 기준 */
-    }
-    header .gnb .gnb_wrap ul.depth1 > li:last-child > a span::after {
-        content: "";
-        position: absolute;
-        right: -27px;
-        top: 11px;
-        width: 14px;
-        height: 8px;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 13.55px;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 14 8' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.5504 0.996261L6.77522 7.77148L0 0.996261L0.996063 0.000198321L6.77522 5.77954L12.5544 0.000197815L13.5504 0.996261Z' /%3E%3C/svg%3E%0A");
+    header .gnb .gnb_wrap ul.depth1 > li.over > a::after {
+        width: 80%;
     }
     header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
         position: absolute; /* li 기준 정렬 */
@@ -103,16 +91,16 @@ header.up:not(.menu_pc, .menu_mo) {
         padding-bottom: 15px;
         white-space: nowrap;
         color: var(--color-white7);
+        text-align: center;
     }
     header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li > a:hover,
     header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 > li > a:focus {
         color: var(--color-white);
     }
-
     header.menu_pc {
         background-color: #625144;
     }
-    header.menu_pc .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
+    header .gnb .gnb_wrap ul.depth1 > li.over > ul.depth2 {
         opacity: 1;
         height: 125px;
         padding: 26px 25px 15px 26px;
@@ -225,15 +213,125 @@ header.up:not(.menu_pc, .menu_mo) {
         right: 0;
     }
 }/*media*/
-@media screen and (max-width:768px) {
+@media screen and (max-width:768px){
     header .logo a {
         width: clamp(81px, 11.97vw, 92px);
         height: clamp(44px, 6.38vw, 49px);
     }
 }
 
-
 footer {
-    margin-top: 1000px;
+    background-color: #111;
+    padding: 79px 0 101px 0;
+    color: var(--color-white8);
 }
-
+footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+footer .f_logo {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 212px;
+    width: 181.79px;
+    height: 95.67px;
+    overflow: hidden;
+}
+footer .f_logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+footer .slogan h2 {
+    font-size: 3rem;
+    line-height: 1.7;
+    color: var(--color-white);
+}
+footer .f_info {
+    margin: 17px 10.14% 0 0;
+}
+footer .f_info .inner {
+    display: flex;
+    flex-direction: column;
+    gap: 62px 0;
+}
+footer .f_info .group h3 {
+    font-size: 2.4rem;
+    margin-bottom: 11px;
+    color: var(--color-white);
+}
+footer .f_info .group p + p{
+    margin-top: 8px;
+}
+footer .f_info .group:nth-of-type(3) p,
+footer .f_info .copyright,
+footer .login a {
+    font-size: 1.6rem;
+}
+footer .f_info .group:nth-of-type(3) p + p {
+    margin-top: 11px;
+}
+footer .f_info .group:nth-of-type(3) p:first-child {
+    font-weight: 500;
+}
+footer .f_info .group:nth-of-type(3) p:first-child:hover {
+    color: var(--color-white);
+}
+footer .f_info .copyright {
+    margin: 20px 0 21px 0;
+}
+footer .login a {
+    display: block;
+}
+footer .login a:hover {
+    color: var(--color-white);
+}
+@media screen and (max-width:1560px){
+    footer .slogan h2 {
+        font-size: clamp(2.2rem, 1.92vw, 3rem);
+    }
+}/*media*/
+@media screen and (max-width:768px){
+    footer {
+        padding: 40px 0 56px 0;
+    }
+    footer .wrapper {
+        display: block;
+    }
+    footer .f_logo {
+        left: 50%;
+        top: auto;
+        transform: translateX(-50%);
+        bottom: 82px;
+        width: clamp(112.1px, 19.8vw, 151.9px);
+        height: clamp(59px, 10.4vw, 79.94px);
+    }
+    footer .slogan h2 {
+        font-size: clamp(1.8rem, 2.75vw, 2.2rem);
+    }
+    footer .f_info {
+        margin: 48px 0 0 0;
+    }
+    footer .f_info .inner {
+        gap: 42px 0;
+    }
+    footer .f_info .group h3 {
+        font-size: clamp(1.8rem, 3.1vw, 2.4rem);
+    }
+    footer .f_info .group address,
+    footer .f_info .group p,
+    footer .f_info .group:nth-of-type(3) p,
+    footer .f_info .copyright,
+    footer .login a {
+        font-size: clamp(1.4rem, 2vw, 1.6rem);
+    }
+    footer .f_info .copyright {
+        text-align: center;
+        margin: clamp(149px, 21.74vw, 167px) 0 8px 0;
+    }
+    footer .login a {
+        text-align: center;
+    }
+}/*media*/

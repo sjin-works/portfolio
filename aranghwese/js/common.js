@@ -25,15 +25,13 @@ $(document).ready(function(){
             // header 배경 + 전체 메뉴 열림 상태
             $('header').addClass('menu_pc');
             $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+            $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2').hide()
             $(this).addClass('over')
             $(this).find('.depth2').show() //2차메뉴 열기
         }
     });
-
-    // depth2 내부에서 포커스 이동할 때 depth2 닫히지 않도록 함
-    $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 a').on('focusin', function () {
+    $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2').on('focusin', function () {
         if (device_status == 'pc') {
-            // depth2로 포커스가 와도 menu_pc 유지
             $('header').addClass('menu_pc');
         }
     });
@@ -41,7 +39,13 @@ $(document).ready(function(){
     $('header').on('mouseleave', function () {
         $(this).removeClass('menu_pc')
         $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over')
+        $(this).find('.depth2').hide()
     })
+    $('.visual .btn_prev').on('focusin', function () {
+        if (device_status == 'pc') {
+            $('header').removeClass('menu_pc');
+        }
+    });
 
     let gnb_open
     $('header .gnb .gnb_wrap ul.depth1 > li > a').on('click', function (e) {
