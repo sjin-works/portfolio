@@ -95,7 +95,19 @@ $(document).ready(function(){
     $(window).scroll(function () { //스크롤 할 때마다 1번씩 실행
         scroll_chk()
     })
-
     /************************* header ************************/
 
+
+    /************************* aside ************************/
+    $(window).on('scroll resize', function () {
+        let scrollBottom = $(window).scrollTop() + $(window).height();
+        let footerTop = $('footer').offset().top;
+
+        if (scrollBottom >= footerTop) {
+            $('aside.quick').addClass('hide');
+        } else {
+            $('aside.quick').removeClass('hide');
+        }
+    });
+    /************************* aside ************************/
 })

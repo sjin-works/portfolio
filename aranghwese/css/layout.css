@@ -134,8 +134,8 @@ header.up:not(.menu_pc, .menu_mo) {
         padding-right: 0;
     }
     header .logo a {
-        width: clamp(92px, 12.72vw, 130.35px);
-        height: clamp(49px, 6.7vw, 68.6px);
+        width: clamp(81px, 9.2vw, 92px);
+        height: clamp(44px, 4.9vw, 49px);
     }
     header .gnb .gnb_open {
         display: block;
@@ -143,15 +143,15 @@ header.up:not(.menu_pc, .menu_mo) {
         height: var(--header-h);
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: 24px;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 11' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 11V9.16667H24V11H0ZM0 1.83333V0H24V1.83333H0Z' /%3E%3C/svg%3E%0A");
+        background-size: 18px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 10' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10V8.33333H18V10H0ZM0 1.66667V0H18V1.66667H0Z'/%3E%3C/svg%3E%0A");
     }
     header .gnb .gnb_wrap {
         position: absolute; /* header 기준 정렬 */
         z-index: 10;
         right: -90%;
         top: 0;
-        width: 85%;
+        width: 80%;
         height: 100dvh;
         background-color: #625144;
         color: var(--color-white);
@@ -162,11 +162,11 @@ header.up:not(.menu_pc, .menu_mo) {
     }
     header .gnb .gnb_wrap .gnb_logo {
         position: absolute; /* gnb_wrap 기준 정렬 */
-        left: var(--wrapper-m);
+        left: 20px;
         top: 0;
         margin: 10px 0 0 0;
-        width: clamp(112px, 12.72vw, 130.35px);
-        height: calc(var(--header-h) - 10px);;
+        width: clamp(81px, 9.2vw, 92px);
+        height: clamp(44px, 4.9vw, 49px);
         background: url(../images/common/logo_tab.svg) no-repeat center left / contain;
     }
     header .gnb .gnb_wrap ul.depth1 {
@@ -178,8 +178,8 @@ header.up:not(.menu_pc, .menu_mo) {
     header .gnb .gnb_wrap ul.depth1 > li > a {
         display: flex;
         justify-content: space-between;
-        line-height: 63px;
-        padding: 0 var(--wrapper-m);
+        line-height: 70px;
+        padding: 0 22px 0 20px;
         font-size: clamp(1.6rem, 1.9vw, 2rem);
     }
     header .gnb .gnb_wrap ul.depth1 > li > a i svg {
@@ -209,8 +209,8 @@ header.up:not(.menu_pc, .menu_mo) {
         height: var(--header-h);
         background-position: center center;
         background-repeat: no-repeat;
-        background-size: 18px;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.38082 24L0 22.6192L10.6521 11.9671L0 1.38082L1.38082 0L12.0329 10.6521L22.6192 0L24 1.38082L13.3479 11.9671L24 22.6192L22.6192 24L12.0329 13.3479L1.38082 24Z' /%3E%3C/svg%3E%0A");
+        background-size: 16px;
+        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.00105874 1.35593L1.35693 0L16.0004 14.6441L14.6445 16L0.00105874 1.35593Z' fill='%23ffffff'/%3E%3Cpath d='M15.9994 1.35593L14.6436 0L9.92122e-05 14.6441L1.35597 16L15.9994 1.35593Z' /%3E%3C/svg%3E%0A");
     }
     header .gnb .gnb_bg {
         opacity: 0;
@@ -219,8 +219,8 @@ header.up:not(.menu_pc, .menu_mo) {
         top: 0;
         width: 100%;
         height: 100dvh;
-        background-color: rgba(139, 122, 95, 0.4);
-        backdrop-filter: blur(20px);
+        background-color: rgba(139, 122, 95, 0.2);
+        backdrop-filter: blur(6px);
         transition: right 0.5s cubic-bezier(0.4, 0.1, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0.1, 0.2, 1);
     }
     header.menu_mo .gnb .gnb_bg {
@@ -233,7 +233,7 @@ header.up:not(.menu_pc, .menu_mo) {
         width: clamp(81px, 11.97vw, 92px);
         height: clamp(44px, 6.38vw, 49px);
     }
-}
+}/*media*/
 
 footer {
     background-color: #111;
@@ -310,7 +310,7 @@ footer .login a:hover {
 }/*media*/
 @media screen and (max-width:768px){
     footer {
-        padding: 40px 0 56px 0;
+        padding: clamp(70px, 10.93vw, 84px) 0 clamp(70px, 10.93vw, 84px) 0;
     }
     footer .wrapper {
         display: block;

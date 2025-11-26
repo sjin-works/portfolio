@@ -5,8 +5,8 @@
     --color-white : #fff;
     --color-white8 : rgba(255, 255, 255, 0.8);
     --color-white7 : rgba(255, 255, 255, 0.7);
-    --color-white2 : rgba(255, 255, 255, 0.3);
     --color-white3 : rgba(255, 255, 255, 0.2);
+    --color-white2: rgba(255, 255, 255, 0.3);
     --header-h : 80px;
     --wrapper-m : 50px;
 }
@@ -43,9 +43,6 @@ body {
     width: 1440px;
     margin: 0 auto; /* 가운데 정렬 */
 }
-/*
-    좌우여백 50px : 1440 + 50 + 50 = 1540px
-*/
 @media screen and (max-width:1540px) {
     .wrapper {
         width: auto;
@@ -82,7 +79,7 @@ body {
 .mo_only { /* 모바일에서만 보임 */
     display: none;
 }
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1024px){
     body {
         font-size: 1.5rem;
     }
@@ -95,7 +92,7 @@ body {
         display: none;
     }
     body {
-        font-size: 1.4rem;
+        font-size: clamp(1.4rem, 2vw, 1.5rem);
     }
 }
 
@@ -106,9 +103,14 @@ body {
 
 aside.quick {
     position: fixed;
-    right: 50px;
+    right: clamp(16px, 1.5vw, 30px);
     bottom: 3%;
     z-index: 99;
+    transition: opacity 0.3s;
+}
+aside.quick.hide {
+    opacity: 0;
+    pointer-events: none;
 }
 aside.quick .book,
 aside.quick .top {
@@ -124,9 +126,10 @@ aside.quick .book {
     position: relative;
     font-size: 1.5rem;
     font-weight: 700;
+    line-height: 1.1;
     color: var(--color-txt-title);
     text-align: center;
-    padding-top: 39px;
+    padding-top: 42px;
 }
 aside.quick .book::after {
     content: "";
@@ -146,4 +149,26 @@ aside.quick .top {
     background-repeat: no-repeat;
     background-size: 22.5px;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 23 28' fill='%232C1D12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.125 27.5V4.3095L1.58062 12.8539L0 11.25L11.25 0L22.5 11.25L20.9194 12.8539L12.375 4.3095V27.5H10.125Z' /%3E%3C/svg%3E%0A");
+}
+@media screen and (max-width:768px){
+    aside.quick .book,
+    aside.quick .top {
+        width: 53px;
+        height: 53px;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.04);
+    }
+    aside.quick .book {
+        font-size: 1.3rem;
+        font-weight: 500;
+        padding-top: 28.16px;
+    }
+    aside.quick .book::after {
+        top: 6.59px;
+        height: 19.09px;
+        background-size: 16.08px;
+    }
+    aside.quick .top {
+        margin-top: 7px;
+        background-size: 16.11px;
+    }
 }
