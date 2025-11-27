@@ -70,7 +70,6 @@ $(document).ready(function(){
         $('header').addClass('menu_mo')
     })
     $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
-        $('header').Class('white')
         $('header').removeClass('menu_mo')
     })
 

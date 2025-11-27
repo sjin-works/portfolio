@@ -48,7 +48,7 @@ header.menu_mo .gnb .gnb_wrap ul.depth1 > li > a i svg {
     fill: var(--color-white);
 }
 header.fixed .gnb .gnb_open {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 11' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 11V9.16667H24V11H0ZM0 1.83333V0H24V1.83333H0Z' /%3E%3C/svg%3E%0A");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 10' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10V8.33333H18V10H0ZM0 1.66667V0H18V1.66667H0Z'/%3E%3C/svg%3E%0A");
 }
 header.up:not(.menu_pc, .menu_mo) {
     transform: translateY(-110%);
