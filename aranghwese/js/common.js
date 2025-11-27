@@ -70,7 +70,7 @@ $(document).ready(function(){
         $('header').addClass('menu_mo')
     })
     $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
-        $('header').addClass('white')
+        $('header').Class('white')
         $('header').removeClass('menu_mo')
     })
 
@@ -82,7 +82,7 @@ $(document).ready(function(){
         prev_scroll = scrolling
         scrolling = $(window).scrollTop()
         diff_scroll = prev_scroll - scrolling
-        if (diff_scroll < 0) { //스크롤업(위로)
+        if ((diff_scroll < 0) && (scrolling > 0)) { //스크롤업(위로)
             $('header').addClass('up')
         } else {//스크롤다운(아래로)
             $('header').removeClass('up')
