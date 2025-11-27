@@ -138,7 +138,7 @@ aside.quick .book::after {
     content: "";
     position: absolute;
     left: 0;
-    top: 8px;
+    top: 10px;
     width: 100%;
     height: 20px;
     background-position: center center;
@@ -169,5 +169,10 @@ aside.quick .top {
     }
     aside.quick .top {
         background-size: 18px;
+    }
+}
+@media screen and (max-width:450px){
+    aside.quick {
+        bottom: 3%;
     }
 }

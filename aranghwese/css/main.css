@@ -219,6 +219,10 @@
     .visual .swiper-slide .txt p {
         font-size: clamp(1.5rem, 2vw, 2rem);
     }
+    .visual .btn_prev,
+    .visual .btn_next {
+        display: none;
+    }
 }/*media*/
 @media screen and (max-width:768px){
     .visual .swiper-slide {
@@ -229,10 +233,6 @@
     }
     .visual .swiper-slide .txt p {
         font-size: clamp(1.4rem, 2.2vw, 1.6rem);
-    }
-    .visual .btn_prev,
-    .visual .btn_next {
-        display: none;
     }
 }/*media*/
 @media screen and (max-width:350px){

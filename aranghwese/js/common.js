@@ -71,6 +71,7 @@ $(document).ready(function(){
     })
     $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
         $('header').removeClass('menu_mo')
+        $('header').addClass('white')
     })
 
     //스크롤 내리면 header에 fixed 클래스
@@ -82,7 +83,7 @@ $(document).ready(function(){
         scrolling = $(window).scrollTop()
         diff_scroll = prev_scroll - scrolling
         // console.log(diff_scroll)
-        if (diff_scroll < 0) { //스크롤업(위로)
+        if ((diff_scroll < 0) && (scrolling > 0)) { //스크롤업(위로)
             $('header').addClass('up')
             // console.log('if?')
         } else {//스크롤다운(아래로)

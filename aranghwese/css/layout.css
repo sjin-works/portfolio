@@ -13,8 +13,8 @@ header {
 }
 header .logo a {
     display: block;
-    width: 114px;
-    height: 60px;
+    width: 99.65px;
+    height: 52.45px;
     background: url(../images/common/logo.svg) no-repeat center center / contain;
     transition: background-image 0.5s;
 }
