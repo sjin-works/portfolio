@@ -66,9 +66,11 @@ $(document).ready(function(){
     });
 
     $('header .gnb .gnb_open').on('click', function () {
+        $('header').removeClass('white')
         $('header').addClass('menu_mo')
     })
     $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
+        $('header').addClass('white')
         $('header').removeClass('menu_mo')
     })
 
@@ -100,13 +102,16 @@ $(document).ready(function(){
 
     /************************* aside ************************/
     $(window).on('scroll resize', function () {
-        let scrollBottom = $(window).scrollTop() + $(window).height();
-        let footerTop = $('footer').offset().top;
-
-        if (scrollBottom >= footerTop) {
-            $('aside.quick').addClass('hide');
-        } else {
+        let scrollTop = $(window).scrollTop();
+    
+        // calm 섹션이 시작하는 지점
+        let calmTop = $('.calm').offset().top;
+    
+        // calm 섹션이 화면에 닿았는지 체크
+        if (scrollTop + $(window).height() > calmTop) {
             $('aside.quick').removeClass('hide');
+        } else {
+            $('aside.quick').addClass('hide');
         }
     });
     /************************* aside ************************/

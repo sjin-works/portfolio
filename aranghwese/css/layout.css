@@ -9,6 +9,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 var(--wrapper-m);
+    padding-top: env(safe-area-inset-top);
     transition: transform 0.5s, background-color 0.3s cubic-bezier(0.4, 0.1, 0.2, 1);
 }
 header .logo a {
@@ -27,6 +28,9 @@ header.white .gnb .gnb_wrap ul.depth1 > li > a {
 header.white .gnb .gnb_wrap ul.depth1 > li > a i svg {
     fill: var(--color-txt-title);
 }
+header.white .gnb .gnb_open {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 20 9' fill='%232C1D12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 9V7.5H20V9H0ZM0 1.5V0H20V1.5H0Z'/%3E%3C/svg%3E%0A");
+}
 header.fixed {
     background-color: #625144;
 }
@@ -35,11 +39,13 @@ header.menu_pc .logo a {
     background-image: url(../images/common/logo.svg);
 }
 header.fixed .gnb .gnb_wrap ul.depth1 > li > a,
-header.menu_pc .gnb .gnb_wrap ul.depth1 > li > a {
+header.menu_pc .gnb .gnb_wrap ul.depth1 > li > a,
+header.menu_mo .gnb .gnb_wrap ul.depth1 > li > a {
     color: var(--color-white);
 }
 header.fixed .gnb .gnb_wrap ul.depth1 > li > a i svg,
-header.menu_pc .gnb .gnb_wrap ul.depth1 > li > a i svg {
+header.menu_pc .gnb .gnb_wrap ul.depth1 > li > a i svg,
+header.menu_mo .gnb .gnb_wrap ul.depth1 > li > a i svg {
     fill: var(--color-white);
 }
 header.fixed .gnb .gnb_open {
@@ -69,7 +75,9 @@ header.up:not(.menu_pc, .menu_mo) {
         font-size: 1.8rem;
         color: var(--color-white);
         position: relative; /* after 정렬 기준 */
-        transition: color 0.5s;
+    }
+    header .gnb .gnb_wrap ul.depth1 > li:last-child > a {
+        padding-right: 0;
     }
     header .gnb .gnb_wrap ul.depth1 > li.over > a {
         font-weight: 500;
@@ -93,7 +101,7 @@ header.up:not(.menu_pc, .menu_mo) {
         transition: width 0.3s;
     }
     header .gnb .gnb_wrap ul.depth1 > li.over > a::after {
-        width: 80%;
+        width: 100%;
     }
     header .gnb .gnb_wrap ul.depth1 > li > ul.depth2 {
         position: absolute; /* li 기준 정렬 */
@@ -181,6 +189,7 @@ header.up:not(.menu_pc, .menu_mo) {
         line-height: 70px;
         padding: 0 22px 0 20px;
         font-size: clamp(1.6rem, 1.9vw, 2rem);
+        transition: color 0.5s ease-out;
     }
     header .gnb .gnb_wrap ul.depth1 > li > a i svg {
         width: 14px;
@@ -219,9 +228,9 @@ header.up:not(.menu_pc, .menu_mo) {
         top: 0;
         width: 100%;
         height: 100dvh;
-        background-color: rgba(139, 122, 95, 0.2);
+        background-color: rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(6px);
-        transition: right 0.5s cubic-bezier(0.4, 0.1, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0.1, 0.2, 1);
+        transition: right 0.3s cubic-bezier(0.4, 0.1, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0.1, 0.2, 1);
     }
     header.menu_mo .gnb .gnb_bg {
         opacity: 1;

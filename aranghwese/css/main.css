@@ -214,7 +214,7 @@
 @media screen and (max-width:1024px){
     .visual .swiper-slide .txt h3 {
         font-size: clamp(3.6rem, 6vw, 6rem);
-        margin-bottom: clamp(18px, 3vw, 24px);
+        margin-bottom: clamp(12px, 3vw, 24px);
     }
     .visual .swiper-slide .txt p {
         font-size: clamp(1.5rem, 2vw, 2rem);
@@ -225,13 +225,21 @@
         height: 800px;
     }
     .visual .swiper-slide .txt h3 {
-        font-size: clamp(2.4rem, 4.68vw, 3.6rem);
+        font-size: clamp(2.6rem, 4.68vw, 3.6rem);
+    }
+    .visual .swiper-slide .txt p {
+        font-size: clamp(1.4rem, 2.2vw, 1.6rem);
     }
     .visual .btn_prev,
     .visual .btn_next {
         display: none;
     }
 }/*media*/
+@media screen and (max-width:350px){
+    .visual .swiper-slide .txt p br.mo_only {
+        display: none;
+    }
+}
 
 .calm {
     margin-top: 240px;

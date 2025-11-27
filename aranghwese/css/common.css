@@ -153,22 +153,22 @@ aside.quick .top {
 @media screen and (max-width:768px){
     aside.quick .book,
     aside.quick .top {
-        width: 53px;
-        height: 53px;
+        width: 60px;
+        height: 60px;
         box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.04);
     }
     aside.quick .book {
         font-size: 1.3rem;
         font-weight: 500;
-        padding-top: 28.16px;
+        padding-top: 35px;
     }
     aside.quick .book::after {
-        top: 6.59px;
+        top: 10px;
         height: 19.09px;
         background-size: 16.08px;
     }
     aside.quick .top {
-        margin-top: 7px;
+        margin-top: 8px;
         background-size: 16.11px;
     }
 }

@@ -7,6 +7,184 @@
     color: var(--color-txt-title);
     margin-bottom: 25px;
 }
-.ctn_reservation01 .table_wrap {
+.ctn_reservation01 .live-resv .table_wrap.live {
     margin-top: 17px;
+}
+.ctn_reservation01 .live-resv .info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+.ctn_reservation01 .live-resv .more {
+    display: block;
+    width: fit-content; 
+    margin: 69px auto 0;
+    padding: 0 4.5em 0 1.7813em;
+    line-height: 91px;
+    font-size: 3.2rem;
+    background-color: #7B6755;
+    color: var(--color-white);
+}
+.ctn_reservation01 .live-resv .more span {
+    position: relative; /* after 정렬 기준 */
+}
+.ctn_reservation01 .live-resv .more span::after {
+    content: "";
+    position: absolute; /* a 기준 정렬 */
+    right: -2.75em;
+    top: 0;
+    width: 1.5em;
+    height: 1.5em;
+    border: 1px solid var(--color-white);
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 0.7475em;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 19' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.8493 18.1348L13.6402 16.9061L20.6247 9.92157H0V8.21324H20.6247L13.6402 1.22872L14.8493 0L23.9167 9.06741L14.8493 18.1348Z'/%3E%3C/svg%3E%0A");
+}
+.ctn_reservation01 .guide {
+    margin-top: 125px;
+    padding: 48px 0;
+    border-top: 2px solid #664228;
+    border-bottom: 2px solid #664228;
+}
+.ctn_reservation01 .guide .guide_wrap {
+    display: flex;
+    gap: 0 24px;
+}
+.ctn_reservation01 .guide .guide_resv,
+.ctn_reservation01 .guide .guide_use {
+    width: calc((100% - 24px) / 2);
+    line-height: 1.6;
+}
+.ctn_reservation01 .refund {
+    margin-top: 48px;
+}
+.ctn_reservation01 .refund .table_wrap.refund {
+    margin-top: 47px;
+}
+.table_wrap.live table thead th,
+.table_wrap.live table thead td {
+    font-size: 2rem;
+    text-align: center;
+    padding: 19px 2.23vw 20px 2.23vw;
+}
+.table_wrap.live table tbody th,
+.table_wrap.live table tbody td {
+    padding: 15px 50px;
+}
+.table_wrap.live table tbody th {
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+}
+.table_wrap.live table tbody td {
+    text-align: center;
+}
+.table_wrap.live table tbody td .price {
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-txt-title);
+}
+.table_wrap.live table tbody td .state {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #838383;
+    margin-top: 1px;
+}
+.table_wrap.live table tbody td .state.few {
+    font-weight: 500;
+    color: #814316  ;
+}
+.table_wrap.refund table thead th,
+.table_wrap.refund table thead td {
+    padding: 11px 0 11px 1.04vw;
+    text-align: left;
+}
+.table_wrap.refund table tbody th,
+.table_wrap.refund table tbody td {
+    padding: 8px 0 9px 1.04vw;
+}
+@media screen and (max-width:1024px){
+    .ctn_reservation01 {
+        margin: clamp(62px, 13vw, 133px) 0 clamp(60px, 16vw, 167px) 0;
+        font-size: clamp(1.3rem, 1.7vw, 1.7rem);
+    }
+    .ctn_reservation01 h3 {
+        font-size: clamp(1.6rem, 2.8vw, 2.8rem);
+        margin-bottom: clamp(17px, 2.5vw, 25px);
+    }
+    .ctn_reservation01 .live-resv .table_wrap.live {
+        margin-top: clamp(9px, 1.7vw, 17px);
+    }
+    .ctn_reservation01 .live-resv .info {
+        margin-top: clamp(22px, 3vw, 30px);
+    }
+    .ctn_reservation01 .live-resv .more {
+        margin-top: clamp(41px, 6.9vw, 69px);
+        line-height: clamp(70px, 8.8vw, 91px);
+        font-size: clamp(2rem, 3.2vw, 3.2rem);
+    }
+    .ctn_reservation01 .guide {
+        margin-top: clamp(84px, 12.2vw, 125px);
+        padding: clamp(30px, 4.68vw, 48px) 0;
+    }
+    .ctn_reservation01 .guide .guide_wrap {
+        flex-direction: column;
+        gap: 42px 0;
+    }
+    .ctn_reservation01 .guide .guide_resv,
+    .ctn_reservation01 .guide .guide_use {
+        width: 100%;
+    }
+    .ctn_reservation01 .refund {
+        margin-top: clamp(30px, 4.68vw, 48px);
+    }
+    .ctn_reservation01 .refund .table_wrap.refund {
+        margin-top: clamp(35px, 4.58vw, 47px);
+    }
+    .table_wrap.live table thead th,
+    .table_wrap.live table thead td {
+        font-size: clamp(1.3rem, 1.95vw, 2rem);
+        padding: clamp(8px, 1.85vw, 19px) clamp(15px, 2.24vw, 23px) clamp(9px, 1.95vw, 20px) clamp(15px, 2.24vw, 23px);
+    }
+    .table_wrap.live table tbody th,
+    .table_wrap.live table tbody td {
+        padding: clamp(8px, 1.46vw, 15px) clamp(23px, 4.88vw, 50px);
+    }
+    .table_wrap.live table tbody th {
+        font-size: clamp(1.3rem, 1.95vw, 2rem);
+    }
+    .table_wrap.live table tbody td .price {
+        font-size: clamp(1.3rem, 1.95vw, 2rem);
+    }
+    .table_wrap.live table tbody td .state {
+        font-size: clamp(1.1rem, 1.46vw, 1.5rem);
+        margin-top: 0;
+    }
+    .table_wrap.refund table thead th,
+    .table_wrap.refund table thead td {
+        padding: 11px 0;
+        text-align: center;
+    }
+    .table_wrap.refund table tbody th,
+    .table_wrap.refund table tbody td {
+        padding: 8px 0 9px 0;
+        text-align: center;
+    }
+}
+@media screen and (max-width:768px){
+    .ctn_reservation01 .live-resv .more {
+        width: 100%;
+        padding: 0;
+        line-height: clamp(56px, 10.41vw, 80px);
+        text-align: center;
+    }
+    .ctn_reservation01 .live-resv .more span {
+        padding-right: calc(27px + clamp(32px, 5.06vw, 38.89px));
+    }
+    .ctn_reservation01 .live-resv .more span::after {
+        right: 0;
+        top: -1px;
+    }
 }
