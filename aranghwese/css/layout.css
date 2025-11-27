@@ -312,9 +312,17 @@ footer .login a:hover {
     color: var(--color-white);
 }
 @media screen and (max-width:1560px){
+    footer .f_logo {
+        width: clamp(151.9px, 11.65vw, 181.79px);
+        height: clamp(79.94px, 6.132vw, 95.67px);
+    }
     footer .slogan h2 {
         font-size: clamp(2.2rem, 1.92vw, 3rem);
     }
+    footer .f_info .group h3 {
+        font-size: clamp(1.8rem, 1.53vw, 2.4rem);
+    }
+
 }/*media*/
 @media screen and (max-width:768px){
     footer {

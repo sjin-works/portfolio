@@ -47,7 +47,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 18' fill='%236B6159' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.125 16.6371H5.27878V10.017H10.4712V16.6371H14.625V6.51206L7.875 1.40625L1.125 6.51206V16.6371ZM0 17.7621V5.94956L7.875 0L15.75 5.94956V17.7621H9.34622V11.142H6.40378V17.7621H0Z'/%3E%3C/svg%3E%0A");
 }
 .sub_visual .sub_tit {
-    font-size: 5.6rem;
+    font-size: var(--font-sizeh2);
     margin-top: 37px;
     color: var(--color-txt-title);
 }
@@ -55,10 +55,7 @@
     .sub_visual {
         height: clamp(208px, 46.87vw, 480px);
     }
-    .sub_visual .sub_tit {
-        font-size: clamp(3.6rem, 4.46vw, 5.6rem);
-    }
-}
+}/*media*/
 @media screen and (max-width:768px){
     .sub_visual .breadcrumb ol {
         gap: 0 clamp(23px, 4.16vw, 32px);
@@ -66,10 +63,7 @@
     .sub_visual .breadcrumb ol li {
         font-size: 1.4rem;
     }
-    .sub_visual .sub_tit {
-        font-size: clamp(2.4rem, 4.68vw, 3.6rem);
-    }
-}
+}/*media*/
 
 /* table 공통 스타일 */
 .table_wrap {

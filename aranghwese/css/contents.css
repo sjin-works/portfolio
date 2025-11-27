@@ -172,7 +172,7 @@
         padding: 8px 0 9px 0;
         text-align: center;
     }
-}
+}/*media*/
 @media screen and (max-width:768px){
     .ctn_reservation01 .live-resv .more {
         width: 100%;
@@ -187,4 +187,4 @@
         right: 0;
         top: -1px;
     }
-}
+}/*media*/
