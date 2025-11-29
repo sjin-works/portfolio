@@ -104,18 +104,20 @@ $(document).ready(function(){
 
 
     /************************* aside ************************/
-    $(window).on('scroll resize', function () {
+    function checkAside() {
         let scrollTop = $(window).scrollTop();
-    
-        // calm 섹션이 시작하는 지점
         let calmTop = $('.calm').offset().top;
-    
-        // calm 섹션이 화면에 닿았는지 체크
+
         if (scrollTop + $(window).height() > calmTop) {
             $('aside.quick').removeClass('hide');
         } else {
             $('aside.quick').addClass('hide');
         }
-    });
+    }
+
+    $(window).on('scroll resize', checkAside);
+
+    // 페이지 처음 로딩될 때도 실행
+    $(window).on('load', checkAside);
     /************************* aside ************************/
 })

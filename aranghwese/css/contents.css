@@ -21,7 +21,7 @@
     margin: 69px auto 0;
     padding: 0 4.5em 0 1.7813em;
     line-height: 91px;
-    font-size: 3.2rem;
+    font-size: 2.8rem;
     background-color: #7B6755;
     color: var(--color-white);
 }
@@ -123,7 +123,7 @@
     .ctn_reservation01 .live-resv .more {
         margin-top: clamp(41px, 6.9vw, 69px);
         line-height: clamp(70px, 8.8vw, 91px);
-        font-size: clamp(2rem, 3.2vw, 3.2rem);
+        font-size: clamp(1.8rem, 3.2vw, 3.2rem);
     }
     .ctn_reservation01 .guide {
         margin-top: clamp(84px, 12.2vw, 125px);
@@ -181,7 +181,7 @@
         text-align: center;
     }
     .ctn_reservation01 .live-resv .more span {
-        padding-right: calc(27px + clamp(32px, 5.06vw, 38.89px));
+        padding-right: calc(13px + clamp(32px, 5.06vw, 38.89px));
     }
     .ctn_reservation01 .live-resv .more span::after {
         right: 0;
