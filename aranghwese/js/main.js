@@ -109,7 +109,9 @@ $(document).ready(function (){
 
             // pc → mobile 또는 mobile → pc로 변경되었을 때만 재생성
             if (prev_status !== device_status) {
-                if (calmSwiper) calmSwiper.destroy(true, true);
+                if (calmSwiper && calmSwiper.destroy) {
+                    calmSwiper.destroy(true, true);
+                }
                 initCalmSwiper();
             }
         }, 200);
@@ -120,17 +122,18 @@ $(document).ready(function (){
     /************************ comfort scroll ************************/
     window.addEventListener("load", function () {
         const track = document.querySelector(".comfort .scroll .track");
+
+        // 서브페이지에서는 track이 없으므로 return
+        if (!track) return;
         const items = gsap.utils.toArray(".comfort .scroll .item");
-    
-        // 각 이미지의 총 너비 계산 (gap 포함)
+
         let totalWidth = 0;
         items.forEach(item => {
             totalWidth += item.offsetWidth + 24;
         });
-    
-        // 무한 루프 GSAP 애니메이션
+
         gsap.to(track, {
-            x: -totalWidth / 2,  // 절반 이동 = 무한 루프
+            x: -totalWidth / 2,
             duration: 40,
             ease: "none",
             repeat: -1

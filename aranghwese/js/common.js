@@ -105,19 +105,25 @@ $(document).ready(function(){
 
     /************************* aside ************************/
     function checkAside() {
-        let scrollTop = $(window).scrollTop();
-        let calmTop = $('.calm').offset().top;
+        if ($('.visual').length === 0 || $('aside.quick').length === 0) {
+            return; // 서브페이지에서는 실행 X
+        }
 
-        if (scrollTop + $(window).height() > calmTop) {
-            $('aside.quick').removeClass('hide');
-        } else {
+        let scrollTop = $(window).scrollTop();
+        let visualBottom = $('.visual').offset().top + $('.visual').outerHeight();
+
+        // visual 영역 안에서는 숨기고, 아래 섹션부터 보여주기
+        if (scrollTop < visualBottom) {
             $('aside.quick').addClass('hide');
+        } else {
+            $('aside.quick').removeClass('hide');
         }
     }
 
+    // scroll, resize 때 체크하기
     $(window).on('scroll resize', checkAside);
 
-    // 페이지 처음 로딩될 때도 실행
-    $(window).on('load', checkAside);
+    // 페이지 로드 시 1번 실행
+    $(document).ready(checkAside);
     /************************* aside ************************/
 })
