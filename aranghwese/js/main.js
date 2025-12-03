@@ -1,14 +1,20 @@
 $(document).ready(function (){
 
-    $(window).on('scroll mousemove', function(e){  /* html cursor가 마우스 포인터를 따라다니게 하는 값 */
-        $('.cursor').css('left', e.pageX + 'px');
-        $('.cursor').css('top', e.pageY + 'px');
+    /************************ cursor ************************/
+    $(window).on('pointermove mousemove touchmove', function(e){
+        if (!$('.cursor').hasClass('on')) return; // on 아닐 땐 움직이지 않음
+    
+        $('.cursor').css({
+            left: e.pageX + 'px',
+            top: e.pageY + 'px'
+        });
     });
     $('.calm .list .swiper').hover(function(){ /* 특정한 요소에 마우스를 올렸을때만 on 클래스 주기 */
         $('.cursor').toggleClass('on');
     });
-    
+    /************************ cursor ************************/
 
+    
     /************************ visual swiper ************************/
     const visual_swiper = new Swiper('.visual .swiper', { /* 팝업을 감싼는 요소의 class명 */
 
