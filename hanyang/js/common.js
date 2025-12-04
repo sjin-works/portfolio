@@ -42,27 +42,46 @@ $(document).ready(function () {
     
 
     let gnb_open
-    $('header .gnb .gnb_wrap ul.depth1 > li > a').on('click', function (e) {
-        if (device_status == 'mobile') {
+    $('header .gnb .gnb_wrap ul.depth1 > li > a').on('click', function(e){
+		if(device_status == 'mobile'){
             e.preventDefault();		/* a 태그의 href를 작동 시키지 않음 */
-            gnb_open = $(this).parent().hasClass('open')
+            gnb_open = $(this).parent().hasClass('active')
             // console.log(gnb_open)
-            if (gnb_open == true) { //만약, 열려있다면
-                $(this).parent().removeClass('open')
-                $(this).next().slideUp()
+            if(gnb_open == true){ //만약, 열려있다면
+                $(this).parent().removeClass('active')
+            }else{
+                $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('active')
+                $(this).parent().addClass('active')
+            }
+        }
+	});
+
+    // 두 번째 메뉴 클릭 이벤트 (depth2 > a 클릭 시)
+    $('header .gnb .gnb_wrap ul.depth1 > li > .menu_box .depth2 > li > a').on('click', function (e) {
+        if (device_status == 'mobile') {
+            e.preventDefault(); // a 태그의 href를 작동 시키지 않음
+            var sub_menu_open = $(this).parent().hasClass('active');
+
+            if (sub_menu_open == true) { // 이미 열려있으면
+                $(this).parent().removeClass('active');
+                $(this).next().slideUp();
             } else {
-                $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('open')
-                $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2').slideUp()
-                $(this).parent().addClass('open')
-                $(this).next().slideDown()
+                // 다른 depth3 메뉴는 모두 닫기
+                $('header .gnb .gnb_wrap ul.depth1 > li > .menu_box .depth2 > li').removeClass('active');
+                $('header .gnb .gnb_wrap ul.depth1 > li > .menu_box .depth2 > li > ul.depth3').slideUp();
+                // 현재 클릭된 메뉴 열기
+                $(this).parent().addClass('active');
+                $(this).next().slideDown(); // 해당 depth3 메뉴 열기
             }
         }
     });
 
-    $('header .gnb .gnb_open').on('click', function () {
+    $('header .util .menu_wrap .gnb_open').on('click', function () {
         $('header').addClass('menu_mo')
+        $('.header_bg').addClass('on')
     })
-    $('header .gnb .gnb_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
+    $('header .util .menu_wrap .gnb_close, header .gnb .gnb_bg').on('click', function () {
         $('header').removeClass('menu_mo')
+        $('.header_bg').removeClass('on')
     })
 })//ready
