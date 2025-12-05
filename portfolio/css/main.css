@@ -161,14 +161,6 @@
     font-size: 2rem;
     margin-right: 16px;
 }
-.about .information .education,
-.about .information .experience {
-    /* width: 342px; */
-}
-.about .information .license,
-.about .information .skills {
-    /* width: 261px; */
-}
 .about .information .education span,
 .about .information .license span,
 .about .information .experience span {
