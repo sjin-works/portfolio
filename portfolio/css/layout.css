@@ -1,0 +1,38 @@
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: var(--header-h);
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    isolation: isolate;
+}
+header .logo a {
+    display: block;
+    width: 61px;
+    height: 45px;
+    background: url(../images/common/logo.svg) no-repeat center center /contain;
+}
+header .gnb .gnb_wrap ul {
+    display: flex;
+}
+header .gnb .gnb_wrap ul li a {
+    display: block;
+    padding: 0 25px;
+    font-family: var(--font-code);
+    font-size: 2.2rem;
+    line-height: var(--header-h);
+    color: var(--color-whtie);
+}
+header .gnb .gnb_wrap ul li a:hover {
+    color: var(--color-orange100);
+    transition: color 0.3s ease;
+}
+
+footer {
+    margin-top: 1000px;
+}

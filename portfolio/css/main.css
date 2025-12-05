@@ -1,0 +1,191 @@
+@import url(common.css);
+@import url(default.css);
+@import url(fonts.css);
+@import url(layout.css);
+
+
+.visual {
+    height: 1238px;
+    background: url(../images/main/visual_bg.jpg) no-repeat center center / cover;
+    overflow: hidden;
+}
+.visual .wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+}
+.visual .object01 {
+    position: absolute;
+    right: -3%;
+    top: 24%;
+    width: 203.38px;;
+    height: 198.56px;
+    background: url(../images/main/satellite.svg) no-repeat center center / contain;
+    animation: satellite 2.5s infinite  ease-in-out;
+}
+@keyframes satellite {
+    0% { transform: translate(0, 0) }
+    50% { transform: translate(40px, 20px) }
+    100% { transform: translate(0, 0) }
+}
+.visual .object02 {
+    position: absolute;
+    right: -12.5%;
+    bottom: 45%;
+    width: 135px;
+    height: 88px;
+    background: url(../images/main/saturn.svg) no-repeat center center / contain;
+    animation: saturn 2.5s infinite ease-in-out;
+}
+@keyframes saturn {
+    0% { transform: translate(0, 0) }
+    50% { transform: translate(-10px, 20px) }
+    100% { transform: translate(0, 0) }
+}
+.visual .object03 {
+    position: absolute;
+    left: -5%;
+    top: 30%;
+    width: 29px;
+    height: 42px;
+    background: url(../images/main/star.svg) no-repeat center center / contain;
+    animation: star_small 2.5s infinite ease-in-out;
+}
+@keyframes star_small {
+    0% { transform: scale3d(1.5, 1.5, 1)}
+    50% { transform: scale3d(1, 1, 1)}
+    100% { transform: scale3d(1.5, 1.5, 1)}
+}
+.visual .object04 {
+    position: absolute;
+    left: -12%;
+    bottom: 55%;
+    width: 67px;
+    height: 94px;
+    background: url(../images/main/star.svg) no-repeat center center / contain;
+    animation: star_big 2.5s infinite ease-in-out;
+}
+@keyframes star_big {
+    0% { transform: scale3d(1, 1, 1);}
+    50% { transform: scale3d(1.3, 1.3, 1);}
+    100% { transform: scale3d(1, 1, 1);}
+}
+
+.about .wrapper {
+    position: relative;
+}
+.about h2 {
+    display: inline-block;
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0 0 64px 74px;
+    position: relative;
+}
+.about h2::after {
+    content: "";
+    position: absolute;
+    right: -152px;
+    bottom: -54px;
+    width: 176px;
+    height: 113.62px;
+    background: url(../images/main/rocket02.svg) no-repeat center center / contain;
+}
+.about h2 span {
+    line-height: 1.1;
+    color: var(--color-orange100);
+}
+.about .inner {
+    display: flex;
+    gap: 0 3vw;
+}
+.about .name {
+    text-align: center;
+    width: 517px;
+}
+.about .name .photo {
+    overflow: hidden;
+    height: 354px;
+    margin-bottom: 54px;
+}
+.about .name .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.about .name h3 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    margin-bottom: 10px;
+}
+.about .name h3 span {
+    font-family: var(--font-code);
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+.about .name p {
+    font-size: 2rem;
+    font-family: var(--font-code);
+    letter-spacing: -0.04em;
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.8);
+}
+.about .information h4 {
+    font-family: var(--font-code);
+    font-size: 3.2rem;
+    letter-spacing: -0.04em;
+    margin-bottom: 16px;
+}
+.about .information > .inner {
+    margin-top: 59px;
+    gap: 0 4.68vw;
+}
+.about .informatio .inner.item02 {
+    margin-top: 2px;
+}
+.about .information ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.about .information ul li {
+    display: flex;
+    gap: 10px 13px;
+}
+.about .information .contact {
+    font-family: var(--font-code);
+    margin-top: 49px;
+}
+.about .information .contact span {
+    font-size: 2rem;
+    margin-right: 16px;
+}
+.about .information .education,
+.about .information .experience {
+    /* width: 342px; */
+}
+.about .information .license,
+.about .information .skills {
+    /* width: 261px; */
+}
+.about .information .education span,
+.about .information .license span,
+.about .information .experience span {
+    font-family: var(--font-code);
+    font-size: 1.6rem;
+}
+.about .skills .skill_ico {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22.45px 14.45px;
+    width: 216.9px;
+}
+.about .object_bg {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    width: 345px;
+    height: 225px;
+    background: url(../images/main/Planet.svg) no-repeat center center / contain;
+}
