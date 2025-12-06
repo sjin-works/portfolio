@@ -3,3 +3,85 @@
 @import url(common.css);
 @import url(layout.css);
 @import url(contents.css);
+
+.sub_visual {
+    height: 606px;
+}
+.sub_visual {
+    margin-top: 242px;
+}
+.sub_visual .wrapper {
+    position: relative;
+}
+.sub_visual h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    padding-left: 152px;
+    position: relative;
+}
+.sub_visual h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 120.66px;
+    height: 84px;
+    background: url(../images/main/01.svg) no-repeat center center / contain;
+}
+.sub_visual .inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65px;
+}
+.sub_visual .details .txt span {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    position: relative;
+}
+.sub_visual .details .txt span::after {
+    content: "";
+    position: absolute;
+    right: -50.39px;
+    bottom: -69.28px;
+    width: 173.17px;
+    height: 242.21px;
+    background: url(../images/main/rocket_3.svg) no-repeat center center / contain;
+}
+.sub_visual .details .list {
+    margin-top: 60px ;
+}
+.sub_visual .details .list ul li {
+    display: flex;
+    gap: 0 20px;
+    align-items: center;
+    line-height: 1.7;
+}
+.sub_visual .details .list ul li + li {
+    margin-top: 16px;
+}
+.sub_visual .details .list ul li span {
+    font-size: 2rem;
+    width: 109px;
+}
+.sub_visual .details .list ul li p {
+    font-size: 1.8rem;
+    white-space: nowrap;
+}
+.sub_visual .details .list ul li .skills_ico {
+    display: flex;
+    gap: 0 16px;
+    align-items: center;
+    line-height: 0;
+}
+.sub_visual .photo {
+    overflow: hidden;
+    margin-top: 25px;
+    line-height: 0;
+}
+.sub_visual .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

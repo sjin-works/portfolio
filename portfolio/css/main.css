@@ -10,16 +10,20 @@
     background: url(../images/main/visual_bg.jpg) no-repeat center center / cover;
     overflow: hidden;
 }
-.visual .wrapper {
+.visual .object_box {
     position: relative;
-    z-index: 10;
+    width: 100%;
+    max-width: 75vw;
+    min-width: 1260px;
     height: 100%;
+    padding-inline: 48px;
+    margin: 0 auto;
 }
 .visual .object01 {
     position: absolute;
     right: -3%;
     top: 24%;
-    width: 203.38px;;
+    width: 203.38px;
     height: 198.56px;
     background: url(../images/main/satellite.svg) no-repeat center center / contain;
     animation: satellite 2.5s infinite  ease-in-out;
@@ -80,7 +84,7 @@
     font-size: 3.2rem;
     font-weight: 700;
     letter-spacing: 0.01em;
-    margin: 0 0 64px 74px;
+    margin-bottom: 64px;
     position: relative;
 }
 .about h2::after {
@@ -97,15 +101,39 @@
 }
 .about .inner {
     display: flex;
-    gap: 0 57px;
+    gap: 0 213px;
 }
 .about .name {
     text-align: center;
-    width: 517px;
 }
 .about .name .photo {
-    overflow: hidden;
+    height: 362px;
     margin-bottom: 42px;
+    position: relative;
+}
+.about .name .photo::before {
+    content: "";
+    position: absolute;
+    left: -17px;
+    top: -32px;
+    width: 31px;
+    height: 44px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 31 44' fill='%23FFE4D5' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_208_16)'%3E%3Cpath d='M31 22.001C19.8713 25.4288 17.9143 28.2065 15.4993 44.0021C13.0857 28.2044 11.1287 25.4268 0 22.001C11.1287 18.5732 13.0857 15.7956 15.5007 0C17.9158 15.7956 19.8728 18.5732 31.0014 22.001H31Z' /%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_208_16'%3E%3Crect width='31' height='44' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
+}
+.about .name .photo::after {
+    content: "";
+    position: absolute;
+    right: -23px;
+    bottom: -23px;
+    width: 31px;
+    height: 44px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 31 44' fill='%23FFE4D5' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_208_16)'%3E%3Cpath d='M31 22.001C19.8713 25.4288 17.9143 28.2065 15.4993 44.0021C13.0857 28.2044 11.1287 25.4268 0 22.001C11.1287 18.5732 13.0857 15.7956 15.5007 0C17.9158 15.7956 19.8728 18.5732 31.0014 22.001H31Z' /%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_208_16'%3E%3Crect width='31' height='44' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A");
 }
 .about .name .photo img {
     width: 100%;
@@ -117,6 +145,7 @@
     font-weight: 600;
     letter-spacing: -0.04em;
     margin-bottom: 10px;
+    padding-left: 18px;
 }
 .about .name h3 span {
     font-family: var(--font-code);
@@ -128,6 +157,7 @@
     font-family: var(--font-code);
     letter-spacing: -0.04em;
     margin-bottom: 5px;
+    padding-left: 18px;
     color: rgba(255, 255, 255, 0.8);
 }
 .about .information h4 {
@@ -184,19 +214,44 @@
 .project01 {
     margin-top: 242px;
 }
+.project01 .wrapper {
+    position: relative;
+}
 .project01 h2 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.3;
+    padding-left: 152px;
+    position: relative;
+}
+.project01 h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 120.66px;
+    height: 84px;
+    background: url(../images/main/01.svg) no-repeat center center / contain;
 }
 .project01 .inner {
     display: flex;
     justify-content: space-between;
     margin-top: 65px;
 }
-.project01 .details span {
+.project01 .details .txt span {
+    display: block;
     font-size: 1.8rem;
     line-height: 1.7;
+    position: relative;
+}
+.project01 .details .txt span::after {
+    content: "";
+    position: absolute;
+    right: -50.39px;
+    bottom: -69.28px;
+    width: 173.17px;
+    height: 242.21px;
+    background: url(../images/main/rocket_3.svg) no-repeat center center / contain;
 }
 .project01 .details .list {
     margin-top: 60px ;
@@ -226,9 +281,119 @@
 }
 .project01 .photo {
     overflow: hidden;
+    margin-top: 25px;
+    line-height: 0;
 }
 .project01 .photo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+.project01 .more {
+    position: absolute;
+    left: 48px;
+    bottom: -37px;
+}
+.project01 .more a {
+    display: block;
+    width: 171px;
+    height: 53px;
+    border-radius: 34px;
+    background-color: var(--color-orange100);
+    text-align: center;
+    line-height: 53px;
+    font-size: 2.2rem;
+}
+
+.project02 {
+    margin-top: 294px;
+}
+.project02 .wrapper {
+    position: relative;
+}
+.project02 h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    padding-left: 152px;
+    position: relative;
+}
+.project02 h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 120.66px;
+    height: 84px;
+    background: url(../images/main/02.svg) no-repeat center center / contain;
+}
+.project02 .inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65px;
+}
+.project02 .details .txt span {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    position: relative;
+}
+.project02 .details .txt span::after {
+    content: "";
+    position: absolute;
+    right: -50.39px;
+    bottom: -69.28px;
+    width: 173.17px;
+    height: 242.21px;
+    background: url(../images/main/rocket_2.svg) no-repeat center center / cover;
+}
+.project02 .details .list {
+    margin-top: 60px ;
+}
+.project02 .details .list ul li {
+    display: flex;
+    gap: 0 20px;
+    align-items: center;
+    line-height: 1.7;
+}
+.project02 .details .list ul li + li {
+    margin-top: 16px;
+}
+.project02 .details .list ul li span {
+    font-size: 2rem;
+    width: 109px;
+}
+.project02 .details .list ul li p {
+    font-size: 1.8rem;
+    white-space: nowrap;
+}
+.project02 .details .list ul li .skills_ico {
+    display: flex;
+    gap: 0 16px;
+    align-items: center;
+    line-height: 0;
+}
+.project02 .photo {
+    overflow: hidden;
+    line-height: 0;
+}
+.project02 .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.project02 .more {
+    position: absolute;
+    left: 48px;
+    bottom: -37px;
+}
+.project02 .more a {
+    display: block;
+    width: 171px;
+    height: 53px;
+    border-radius: 34px;
+    background-color: var(--color-orange100);
+    text-align: center;
+    line-height: 53px;
+    font-size: 2.2rem;
 }

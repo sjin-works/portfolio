@@ -34,5 +34,28 @@ header .gnb .gnb_wrap ul li a:hover {
 }
 
 footer {
-    margin-top: 1000px;
+    margin-top: 157px;
+    position: relative;
+    background: url(../images/common/footer_bg.jpg) no-repeat center center / cover;
+    padding: 461px 0 286px 0;
+    text-align: center;
+}
+footer h2 {
+    font-family: var(--font-code);
+    font-size: 12.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+footer p {
+    font-family: var(--font-code);
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin: 26px 0 13px 0;
+}
+footer .contact {
+    display: flex;
+    justify-content: center;
+    gap: 0 24px;
+    font-family: var(--font-code);
+    font-size: 2rem;
 }
