@@ -26,7 +26,7 @@ header .gnb .gnb_wrap ul li a {
     font-family: var(--font-code);
     font-size: 2.2rem;
     line-height: var(--header-h);
-    color: var(--color-whtie);
+    color: var(--color-white);
     transition: color 0.3s ease;
 }
 header.dark .gnb .gnb_wrap ul li a {
