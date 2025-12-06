@@ -285,9 +285,18 @@ footer .f_info .group h3 {
     margin-bottom: 11px;
     color: var(--color-white);
 }
+footer .f_info .group a {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+footer .f_info .group a:hover {
+    color: var(--color-white);
+}
 footer .f_info .group p + p{
     margin-top: 8px;
 }
+footer .f_info .group a,
 footer .f_info .group:nth-of-type(3) p,
 footer .f_info .copyright,
 footer .login a {
@@ -295,12 +304,6 @@ footer .login a {
 }
 footer .f_info .group:nth-of-type(3) p + p {
     margin-top: 11px;
-}
-footer .f_info .group:nth-of-type(3) p:first-child {
-    font-weight: 500;
-}
-footer .f_info .group:nth-of-type(3) p:first-child:hover {
-    color: var(--color-white);
 }
 footer .f_info .copyright {
     margin: 20px 0 21px 0;
@@ -354,6 +357,7 @@ footer .login a:hover {
     footer .f_info .group address,
     footer .f_info .group p,
     footer .f_info .group:nth-of-type(3) p,
+    footer .f_info .group a,
     footer .f_info .copyright,
     footer .login a {
         font-size: clamp(1.4rem, 2vw, 1.6rem);

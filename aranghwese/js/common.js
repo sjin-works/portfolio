@@ -44,6 +44,15 @@ $(document).ready(function(){
     $('.visual .btn_prev').on('focusin', function () {
         if (device_status == 'pc') {
             $('header').removeClass('menu_pc');
+            $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over');
+            $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2').hide();
+        }
+    });
+    $('.sub_visual .breadcrumb .home').on('focusin', function () {
+        if (device_status == 'pc') {
+            $('header').removeClass('menu_pc');
+            $('header .gnb .gnb_wrap ul.depth1 > li').removeClass('over');
+            $('header .gnb .gnb_wrap ul.depth1 > li > ul.depth2').hide();
         }
     });
 
