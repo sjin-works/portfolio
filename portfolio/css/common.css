@@ -58,6 +58,7 @@ body {
 }/*media*/
 #wrap {
     position: relative; /* header 정렬 기준 */
+    min-width: 1440px;
     z-index: 10;
 }
 
