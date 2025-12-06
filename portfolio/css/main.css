@@ -72,7 +72,7 @@
 }
 @keyframes star_big {
     0% { transform: scale3d(1, 1, 1);}
-    50% { transform: scale3d(1.3, 1.3, 1);}
+    50% { transform: scale3d(1.4, 1.4, 1);}
     100% { transform: scale3d(1, 1, 1);}
 }
 
@@ -94,7 +94,7 @@
     bottom: -54px;
     width: 176px;
     height: 113.62px;
-    background: url(../images/main/rocket02.svg) no-repeat center center / contain;
+    background: url(../images/main/sjin_rocket.svg) no-repeat center center / contain;
 }
 .about h2 span {
     color: var(--color-orange100);
@@ -293,16 +293,45 @@
     position: absolute;
     left: 48px;
     bottom: -37px;
+    overflow: hidden;
+    border-radius: 34px;
 }
 .project01 .more a {
     display: block;
     width: 171px;
     height: 53px;
     border-radius: 34px;
-    background-color: var(--color-orange100);
+    border: 2px solid var(--color-orange100);
+    color: var(--color-orange100);
     text-align: center;
-    line-height: 53px;
+    line-height: 50px;
+    font-family: var(--font-code);
     font-size: 2.2rem;
+    position: relative;
+}
+.project01 .more a:hover {
+    color: var(--color-white);
+    transition: color 0.5s ease-in;
+}
+.project01 .more a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -160%;
+    z-index: -1;
+    transform: translate(-50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--color-orange100);
+    transition: width 0.4s ease-in, height 0.3s ease-in, opacity 0.3s ease-in, bottom 0.4s ease-in;
+}
+.project01 .more a:hover::before {
+    bottom: -50%;
+    opacity: 1;
+    width: 180px;
+    height: 100px;
 }
 
 .project02 {
@@ -341,8 +370,8 @@
 .project02 .details .txt span::after {
     content: "";
     position: absolute;
-    right: -50.39px;
-    bottom: -69.28px;
+    right: -60px;
+    bottom: -37px;
     width: 173.17px;
     height: 242.21px;
     background: url(../images/main/rocket_2.svg) no-repeat center center / cover;
@@ -375,6 +404,7 @@
 }
 .project02 .photo {
     overflow: hidden;
+    margin-top: 56px;
     line-height: 0;
 }
 .project02 .photo img {
@@ -386,14 +416,43 @@
     position: absolute;
     left: 48px;
     bottom: -37px;
+    overflow: hidden;
+    border-radius: 34px;
 }
 .project02 .more a {
     display: block;
     width: 171px;
     height: 53px;
     border-radius: 34px;
-    background-color: var(--color-orange100);
+    border: 2px solid var(--color-orange100);
+    color: var(--color-orange100);
     text-align: center;
-    line-height: 53px;
+    line-height: 50px;
+    font-family: var(--font-code);
     font-size: 2.2rem;
+    position: relative;
+}
+.project02 .more a:hover {
+    color: var(--color-white);
+    transition: color 0.5s ease-in;
+}
+.project02 .more a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -160%;
+    z-index: -1;
+    transform: translate(-50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--color-orange100);
+    transition: width 0.4s ease-in, height 0.3s ease-in, opacity 0.3s ease-in, bottom 0.4s ease-in;
+}
+.project02 .more a:hover::before {
+    bottom: -50%;
+    opacity: 1;
+    width: 180px;
+    height: 100px;
 }

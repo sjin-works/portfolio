@@ -1,0 +1,159 @@
+@import url(default.css);
+@import url(fonts.css);
+@import url(common.css);
+@import url(layout.css);
+@import url(contents.css);
+
+.sub_visual {
+    height: 656px;
+}
+.sub_visual {
+    margin-top: 221px;
+}
+.sub_visual .wrapper {
+    position: relative;
+}
+.sub_visual h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.3;
+    padding-left: 152px;
+    position: relative;
+}
+.sub_visual h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -16px;
+    width: 120.66px;
+    height: 84px;
+    background: url(../images/main/02.svg) no-repeat center center / contain;
+}
+.sub_visual .inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 65px;
+}
+.sub_visual .details .txt span {
+    display: block;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    position: relative;
+}
+.sub_visual .details .txt span::after {
+    content: "";
+    position: absolute;
+    right: -60px;
+    bottom: -37px;
+    width: 173.17px;
+    height: 242.21px;
+    background: url(../images/main/rocket_2.svg) no-repeat center center / cover;
+}
+.sub_visual .details .list {
+    margin-top: 60px ;
+}
+.sub_visual .details .list ul li {
+    display: flex;
+    gap: 0 20px;
+    align-items: center;
+    line-height: 1.7;
+}
+.sub_visual .details .list ul li + li {
+    margin-top: 16px;
+}
+.sub_visual .details .list ul li span {
+    font-size: 2rem;
+    width: 109px;
+}
+.sub_visual .details .list ul li p {
+    font-size: 1.8rem;
+    white-space: nowrap;
+}
+.sub_visual .details .list ul li .skills_ico {
+    display: flex;
+    gap: 0 16px;
+    align-items: center;
+    line-height: 0;
+}
+.sub_visual .photo {
+    overflow: hidden;
+    margin-top: 56px;
+    line-height: 0;
+}
+.sub_visual .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.sub_visual .more_wrap {
+    position: absolute;
+    left: 48px;
+    bottom: -37px;
+    display: flex;
+    gap: 0 27px;
+}
+.sub_visual .more {
+    overflow: hidden;
+    border-radius: 34px;
+}
+.sub_visual .more a {
+    display: block;
+    width: 171px;
+    height: 53px;
+    border-radius: 34px;
+    border: 2px solid var(--color-orange100);
+    color: var(--color-orange100);
+    text-align: center;
+    line-height: 50px;
+    font-family: var(--font-code);
+    font-size: 2.2rem;
+    position: relative;
+}
+.sub_visual .more a:hover {
+    color: var(--color-white);
+    transition: color 0.5s ease-in;
+}
+.sub_visual .more a::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -160%;
+    z-index: -1;
+    transform: translate(-50%);
+    opacity: 0;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: var(--color-orange100);
+    transition: width 0.4s ease-in, height 0.3s ease-in, opacity 0.3s ease-in, bottom 0.4s ease-in;
+}
+.sub_visual .more a:hover::before {
+    bottom: -50%;
+    opacity: 1;
+    width: 180px;
+    height: 100px;
+}
+
+.ctn_project02 {
+    margin-top: 163px;
+    position: relative;
+}
+.ctn_project02 .detail {
+    overflow: hidden;
+}
+.ctn_project02 .detail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.ctn_project02 .top {
+    position: absolute;
+    left: 50%;
+    bottom: 9.7%;
+    transform: translateX(-50%);
+    width: 124px;
+    height: 122px;
+    font-size: 4rem;
+    font-weight: 700;
+    background: url(../images/contents/arang_top.svg) no-repeat center center / contain;
+}

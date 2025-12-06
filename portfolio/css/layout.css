@@ -27,12 +27,18 @@ header .gnb .gnb_wrap ul li a {
     font-size: 2.2rem;
     line-height: var(--header-h);
     color: var(--color-whtie);
+    transition: color 0.3s ease;
+}
+header.dark .gnb .gnb_wrap ul li a {
+    color: var(--color-dark);
+}
+header .gnb .gnb_wrap ul li:last-child a {
+    padding: 0 0 0 25px;
 }
 header .gnb .gnb_wrap ul li a:hover {
     color: var(--color-orange100);
     transition: color 0.3s ease;
 }
-
 footer {
     margin-top: 157px;
     position: relative;
