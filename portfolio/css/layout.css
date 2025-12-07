@@ -10,6 +10,19 @@ header {
     justify-content: space-between;
     align-items: center;
     isolation: isolate;
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+header.fixed {
+    background-color: rgba(33, 33, 33, 0.4);
+    backdrop-filter: blur(5px);
+}
+header.menu_pc {
+    background-color: rgba(33, 33, 33, 0.4);
+    backdrop-filter: blur(5px);
+}
+header.up:not(.menu_pc) {
+    transform: translateY(-110%);
+    transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 header .logo a {
     display: block;
@@ -35,12 +48,12 @@ header.dark .gnb .gnb_wrap ul li a {
 header .gnb .gnb_wrap ul li:last-child a {
     padding: 0 0 0 25px;
 }
-header .gnb .gnb_wrap ul li a:hover {
+header .gnb .gnb_wrap ul li.active a {
     color: var(--color-orange100);
     transition: color 0.3s ease;
 }
 footer {
-    margin-top: 157px;
+    margin-top: 233.52px;
     position: relative;
     background: url(../images/common/footer_bg.jpg) no-repeat center center / cover;
     padding: 461px 0 286px 0;

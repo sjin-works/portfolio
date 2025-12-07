@@ -212,19 +212,24 @@
 }
 
 .project01 {
-    margin-top: 242px;
+    padding-top: 294px;
 }
 .project01 .wrapper {
     position: relative;
 }
-.project01 h2 {
+.project01 .inner {
+    display: flex;
+    justify-content: space-between;
+}
+.project01 .txt h2 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.3;
     padding-left: 152px;
+    margin: 43px 0 49px 0;
     position: relative;
 }
-.project01 h2::before {
+.project01 .txt h2::before {
     content: "";
     position: absolute;
     left: 0;
@@ -233,66 +238,35 @@
     height: 84px;
     background: url(../images/main/01.svg) no-repeat center center / contain;
 }
-.project01 .inner {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 65px;
-}
-.project01 .details .txt span {
+.project01 .txt span {
     display: block;
     font-size: 1.8rem;
     line-height: 1.7;
     position: relative;
 }
-.project01 .details .txt span::after {
+.project01 .txt span::after {
     content: "";
     position: absolute;
-    right: -50.39px;
-    bottom: -69.28px;
+    right: -60px;
+    bottom: -37px;
     width: 173.17px;
     height: 242.21px;
-    background: url(../images/main/rocket_3.svg) no-repeat center center / contain;
-}
-.project01 .details .list {
-    margin-top: 60px ;
-}
-.project01 .details .list ul li {
-    display: flex;
-    gap: 0 20px;
-    align-items: center;
-    line-height: 1.7;
-}
-.project01 .details .list ul li + li {
-    margin-top: 16px;
-}
-.project01 .details .list ul li span {
-    font-size: 2rem;
-    width: 109px;
-}
-.project01 .details .list ul li p {
-    font-size: 1.8rem;
-    white-space: nowrap;
-}
-.project01 .details .list ul li .skills_ico {
-    display: flex;
-    gap: 0 16px;
-    align-items: center;
-    line-height: 0;
+    background: url(../images/main/rocket_3.svg) no-repeat center center / cover;
 }
 .project01 .photo {
     overflow: hidden;
-    margin-top: 25px;
     line-height: 0;
+    height: 461.48px;
 }
 .project01 .photo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .project01 .more {
     position: absolute;
     left: 48px;
-    bottom: -37px;
+    bottom: 42.48px;
     overflow: hidden;
     border-radius: 34px;
 }
@@ -335,19 +309,24 @@
 }
 
 .project02 {
-    margin-top: 294px;
+    padding-top: 270px;
 }
 .project02 .wrapper {
     position: relative;
 }
-.project02 h2 {
+.project02 .inner {
+    display: flex;
+    justify-content: space-between;
+}
+.project02 .txt h2 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.3;
     padding-left: 152px;
+    margin: 44px 0 49px 0;
     position: relative;
 }
-.project02 h2::before {
+.project02 .txt h2::before {
     content: "";
     position: absolute;
     left: 0;
@@ -356,18 +335,13 @@
     height: 84px;
     background: url(../images/main/02.svg) no-repeat center center / contain;
 }
-.project02 .inner {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 65px;
-}
-.project02 .details .txt span {
+.project02 .txt span {
     display: block;
     font-size: 1.8rem;
     line-height: 1.7;
     position: relative;
 }
-.project02 .details .txt span::after {
+.project02 .txt span::after {
     content: "";
     position: absolute;
     right: -60px;
@@ -376,46 +350,20 @@
     height: 242.21px;
     background: url(../images/main/rocket_2.svg) no-repeat center center / cover;
 }
-.project02 .details .list {
-    margin-top: 60px ;
-}
-.project02 .details .list ul li {
-    display: flex;
-    gap: 0 20px;
-    align-items: center;
-    line-height: 1.7;
-}
-.project02 .details .list ul li + li {
-    margin-top: 16px;
-}
-.project02 .details .list ul li span {
-    font-size: 2rem;
-    width: 109px;
-}
-.project02 .details .list ul li p {
-    font-size: 1.8rem;
-    white-space: nowrap;
-}
-.project02 .details .list ul li .skills_ico {
-    display: flex;
-    gap: 0 16px;
-    align-items: center;
-    line-height: 0;
-}
 .project02 .photo {
     overflow: hidden;
-    margin-top: 56px;
     line-height: 0;
+    height: 461.48px;
 }
 .project02 .photo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .project02 .more {
     position: absolute;
     left: 48px;
-    bottom: -37px;
+    bottom: 25.48px;
     overflow: hidden;
     border-radius: 34px;
 }
