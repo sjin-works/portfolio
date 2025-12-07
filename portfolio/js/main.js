@@ -48,16 +48,13 @@ $(document).ready(function (){
         scroll_chk()
     })
 
-    $('.contents .ctn_project01 .top').on('click', function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 500)
-    })
-    $('.contents .ctn_project02 .top').on('click', function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 500)
-    })
+    if ($('footer .top').length) {
+        $('footer .top').on('click', function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 500);
+        });
+    }
 
     let menuName = $('header')  // 상단에 고정할 메뉴 영역 선택자
     let menuItem = $('header .gnb .gnb_wrap ul li') // data-link 값을 준 클릭할 요소의 선택자
@@ -107,4 +104,87 @@ $(document).ready(function (){
             AOS.refresh();
         });
     }
+
+    $(function () {
+        const subVisual = document.querySelector('.sub_visual');
+        const project = document.querySelector('.ctn_project');
+        const footer = document.querySelector('footer');
+
+        // 서브페이지가 아닐 수도 있으니 가드
+        if (!subVisual || !project || !footer || !('IntersectionObserver' in window)) {
+            return;
+        }
+
+        let currentScene = null; // 'intro' | 'project' | 'footer'
+        let introVisible = false;
+        let projectVisible = false;
+        let footerVisible = false;
+
+        function setScene(next) {
+            if (next === currentScene) return;
+            currentScene = next;
+
+            const $body = $('body');
+            const $sub = $('.sub_visual');
+            const $proj = $('.ctn_project');
+            const $footer = $('footer');
+
+            if (next === 'intro') {
+                // sub_visual 구간
+                $body.removeClass('is-light is-dark');
+                $sub.removeClass('hide');
+                $proj.removeClass('show');
+                $footer.removeClass('show');
+
+            } else if (next === 'project') {
+                // ctn_project 구간
+                $body.addClass('is-light').removeClass('is-dark');
+                $sub.addClass('hide');
+                $proj.addClass('show');
+                $footer.removeClass('show');
+
+            } else if (next === 'footer') {
+                // footer 구간
+                $body.addClass('is-dark').removeClass('is-light');
+                $sub.addClass('hide');
+                $proj.removeClass('show'); // footer에서 project 숨김
+                $footer.addClass('show');
+            }
+        }
+        function updateScene() {
+            // 우선순위: footer > project > intro
+            if (footerVisible) {
+                setScene('footer');
+            } else if (projectVisible) {
+                setScene('project');
+            } else if (introVisible) {
+                setScene('intro');
+            } else {
+                setScene('intro');
+            }
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.target === subVisual) {
+                    introVisible = entry.isIntersecting;
+                } else if (entry.target === project) {
+                    projectVisible = entry.isIntersecting;
+                } else if (entry.target === footer) {
+                    footerVisible = entry.isIntersecting;
+                }
+            });
+
+            updateScene();
+        }, {
+            threshold: 0.1,   // 살짝만 보여도 감지되게 낮게
+        });
+
+        observer.observe(subVisual);
+        observer.observe(project);
+        observer.observe(footer);
+
+        // 첫 진입 시 한 번 맞춰두기
+        updateScene();
+    });
 })//ready

@@ -37,23 +37,27 @@ body {
     word-break: keep-all; /* 단어별로 강제 줄 바꿈 */
     word-wrap: break-word; /* 단어가 너무 길 때  강제 줄 바꿈 */
     background-color: var(--color-dark);
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+body.is-light {
+    background-color: #f3f3f3;
+}
+body.is-dark {
+    background-color: #111;
+}
 .wrapper {
-    width: 100%;
-    max-width: 1440px;
-    padding-inline: 48px;
+    width: 1344px;
     margin: 0 auto;
 }
 @media screen and (max-width:1024px){
     .wrapper {
-        padding-inline: 32px;
-        max-width: 100%;
+        margin: 32px;
+        width: auto;
     }
 }/*media*/
 @media screen and (max-width:768px){
     .wrapper {
-        padding-inline: 16px;
+        margin: 16px;
     }
 }/*media*/
 #wrap {

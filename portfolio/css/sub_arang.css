@@ -1,26 +1,37 @@
+@import url(common.css);
 @import url(default.css);
 @import url(fonts.css);
-@import url(common.css);
 @import url(layout.css);
-@import url(contents.css);
 
-.sub_visual {
-    height: 656px;
+.container {
+    overflow: hidden;
 }
 .sub_visual {
-    margin-top: 221px;
+    height: 692px;
+    min-height: 100vh;
+    margin: 200px 0 60px 0 ;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s ease;
 }
-.sub_visual .wrapper {
+.sub_visual.hide {
+    opacity: 0;
+    transform: translateY(-40px);
+}
+.sub_visual .inner {
+    display: flex;
     position: relative;
 }
-.sub_visual h2 {
+.sub_visual .txt {
+    margin-left: calc(50% - 730px);
+    margin-bottom: 10px;
+}
+.sub_visual .txt h2 {
     font-size: 4rem;
     font-weight: 700;
     line-height: 1.3;
     padding-left: 152px;
     position: relative;
 }
-.sub_visual h2::before {
+.sub_visual .txt h2::before {
     content: "";
     position: absolute;
     left: 0;
@@ -29,47 +40,27 @@
     height: 84px;
     background: url(../images/main/02.svg) no-repeat center center / contain;
 }
-.sub_visual .inner {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 65px;
+.sub_visual .txt .list {
+    margin-top: 59px;
 }
-.sub_visual .details .txt span {
-    display: block;
-    font-size: 1.8rem;
-    line-height: 1.7;
-    position: relative;
-}
-.sub_visual .details .txt span::after {
-    content: "";
-    position: absolute;
-    right: -60px;
-    bottom: -37px;
-    width: 173.17px;
-    height: 242.21px;
-    background: url(../images/main/rocket_2.svg) no-repeat center center / cover;
-}
-.sub_visual .details .list {
-    margin-top: 60px ;
-}
-.sub_visual .details .list ul li {
+.sub_visual .txt .list ul li {
     display: flex;
     gap: 0 20px;
     align-items: center;
     line-height: 1.7;
 }
-.sub_visual .details .list ul li + li {
+.sub_visual .txt .list ul li + li {
     margin-top: 16px;
 }
-.sub_visual .details .list ul li span {
+.sub_visual .txt .list ul li span {
     font-size: 2rem;
     width: 109px;
 }
-.sub_visual .details .list ul li p {
+.sub_visual .txt .list ul li p {
     font-size: 1.8rem;
     white-space: nowrap;
 }
-.sub_visual .details .list ul li .skills_ico {
+.sub_visual .txt .list ul li .skills_ico {
     display: flex;
     gap: 0 16px;
     align-items: center;
@@ -77,8 +68,9 @@
 }
 .sub_visual .photo {
     overflow: hidden;
-    margin-top: 56px;
     line-height: 0;
+    min-height: 692px;
+    min-width: 1094px;
 }
 .sub_visual .photo img {
     width: 100%;
@@ -87,10 +79,10 @@
 }
 .sub_visual .more_wrap {
     position: absolute;
-    left: 48px;
-    bottom: -37px;
+    left: calc(50% - 730px);
+    bottom: 163px;
     display: flex;
-    gap: 0 27px;
+    gap: 0 32px;
 }
 .sub_visual .more {
     overflow: hidden;
@@ -101,7 +93,7 @@
     width: 171px;
     height: 53px;
     border-radius: 34px;
-    border: 2px solid var(--color-orange100);
+    border: 3px solid var(--color-orange100);
     color: var(--color-orange100);
     text-align: center;
     line-height: 50px;
@@ -135,21 +127,215 @@
 }
 
 .ctn_project02 {
-    margin-top: 163px;
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: 154px;
+    color: #111;;
+}
+.ctn_project02.show {
+    opacity: 1;
+}
+.ctn_project02 .typo {
+    padding-bottom: 141px;
+    border-bottom: 2px dashed #444A55;
     position: relative;
 }
-.ctn_project02 .detail {
-    overflow: hidden;
+.ctn_project02 .typo::before {
+    content: "";
+    position: absolute;
+    left: -186px;
+    bottom: -145.42px;
+    z-index: 10;
+    width: 249.16px;
+    height: 275.27px;
+    background: url(../images/contents/sub_rocket.svg) no-repeat center center / contain;
 }
-.ctn_project02 .detail img {
+.ctn_project02 .typo::after {
+    content: "";
+    position: absolute;
+    right: -113px;
+    bottom: -538px;
+    z-index: 10;
+    width: 217.1px;
+    height: 214.11px;
+    background: url(../images/contents/sub_rocket2.svg) no-repeat center center / contain;
+}
+.ctn_project02 .typo ul {
+    display: flex;
+}
+.ctn_project02 .typo ul li h3 {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
+    width: 406px;
+    height: 128px;
+}
+.ctn_project02 .typo ul li.color h3 {
+    font-size: 3.6rem;
+}
+.ctn_project02 .typo ul li h3::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 3px dashed #2F201C;
+    border-radius: 50%;
+    z-index: -1;
+}
+.ctn_project02 .typo ul li h3::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    z-index: -1;
+    transform: translateX(-50%);
+    width: 255px;
+    height: 64px;
+    background: url(../images/contents/h3_star.svg) no-repeat center center / contain;
+}
+.ctn_project02 .typo ul li.color h3::after {
+    width: 149px;
+    background-image: url(../images/contents/h3_star2.svg);
+}
+.ctn_project02 .typo ul .typography .inner {
+    display: flex;
+    gap: 0 15px;
+    color: var(--color-brown);
+    font-size: 1.7rem;
+    margin-top: 45px;
+}
+.ctn_project02 .typo ul .typography .txt {
+    text-align: center;
+    margin-top: 59px;
+    width: 406px;
+}
+.ctn_project02 .typo ul .typography .txt em {
+    font-family: 'Cormorant Garamond';
+    font-size: 5.6rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #2F201C;
+}
+.ctn_project02 .typo ul .typography .txt strong {
+    font-family: 'NanumMyeongjo';
+    font-size: 5.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #2F201C;
+    margin: 11px 0 12px 0;
+}
+.ctn_project02 .typo ul .typography .txt span {
+    display: block;
+    font-size: 2rem;
+    line-height: 1.5;
+}
+.ctn_project02 .typo ul .typography .detail .txt_box + .txt_box {
+    margin-top: 51px;
+}
+.ctn_project02 .typo ul li .detail .txt_box h4 {
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: #111;
+}
+.ctn_project02 .typo ul li .detail .txt_box ul {
+    display: flex;
+    flex-direction: column;
+}
+.ctn_project02 .typo ul li .detail .txt_box ul li {
+    display: flex;
+    gap: 0 22px;
+}
+.ctn_project02 .typo ul li .detail .txt_box.item01 ul li + li {
+    margin-top: 8px;
+}
+.ctn_project02 .typo ul li .detail .txt_box ul li span.tit {
+    width: 70px;
+}
+.ctn_project02 .typo ul .color .inner {
+    display: flex;
+    gap: 0 84px;
+    color: var(--color-brown);
+    font-size: 1.7rem;
+    margin-top: 22px;
+}
+.ctn_project02 .typo ul .color .txt {
+    text-align: center;
+    margin: 43px 0 0 84px;
+}
+.ctn_project02 .typo ul .color .detail .txt_box + .txt_box {
+    margin-top: 14px;
+}
+.ctn_project02 .typo ul .color .detail .txt_box p {
+    margin-left: 20px;
+    position: relative;
+}
+.ctn_project02 .typo ul .color .detail .txt_box p + p {
+    margin-top: 8px;
+}
+.ctn_project02 .typo ul .color .detail .txt_box p::before {
+    content: "";
+    position: absolute;
+    left: -22px;
+    top: 3.5px;
+    width: 14px;
+    height: 14px;
+    background-color: #7B6755;
+}
+.ctn_project02 .typo ul .color .detail .txt_box p.bg28::before {
+    background-color: #282828;
+}
+.ctn_project02 .typo ul .color .detail .txt_box p.opa50::before {
+    background-color: rgba(209, 180, 140, 0.5);
+}
+.ctn_project02 .typo ul .color .detail .txt_box p.opa30::before {
+    background-color: rgba(139, 122, 95, 0.39);
+}
+.ctn_project02 .typo ul .color .detail .txt_box p.tit::before {
+    background-color: #2C1D12;
+}
+.ctn_project02 .typo ul .color .detail .txt_box p.base::before {
+    background-color: #6B6159;
+}
+.ctn_project02 .detail-img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+.ctn_project02.show .detail-img {
+    opacity: 1;
+}
+.ctn_project02 .detail-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.ctn_project02 .top {
+
+footer {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    padding: 170px 0 270px 0;
+    position: relative;
+    overflow: hidden;
+}
+footer.show {
+    opacity: 1;
+}
+footer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+footer .top {
     position: absolute;
     left: 50%;
-    bottom: 9.7%;
+    bottom: 60%;
     transform: translateX(-50%);
     width: 124px;
     height: 122px;
