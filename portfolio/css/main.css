@@ -5,7 +5,10 @@
 
 
 .visual {
-    min-height: 1238px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
     height: 64.47vw;
     background: url(../images/main/visual_bg.jpg) no-repeat center center / cover;
     overflow: hidden;
@@ -182,6 +185,7 @@
     display: flex;
     gap: 10px 13px;
     white-space: nowrap;
+    line-height: 1.5;
 }
 .about .information .contact {
     font-family: var(--font-code);
@@ -222,6 +226,30 @@
     display: flex;
     justify-content: space-between;
 }
+.project01 .txt .concept {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+    margin: 20px 0;
+    padding-left: 45px;
+    position: relative;
+}
+.project01 .txt .concept::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 30px;
+    height: 30px;
+    background: url(../images/main/star_small.svg) no-repeat center center / contain;
+}
+.project01 .txt .concept strong {
+    font-size: 2rem;
+    font-weight: 500;
+}
+.project01 .txt .concept span {
+    font-size: 1.8rem;
+}
 .project01 .txt h2 {
     font-size: 4rem;
     font-weight: 700;
@@ -239,13 +267,12 @@
     height: 84px;
     background: url(../images/main/01.svg) no-repeat center center / contain;
 }
-.project01 .txt span {
-    display: block;
+.project01 .txt p {
     font-size: 1.8rem;
     line-height: 1.7;
     position: relative;
 }
-.project01 .txt span::after {
+.project01 .txt p::after {
     content: "";
     position: absolute;
     right: -60px;
@@ -311,7 +338,7 @@
 
 .project02 {
     margin-top: 70px;
-    padding-top: 200px;
+    padding: 200px 0 100px 0;
 }
 .project02 .wrapper {
     position: relative;
@@ -319,6 +346,30 @@
 .project02 .inner {
     display: flex;
     justify-content: space-between;
+}
+.project02 .txt .concept {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+    margin: 20px 0;
+    padding-left: 45px;
+    position: relative;
+}
+.project02 .txt .concept::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -4px;
+    width: 30px;
+    height: 30px;
+    background: url(../images/main/star_small.svg) no-repeat center center / contain;
+}
+.project02 .txt .concept strong {
+    font-size: 2rem;
+    font-weight: 500;
+}
+.project02 .txt .concept span {
+    font-size: 1.8rem;
 }
 .project02 .txt h2 {
     font-size: 4rem;
@@ -337,13 +388,13 @@
     height: 84px;
     background: url(../images/main/02.svg) no-repeat center center / contain;
 }
-.project02 .txt span {
+.project02 .txt p {
     display: block;
     font-size: 1.8rem;
     line-height: 1.7;
     position: relative;
 }
-.project02 .txt span::after {
+.project02 .txt p::after {
     content: "";
     position: absolute;
     right: -60px;
@@ -408,7 +459,11 @@
 }
 
 footer {
-    margin-top: 233.52px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 993px;
+    height: 100dvh;
     position: relative;
     background: url(../images/common/footer_bg.jpg) no-repeat center center / cover;
     padding: 461px 0 286px 0;
