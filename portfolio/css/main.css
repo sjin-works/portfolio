@@ -60,9 +60,9 @@
     animation: star_small 2.5s infinite ease-in-out;
 }
 @keyframes star_small {
-    0% { transform: scale3d(1.5, 1.5, 1)}
+    0% { transform: scale3d(1.6, 1.6, 1)}
     50% { transform: scale3d(1, 1, 1)}
-    100% { transform: scale3d(1.5, 1.5, 1)}
+    100% { transform: scale3d(1.6, 1.6, 1)}
 }
 .visual .object04 {
     position: absolute;
