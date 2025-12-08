@@ -123,7 +123,7 @@
 .ctn_project01 {
     opacity: 0;
     transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-top: 154px;
+    padding: 100px 0 300px 0;
     color: var(--color-dark);
 }
 .ctn_project01.show {
@@ -293,7 +293,7 @@
 footer {
     opacity: 0;
     transition: opacity 0.6s ease;
-    padding: 170px 0 270px 0;
+    padding-bottom: 150px;
     position: relative;
     overflow: hidden;
 }
@@ -308,7 +308,7 @@ footer img {
 footer .top {
     position: absolute;
     left: 50%;
-    bottom: 60%;
+    bottom: 66%;
     transform: translateX(-50%);
     width: 124px;
     height: 122px;

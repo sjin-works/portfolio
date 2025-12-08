@@ -45,6 +45,9 @@ header .gnb .gnb_wrap ul li a {
     color: var(--color-white);
     transition: color 0.3s ease;
 }
+header .gnb .gnb_wrap ul li a:hover {
+    color: var(--color-orange100);
+}
 header.dark .gnb .gnb_wrap ul li a {
     color: var(--color-dark);
 }
