@@ -40,7 +40,6 @@
 }
 .visual .tit {
     display: inline-block;
-    position: relative; /* btn_wrap 정렬 기준 */
     color: var(--color-white);
 }
 .visual .tit h2 {
@@ -51,29 +50,6 @@
 }
 .visual .tit p {
     font-size: 2.4rem;
-}
-.visual .tit .btn_wrap {
-    position: absolute;
-    right: 94px;
-    bottom: -11px;
-}
-.visual .tit .btn_wrap .btn_stop,
-.visual .tit .btn_wrap .btn_play {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    border: 1px solid var(--color-white5);
-    background-color: rgba(217, 217, 217, 0.1);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 12px;
-}
-.visual .tit .btn_wrap .btn_stop {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 14' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 14V0H12V14H8ZM0 14V0H4V14H0Z' /%3E%3C/svg%3E%0A");
-}
-.visual .tit .btn_wrap .btn_play {
-    display: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 14' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7L1.03296e-07 14L7.15256e-07 -5.24537e-07L12 7Z'/%3E%3C/svg%3E%0A");
 }
 .visual .scroll {
     position: absolute;
@@ -110,9 +86,6 @@
     100% {height:100%}
 }
 @media screen and (max-width:1024px){
-    .visual .tit_box {
-        padding-bottom: 147px;
-    }
     .visual .tit {
         display: block;
         text-align: center;
@@ -124,28 +97,443 @@
     .visual .tit p {
         font-size: clamp(1.6rem, 2vw, 2rem);
     }
-    .visual .tit .btn_wrap {
-        right: auto;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -71%;
-    }
-    .visual .tit .btn_wrap .btn_stop,
-    .visual .tit .btn_wrap .btn_play {
-        width: 52px;
-        height: 52px;
-        border-radius: 50%;
-        border: 1px solid var(--color-white5);
-        background-color: rgba(217, 217, 217, 0.1);
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: 12px;
-    }
-    .visual .tit .btn_wrap .btn_stop {
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 14' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 14V0H12V14H8ZM0 14V0H4V14H0Z' /%3E%3C/svg%3E%0A");
-    }
-    .visual .tit .btn_wrap .btn_play {
+    .visual .scroll {
         display: none;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 14' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7L1.03296e-07 14L7.15256e-07 -5.24537e-07L12 7Z'/%3E%3C/svg%3E%0A");
     }
+}
+
+.schedule {
+    margin-top: 168px;
+}
+.schedule .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.schedule h2 {
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-txt-title);
+}
+.schedule .notice,
+.schedule .calendar {
+    width: calc(50% - clamp(20px, 3vw, 90px));
+    position: relative;
+}
+.schedule .notice .notice_head {
+    display: flex;
+    gap: 0 clamp(10px, 1vw, 36px);
+    align-items: center;
+}
+.schedule .notice .notice_head .tab_list ul {
+    display: flex;
+    gap: 0 5px;
+}
+.schedule .notice .notice_head .tab_list ul li button {
+    display: block;
+    border-radius: 18px;
+    padding: 0 clamp(13px, 1vw, 15px);
+    color: var(--color-gray01);
+    font-size: clamp(1.5rem, 1vw, 1.8rem);
+}
+.schedule .notice .notice_head .tab_list ul li.active button {
+    background-color: var(--color-blue600);
+    color: var(--color-white);
+}
+.schedule .notice .notice_contents {
+    margin-top: 36px;
+}
+.schedule .notice .notice_contents .tab_cont {
+    display: none;
+}
+.schedule .notice .notice_contents .tab_cont.active {
+    display: block;
+}
+.schedule .notice .notice_contents .tab_cont ul li {
+    border-bottom: 1px solid var(--color-gray02);
+    position: relative;
+}
+.schedule .notice .notice_contents .tab_cont ul li:first-child {
+    border-top: 1px solid var(--color-gray02);
+}
+.schedule .notice .notice_contents .tab_cont ul li::before {
+    content: "";
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 35px;
+    height: 35px;
+    background: url(../images/main/seoul.svg) no-repeat center center / contain;
+}
+.schedule .notice .notice_contents .tab_cont ul li.erica::before {
+    background-image: url(../images/main/erica.svg);
+}
+.schedule .notice .notice_contents .tab_cont ul li.all::before {
+    background-image: url(../images/main/all.svg);
+}
+.schedule .notice .notice_contents .tab_cont ul li a {
+    display: block;
+    padding: 18px 0 18px 91px;
+}
+.schedule .notice .notice_contents .tab_cont ul li a strong {
+    display: block;
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--color-txt-title);
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.schedule .notice .notice_contents .tab_cont ul li a span {
+    font-size: 1.4rem;
+    margin-right: 20px;
+    position: relative;
+}
+.schedule .notice .notice_contents .tab_cont ul li a span::after {
+    content: "";
+    position: absolute;
+    right: -0.8571em;
+    top: 0.17em;
+    width: 0.0714em;
+    height: 0.9429em;
+    background-color: var(--color-gray01);
+}
+.schedule .notice .notice_contents .tab_cont ul li a span:last-child::after {
+    display: none;
+}
+.schedule .notice .notice_contents .tab_cont .more {
+    position: absolute;
+    right: 0;
+    top: 13px;
+    width: clamp(16px, 1vw, 20px);
+    height: clamp(16px, 1vw, 20px);
+}
+.schedule .notice .notice_contents .tab_cont .more a {
+    display: block;
+    width: clamp(16px, 1vw, 20px);
+    height: clamp(16px, 1vw, 20px);
+    position: relative;
+}
+.schedule .notice .notice_contents .tab_cont .more a::before,
+.schedule .notice .notice_contents .tab_cont .more a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: clamp(16px, 1vw, 20px);
+    height: 1px;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-txt-basic);
+}
+.schedule .notice .notice_contents .tab_cont .more a::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+.schedule .calendar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.schedule .calendar .calendar_wrap {
+    padding: 50px;
+    background-color: #E8F5FD;
+    border-radius: 20px;
+}
+.schedule .calendar .calender_head .date_select {
+    position: relative;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--color-gray01);
+}
+.schedule .calendar .calender_head .date_select .date_btn {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-txt-title);
+}
+.schedule .calendar .calender_head .date_select .date_btn span {
+    position: relative;
+}
+.schedule .calendar .calender_head .date_select span::after {
+    content: "";
+    position: absolute;
+    right: -0.8571em;
+    top: 0.4143em;
+    width: 0.5714em;
+    height: 0.3143em;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 0.5714em;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 15 8' fill='%23181A1C' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.5051 5.91388L13.3191 0.287081C13.5168 0.0956937 13.7476 0.00318973 14.0112 0.00956934C14.2749 0.0159489 14.5056 0.114833 14.7034 0.30622C14.9011 0.497607 15 0.720893 15 0.976076C15 1.23126 14.9011 1.45455 14.7034 1.64593L8.63231 7.54067C8.4741 7.69378 8.29612 7.80861 8.09837 7.88517C7.90061 7.96172 7.70286 8 7.5051 8C7.30735 8 7.10959 7.96172 6.91184 7.88517C6.71409 7.80861 6.53611 7.69378 6.3779 7.54067L0.287063 1.64593C0.0893085 1.45455 -0.00627286 1.22807 0.000318959 0.966507C0.00691078 0.704944 0.109084 0.478469 0.306839 0.287081C0.504593 0.0956936 0.735307 8.76844e-09 0.998979 1.19127e-08C1.26265 1.5057e-08 1.49337 0.0956936 1.69112 0.287081L7.5051 5.91388Z' /%3E%3C/svg%3E%0A");
+}
+.schedule .calendar .calender_head .date_select .month_list {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 8px);   /* 버튼 바로 아래 */
+    min-width: 209px;
+    padding: 8px 0;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    z-index: 50;
+}
+.schedule .calendar .calender_head .date_select .month_list.is-open {
+    display: block;
+}
+.schedule .calendar .calender_head .date_select .month_list li {
+    text-align: center;
+    line-height: 1.8;
+}
+/* 월별 detail 패널 숨김/보임 */
+.schedule .calendar .calendar_contents .month_panel {
+    display: none;
+    margin-top: 32px;
+}
+.schedule .calendar .calendar_contents .month_panel.active {
+    display: block;
+}
+.schedule .calendar .calendar_contents .month_panel ul li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.schedule .calendar .calendar_contents .month_panel ul li + li {
+    margin-top: 15px;
+}
+.schedule .calendar .calendar_contents .month_panel ul li .date {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--color-txt-title);
+    width: 188px;
+}
+.schedule .calendar .calendar_contents .month_panel ul li p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.schedule .calendar .more {
+    position: absolute;
+    right: 0;
+    top: 13px;
+    width: 20px;
+    height: 20px;
+}
+.schedule .calendar .more a {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+}
+.schedule .calendar .more a::before,
+.schedule .calendar .more a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 1px;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-txt-basic);
+}
+.schedule .calendar .more a::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+@media screen and (max-width:1024px){
+    .schedule {
+        margin-top: clamp(90px, 8.7vw, 168px);
+    }
+    .schedule .wrapper {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .schedule h2 {
+        font-size: clamp(2.2rem, 3.1vw, 3.2rem);
+        margin-left: 4px;
+    }
+    .schedule .notice,
+    .schedule .calendar {
+        width: 100%;
+    }
+    .schedule .notice .notice_head {
+        display: block;
+    }
+    .schedule .notice .notice_head .tab_list ul {
+        margin: 18px 0 20px 0;
+        gap: 0 7px;
+    }
+    .schedule .notice .notice_head .tab_list ul li button {
+        border-radius: 20px;
+        padding: 3px 15px;
+        font-size: clamp(1.4rem, 1.75vw, 1.8rem);
+    }
+    .schedule .notice .notice_contents {
+        margin-top: 0;
+    }
+    .schedule .notice .notice_contents .tab_cont ul li::before {
+        left: 2.34vw;
+        width: clamp(24px, 3.41vw, 35px);
+        height: clamp(24px, 3.41vw, 35px);
+    }
+    .schedule .notice .notice_contents .tab_cont ul li a {
+        padding: clamp(12px, 1.75vw, 18px) 0 clamp(12px, 1.75vw, 18px) clamp(69px, 8.88vw, 91px);
+    }
+    .schedule .notice .notice_contents .tab_cont ul li a strong {
+        font-size: clamp(1.8rem, 0.19vw, 2rem);
+        margin-bottom: 7px;
+    }
+    .schedule .notice .notice_contents .tab_cont ul li a span {
+        font-size: clamp(1.3rem, 1.36vw, 1.4rem);
+        margin-right: clamp(16px, 2vw, 20px);
+    }
+    .schedule .notice .notice_contents .tab_cont .more {
+        top: 0.2188em;
+        width: clamp(16px, 2vw, 20px);
+        height: clamp(16px, 2vw, 20px);
+    }
+    .schedule .notice .notice_contents .tab_cont .more a {
+        width: clamp(16px, 2vw, 20px);
+        height: clamp(16px, 2vw, 20px);
+    }
+    .schedule .notice .notice_contents .tab_cont .more a::before,
+    .schedule .notice .notice_contents .tab_cont .more a::after {
+        width: clamp(16px, 2vw, 20px);
+    }
+    .schedule .calendar {
+        display: block;
+        margin-top: 45px;
+    }
+    .schedule .calendar .calendar_wrap {
+        padding: clamp(30px, 4.88vw, 50px);
+        margin-top: clamp(18px, 3vw, 30px);
+    }
+    .schedule .calendar .calender_head .date_select {
+        border-bottom: 1px solid var(--color-gray01);
+    }
+    .schedule .calendar .calender_head .date_select .date_btn {
+        font-size: clamp(2.4rem, 3.41vw, 3.5rem);
+    }
+    .schedule .calendar .calender_head .date_select .month_list {
+        font-size: clamp(1.6rem, 1.75vw, 1.8rem);
+        width: clamp(143px, 20.9vw, 209px);
+        min-width: auto;
+    }
+    .schedule .calendar .calender_head .date_select .month_list li {
+        text-align: center;
+        line-height: 2;
+    }
+    .schedule .calendar .calendar_contents .month_panel {
+        margin-top: clamp(24px, 3.1vw, 32px);
+    }
+    .schedule .calendar .calendar_contents .month_panel ul li + li{
+        margin-top: 15px;
+    }
+    .schedule .calendar .more {
+        top: 0.2188em;
+        width: clamp(16px, 2vw, 20px);
+        height: clamp(16px, 2vw, 20px);
+    }
+    .schedule .calendar .more a {
+        width: clamp(16px, 2vw, 20px);
+        height: clamp(16px, 2vw, 20px);
+    }
+    .schedule .calendar .more a::before,
+    .schedule .calendar .more a::after {
+        width: clamp(16px, 2vw, 20px);
+    }
+}
+@media screen and (max-width:500px){
+    .schedule .calendar .calendar_contents .month_panel ul li {
+        display: block;
+    }
+    .schedule .calendar .calendar_contents .month_panel ul li .date {
+        width: auto;
+        margin-bottom: 6px;
+    }
+    .schedule .calendar .calendar_contents .month_panel ul li p {
+        font-size: clamp(1.4rem, 3.6vw, 1.8rem);
+    }
+}
+@media screen and (max-width:400px){
+    .schedule .notice .notice_contents .tab_cont ul li a span:nth-last-child(2)::after {
+        display: none;
+    }
+    .schedule .notice .notice_contents .tab_cont ul li a span:last-child {
+        display: none;
+    }
+}
+
+.service .wrapper {
+    position: relative;
+}
+.service .swiper {
+    margin: clamp(37px, 8.2vw, 84px) clamp(1px, 6vw, 61px) 0 clamp(1px, 6vw, 61px);
+}
+.service .swiper-slide a {
+    display: block;
+    text-align: center;
+}
+.service .swiper-slide a .icon {
+    overflow: hidden;
+    height: 63px;
+}
+.service .swiper-slide a .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.service .swiper-slide a .text {
+    margin-top: 15px;
+    letter-spacing: -0.025em;
+    color: var(--color-txt-title);
+}
+.service .btn_prev {
+    position: absolute;
+    left: var(--wrapper-m);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 41px;
+    height: 41px;
+    background-color: var(--color-white);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 10.12px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 11 19' fill='%232982FF' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.13185 9.42638L9.8145 17.109C10.0171 17.3117 10.1159 17.5502 10.1108 17.8247C10.1055 18.0994 10.0016 18.3381 9.79895 18.5407C9.59616 18.7433 9.3575 18.8447 9.08298 18.8447C8.80846 18.8447 8.5698 18.7433 8.36701 18.5407L0.543352 10.7326C0.35892 10.5482 0.222254 10.3416 0.133352 10.1128C0.0444509 9.88397 0 9.65517 0 9.42638C0 9.19758 0.0444509 8.96878 0.133352 8.73998C0.222254 8.51118 0.35892 8.30457 0.543352 8.12014L8.36701 0.296226C8.5698 0.0936059 8.81109 -0.00506913 9.09088 0.000200353C9.37068 0.00546984 9.61188 0.109414 9.8145 0.312034C10.0171 0.514655 10.1184 0.753312 10.1184 1.02801C10.1184 1.30253 10.0171 1.5411 9.8145 1.74372L2.13185 9.42638Z'/%3E%3C/svg%3E%0A");
+    border-radius: 50%;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.06);
+}
+.service .btn_next {
+    position: absolute;
+    right: var(--wrapper-m);
+    top: 50%;
+    transform: translateY(-50%) rotate(180deg);
+    width: 41px;
+    height: 41px;
+    background-color: var(--color-white);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 10.12px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 11 19' fill='%232982FF' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.13185 9.42638L9.8145 17.109C10.0171 17.3117 10.1159 17.5502 10.1108 17.8247C10.1055 18.0994 10.0016 18.3381 9.79895 18.5407C9.59616 18.7433 9.3575 18.8447 9.08298 18.8447C8.80846 18.8447 8.5698 18.7433 8.36701 18.5407L0.543352 10.7326C0.35892 10.5482 0.222254 10.3416 0.133352 10.1128C0.0444509 9.88397 0 9.65517 0 9.42638C0 9.19758 0.0444509 8.96878 0.133352 8.73998C0.222254 8.51118 0.35892 8.30457 0.543352 8.12014L8.36701 0.296226C8.5698 0.0936059 8.81109 -0.00506913 9.09088 0.000200353C9.37068 0.00546984 9.61188 0.109414 9.8145 0.312034C10.0171 0.514655 10.1184 0.753312 10.1184 1.02801C10.1184 1.30253 10.0171 1.5411 9.8145 1.74372L2.13185 9.42638Z'/%3E%3C/svg%3E%0A");
+    border-radius: 50%;
+    box-shadow: 0 -3px 10px 0 rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-width:1100px){
+    .service .swiper-slide a{
+        font-size: clamp(1.4rem, 1.63vw, 1.8rem);
+    }
+}
+.value {
+    margin-top: 216px;
+}
+.value .tit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.value .tit h2 {
+    font-size: 2rem;
+    line-height: 1.3;
 }

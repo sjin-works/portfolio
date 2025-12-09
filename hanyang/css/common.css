@@ -19,11 +19,12 @@
     --color-linear01 : linear-gradient(180deg, #0864BD, #2982FF);
     --color-linear02 : linear-gradient(180deg, #003B71, #0070D7);
     --header-h : 90px;
-    --wrapper-m : 32px
+    --wrapper-m : 48px
 }
 @media screen and (max-width:1024px){
     :root {
         --header-h : 80px;
+        --wrapper-m : 32px
     }
 }/*media*/
 @media screen and (max-width:768px){
