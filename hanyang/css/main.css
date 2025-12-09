@@ -527,6 +527,13 @@
 }
 .value {
     margin-top: 216px;
+    position: relative;
+}
+.value::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .value .tit {
     display: flex;
