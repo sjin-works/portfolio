@@ -26,40 +26,53 @@ $(document).ready(function (){
         const isOpen = $list.hasClass('is-open');
 
         $list
-        .toggleClass('is-open')
-        .attr('aria-hidden', isOpen);
+            .toggleClass('is-open')
+            .attr('aria-hidden', isOpen);
 
         $(this).attr('aria-expanded', !isOpen);
+
+        if (!isOpen) {
+            // 열렸을 때 → 현재 활성화된 월에 포커스 이동
+            $('#month_list .is-active').focus();
+        } else {
+            // 닫힐 때 → date_btn으로 포커스 복귀
+            $(this).focus();
+        }
     });
 
     // 2) 월 선택했을 때
     $('#month_list button').on('click', function () {
-        const monthValue = $(this).data('month');   // "12"
-        const monthText  = $(this).text();          // "2025년 12월"
+        const monthValue = $(this).data('month');
+        const monthText = $(this).text();
+        const $dateBtn = $('.schedule .calendar .calender_head .date_select .date_btn');
 
         // (1) 버튼 텍스트 바꾸기
-        $('.schedule .calendar .calender_head .date_select .date_btn span').text(monthText);
+        $dateBtn.find('span').text(monthText);
 
         // (2) 리스트 닫기
         $('#month_list')
-        .removeClass('is-open')
-        .attr('aria-hidden', true);
-        $('.schedule .calendar .calender_head .date_select .date_btn').attr('aria-expanded', false);
+            .removeClass('is-open')
+            .attr('aria-hidden', true);
 
-        // (3) month_list 안의 선택 상태 표시
+        $dateBtn.attr('aria-expanded', false);
+
+        // ★ 포커스 되돌리기 (접근성 문제 해결 핵심)
+        $dateBtn.focus();
+
+        // (3) 선택 표시 갱신
         $('#month_list button').removeClass('is-active');
         $(this).addClass('is-active');
 
-        // (4) 월별 detail 패널 전환
+        // (4) 패널 전환
         $('.schedule .calendar .calendar_contents .month_panel')
-        .removeClass('active')
-        .hide();
+            .removeClass('active')
+            .hide();
         $('.schedule .calendar .calendar_contents .month_panel[data-month="' + monthValue + '"]')
-        .addClass('active')
-        .show();
+            .addClass('active')
+            .show();
     });
 
-    // 3) 초기 상태: 12월 패널만 보이게
+    // 3) 초기 보여줄 패널
     $('.schedule .calendar .calendar_contents .month_panel').hide();
     $('.schedule .calendar .calendar_contents .month_panel.active').show();
 
